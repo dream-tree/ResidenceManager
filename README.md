@@ -2,7 +2,7 @@
 
 Residence Manager app provides a simple, smart residence&owner management solution for any housing cooperative business.
 
-Project is progress. 
+Project in progress. 
 Nevertheless, project is up and running.</br>
 
 ----
