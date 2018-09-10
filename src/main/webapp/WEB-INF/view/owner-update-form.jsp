@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-2" pageEncoding="ISO-8859-2"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Save Owner</title>
-	<link type="text/css" rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/style.css" />
-	<link type="text/css" rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/add-owner-style.css" />
+	<title>Owner Update Form</title>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-owner.css" />
+	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>
-
 	<div id="wrapper">
 		<div id="header">
 			<h2>Residence Manager</h2>
@@ -81,6 +79,12 @@
 		</c:if>
 		<p><a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a></p>
 	
+	</div>
+
+	<div id="wrapper">
+		<div id="bottom">
+			<h5>@Copyright 2018 dream-tree</h5>
+		</div>
 	</div>
 
 </body>

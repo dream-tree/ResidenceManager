@@ -1,16 +1,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<title>Login Page</title>
-	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main-page.css"/>
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login-page.css"/>
-
+	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>

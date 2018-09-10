@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-2" pageEncoding="ISO-8859-2"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Owner Details</title>
+	<meta charset="UTF-8">
 	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailed-owner-list.css"/>
+	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 	<title>Owners List</title>
 </head>
 
@@ -17,14 +19,16 @@
 	</div>
 	
 	<div id="container">
-		<div id="content">		
+		<div id="content">	
+			
 			<form:form action="search" method="POST">
 			Search another owner: <input type="text" name="theSearchName" />
 								  <input type="submit" value="Search" class="add-button" />
-			</form:form><br><br>
-			
+			</form:form>
+			<br><br>
+					
 			<div id="section">
-				<h3><u>Owner info</u></h3>
+				<h3>Owner info</h3>
 			</div>	
 					
 			<table>
@@ -49,52 +53,52 @@
 					<th>Action</th>
 				</tr>			
 				<tr>
-					<td rowspan="3">${owner.id}</td>
-					<td rowspan="3">${owner.firstName}</td>
-					<td rowspan="3">${owner.lastName}</td>
-					<td rowspan="3">${owner.dateOfBirth}</td>
-					<td rowspan="3">${owner.email}</td>
-					<td rowspan="3">${owner.phoneNumber}</td>
-					<td rowspan="3">${owner.pesel}</td>
-					<td rowspan="3">${owner.bankAccount}</td>
-					<td bgcolor="#FFFACD" width="150px">
-						<a href="${updateOwnerLink}">Update Owner</a> 
+					<td>${owner.id}</td>
+					<td>${owner.firstName}</td>
+					<td>${owner.lastName}</td>
+					<td>${owner.dateOfBirth}</td>
+					<td>${owner.email}</td>
+					<td>${owner.phoneNumber}</td>
+					<td>${owner.pesel}</td>
+					<td>${owner.bankAccount}</td>
+					<td class="link">
+						<a href="${updateOwnerLink}">Update Owner</a><br>
+						<a href="${deleteOwnerLink}"
+						onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) return false;">Delete Owner</a><br>
+						<a href="${addApartmentLink}">Add Apartment</a>
 					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFACD"><a href="${deleteOwnerLink}"
-						onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) return false;">Delete Owner</a></td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFACD"><a href="${addApartmentLink}">Add Apartment</a></td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	
 	
 	<div id="container">
 		<div id="content">
 				<c:url var="updateMailingAddressLink" value="/apartment/updateMailingAddress">
 					<c:param name="ownerId" value="${owner.id}" />
 				</c:url>	 				
-				<table width="575px">
+				<table class="address-table">
 					<tr>
-						<th width="500px" colspan="2">Owner Mailing Address</th>
-						<th width="50px">Action</th>
+						<th class="address-header" colspan=2>Owner Mailing Address</th>
+						<th class="action-header">Action</th>
 					</tr>
 					<tr>
-						<th width="275px" align="right">Postal Code/City</th>
-						<td width="225px">${owner.ownerMailingAddress.postalCode}
-							${owner.ownerMailingAddress.city}</td>
-						<td rowspan="2" width="75px" bgcolor="#FFFACD">
+						<th class="city-header">Postal Code/City</th>
+						<td class="details-header">
+							${owner.ownerMailingAddress.postalCode}
+							${owner.ownerMailingAddress.city}
+						</td>
+						<td class="link" rowspan="2">
 							<a href="${updateMailingAddressLink}">Add/Update</a>		
 						</td>
 					</tr>
 					<tr>
-						<th width="275px" align="right">Street/Apartment Number</th>
-						<td width="225px">ul. ${owner.ownerMailingAddress.street}
-								${owner.ownerMailingAddress.apartmentNumber}</td>
+						<th class="city-header">Street/Apartment Number</th>
+						<td class="details-header">
+							<c:if test="${owner.ownerMailingAddress.street != null}">ul.</c:if>						
+							${owner.ownerMailingAddress.street}
+							${owner.ownerMailingAddress.apartmentNumber}
+						</td>
 					</tr>
 				</table>
 				<br>
@@ -102,11 +106,12 @@
 	</div>
 
 	<div id="section">
-		<h3><u>Apartments info</u></h3>
+		<h3>Apartments info</h3>
 	</div>
 
 	<div id="container">
 		<div id="content">
+		
 			<c:forEach var="tempApartment" items="${apartments}" varStatus="status">
 				<c:url var="updateApartmentDetailsLink" value="/apartment/updateApartmentDetails">
 					<c:param name="apartmentId" value="${tempApartment.id}" />
@@ -119,65 +124,67 @@
 					<c:param name="ownerId" value="${tempApartment.owner.id}" />
 				</c:url>
 						
-				<table width="575px">
+				<table class="address-table">
 					<tr>
-						<th width="500px" colspan="2">Apartment #${status.count} Address</th>
-						<th width="50px">Action</th>
+						<th class="address-header" colspan=2>Apartment #${status.count} Address</th>
+						<th class="action-header">Action</th>
 					</tr>
 					<tr>
-						<th width="275px" align="right">Postal Code/City</th>
-						<td width="225px">${tempApartment.apartmentAddress.postalCode}
-							${tempApartment.apartmentAddress.city}</td>
-						<td rowspan="2" width="75px" bgcolor="#FFFACD">
-							<a href="${updateApartmentAddressLink}">Update</a>
+						<th class="city-header">Postal Code/City</th>
+						<td class="details-header">
+							${tempApartment.apartmentAddress.postalCode}
+							${tempApartment.apartmentAddress.city}
+						</td>
+						<td class="link" rowspan="2">
+							<a href="${updateApartmentAddressLink}">Update</a><br>
 							<a href="${deleteApartmentLink}"
 								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>				
 						</td>
 					</tr>
 					<tr>
-						<th width="275px" align="right">Street/Apartment Number</th>
-						<td width="225px">ul. ${tempApartment.apartmentAddress.street}
-								${tempApartment.apartmentAddress.apartmentNumber}</td>
+						<th class="city-header">Street/Apartment Number</th>
+						<td class="details-header">
+							<c:if test="${tempApartment.apartmentAddress.street != null}">ul.</c:if>	
+							${tempApartment.apartmentAddress.street}
+							${tempApartment.apartmentAddress.apartmentNumber}
+						</td>
 					</tr>
-
 				</table>
 				<br>
-				<table width="975px">
+				<table class="apartment-table">
 					<tr>
-						<th width="900px" colspan="6">Apartment #${status.count} Details</th>
-						<th>Action</th>
+						<th class="apartmen-theader" colspan="6">Apartment #${status.count} Details</th>
+						<th class="action-header">Action</th>
 					</tr>
 					<tr>
-						<th width="100px">Area</th>
-						<td width="100px">${tempApartment.area}</td>
-						<th width="200px">Number of Rooms</th>
-						<td width="100px">${tempApartment.numberOfRooms}</td>
-						<th width="100px" rowspan="3">Notes</th>
-						<td width="300px" rowspan="3" >${tempApartment.notes}</td>
-						<td width="75px" rowspan="3" bgcolor="#FFFACD">
-							<a href="${updateApartmentDetailsLink}">Update</a>
+						<th class="apartment100">Area</th>
+						<td class="apartment100">${tempApartment.area}</td>
+						<th class="apartment200">Number of Rooms</th>
+						<td class="apartment100">${tempApartment.numberOfRooms}</td>
+						<th class="apartment100" rowspan="3">Notes</th>
+						<td class="apartment300" rowspan="3" >${tempApartment.notes}</td>
+						<td class="apartment130" rowspan="3">
+							<a href="${updateApartmentDetailsLink}">Update</a><br>
 							<a href="${deleteApartmentLink}"
-								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>				
-
+								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>
 						</td>
 					</tr>
 					<tr>
-						<th width="100px">Rent</th>
-						<td width="100px">${tempApartment.rent}</td>
-						<th width="200px">Liabilities</th>
-						<td width="100px">${tempApartment.liabilities}</td>
+						<th class="apartment100">Rent</th>
+						<td class="apartment100">${tempApartment.rent}</td>
+						<th class="apartment200">Liabilities</th>
+						<td class="apartment100">${tempApartment.liabilities}</td>
 					</tr>
 					<tr>
-						<td width="100px" colspan="2" bgcolor="#FFFACD">
+						<td class="apartment100c" colspan="2">
 						<!-- TODO link: copied from other place -->
 							<a href="${updateApartmentLink}">Show Rent Details</a> 
 						</td>
-						<td width="200px" colspan="2" bgcolor="#FFFACD">
+						<td class="apartment200c" colspan="2">
 						<!-- TODO link: copied from other place -->
 							<a href="${updateApartmentLink}">Show Liabilities Details</a> 
 						</td>
-					</tr>
-					
+					</tr>				
 				</table>
 				<br><br><br>
 			</c:forEach>

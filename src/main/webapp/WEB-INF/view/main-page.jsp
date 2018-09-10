@@ -2,12 +2,13 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main-page.css"/>
 	<title>Welcome to the Residence Manager</title>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main-page.css"/>
+	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>
@@ -25,14 +26,13 @@
 	<p>You can also add a new house owner, his apartment data, transactions and occupants by choosing Add New Owner tab.</p>
 	<p>Try one of the appropriate link below.</p>
 	
-	
 	<div id="container">
-		<div id="content">		
-			<table align="center">
+		<div id="content">
+			<table>
 				<tr>
 					<form:form action="search" method="POST">
 						<td>
-							<input type="text" name="theSearchName" maxlength="20" style="width: 180px; height: 25px;" />
+							<input type="text" name="theSearchName" class="search" maxlength="20"/>
 						</td>
 						<td>
 							<input type="submit" value="Search Owner" class="button" />

@@ -22,7 +22,6 @@ label {
 	margin-bottom: 8px;
 }
 
-
 input {
 	width: 250px;
 	border: 1px solid #666; 
@@ -44,14 +43,19 @@ input {
 }
 
 table {   
-	border-style:none;
-	width:30%;
+	border-style: none;
+	width: 30%;
 }
-
-tr:nth-child(even) {background: #FFFFFF}
-tr:nth-child(odd) {background: #FFFFFF}
 
 tr {
 	border-style:none;
 	text-align:left;	
+}
+
+tr:nth-child(even) {
+	background: #FFFFFF
+}
+
+tr:nth-child(odd) {
+	background: #FFFFFF
 }
