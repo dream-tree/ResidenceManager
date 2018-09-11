@@ -6,8 +6,8 @@
 <head>
 	<title>Owner Details</title>
 	<meta charset="UTF-8">
-	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailed-owner-list.css"/>
 	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
+	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailed-owner-list.css"/>	
 	<title>Owners List</title>
 </head>
 

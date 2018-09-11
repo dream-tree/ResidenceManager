@@ -6,8 +6,7 @@
 <head>
 	<title>Apartment Update Form</title>
 	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-apartment.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-form.css" />
 	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 

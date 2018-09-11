@@ -25,10 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.anyRequest().authenticated()   
-				.antMatchers("/").hasRole("ADMIN")
-				.antMatchers("/leaders/**").hasRole("MANAGER") 
-				.antMatchers("/systems/**").hasRole("ADMIN")
+				.anyRequest().authenticated()   			
+				.antMatchers("/config/**").hasRole("ADMIN") 
+				.antMatchers("/").hasRole("EMPLOYEE")
 			.and()
 			.formLogin()
 				.loginPage("/showLoginPage")
@@ -44,5 +43,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web.ignoring().antMatchers("/resources/css/**");
 	}
-	
 }
