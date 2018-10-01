@@ -26,6 +26,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ * Configures the application, creates the appropriate beans for ViewResolver, DataSource, SessionFactory,
+ * TransactionManager, MessageSource and adds the resource handlers.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement

@@ -7,8 +7,8 @@
 <head>
 <title>Mailing Address Update Form</title>
 <meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-form.css" />
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-form.css"/>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>

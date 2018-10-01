@@ -5,6 +5,18 @@ import java.math.BigInteger;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * Defines the logic to validate the {@link BankAccountNumber} for a given String. 
+ * The following format of the Bank Account Number is acceptable:
+ * <ul>
+ * <li>00 - control digits</li>
+ * <li>11111111 - 8-digit bank branch number</li>
+ * <li>2222222222222222 - 16-digit account number</li>
+ * </ul>
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 public class BankAccountNumberConstraintValidator implements ConstraintValidator<BankAccountNumber, String> {
 
     private String validNumber;                        
@@ -33,10 +45,6 @@ public class BankAccountNumberConstraintValidator implements ConstraintValidator
     	String rearrangedNumber = numberWithoutCheckSum + countryCode + checkSum;
     	BigInteger rearrangedNumberForValidation = new BigInteger(rearrangedNumber);
     	int check = rearrangedNumberForValidation.mod(new BigInteger("97")).intValue();   
-    	if(check==1) {
-    		return true;
-    	} else {
-    		return false;
-    	}
+        return check==1 ? true : false;
     }	
 }

@@ -9,33 +9,24 @@ import org.springframework.stereotype.Repository;
 
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
-import com.marcin.residence.entity.OwnerMailingAddress;
 
+/**
+ * Provides the implementation for CRUD operations and common queries, i.e.
+ * for accessing, adding, updating and deleting an apartment (or apartments)
+ * as well as adding or updating the address of the apartment.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Repository
 public class ApartmentRepositoryImpl implements ApartmentRepository {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// takes single Apartment (and its ApartmentAddress) by the Apartment id
 	@Override
-	public List<Apartment> getApartments(int theId) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		List<Apartment> apartments = currentSession.createQuery(
-				"SELECT a FROM Apartment a "
-				/*+ "JOIN FETCH a.owner.ownerMailingAddress "*/
-				+ "where a.owner.id=:id ", Apartment.class)
-				.setParameter("id", theId)
-				.getResultList();	
-/*		OwnerMailingAddress temp = currentSession.createQuery(
-				"SELECT o FROM OwnerMailingAddress o "
-				+ "where o.owner.id=:id ", OwnerMailingAddress.class)
-				.setParameter("id", theId)
-				.getSingleResult();		*/
-		return apartments;
-	}
-
-	@Override
-	public Apartment getApartment(int theId) {
+	public Apartment getSingleApartment(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Apartment theApartment = currentSession.createQuery(
 				"SELECT a FROM Apartment a "
@@ -44,6 +35,28 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 				.setParameter("id", theId)
 				.getSingleResult();
 		return theApartment;
+	}
+	
+	// takes all Apartment belonging to a given Owner (by the Owner id)
+	@Override
+	public List<Apartment> getOwnerApartments(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		List<Apartment> apartments = currentSession.createQuery(
+				"SELECT a FROM Apartment a "
+				+ "where a.owner.id=:id ", Apartment.class)
+				.setParameter("id", theId)
+				.getResultList();	
+		return apartments;
+	}
+
+	// takes all Apartment from the database
+	@Override
+	public List<Apartment> getAllApartments() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		List<Apartment> apartments = currentSession.createQuery(
+				"FROM Apartment", Apartment.class)
+				.getResultList();
+		return apartments;
 	}
 
 	@Override
@@ -64,5 +77,4 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(theApartmentAddress);
 	}
-
 }

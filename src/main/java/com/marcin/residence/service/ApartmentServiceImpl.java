@@ -10,6 +10,13 @@ import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.repository.ApartmentRepository;
 
+/**
+ * Provides the implementation for accessing, adding, updating and deleting an apartment (or apartments)
+ * as well as adding or updating the address of the apartment. 
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Service
 public class ApartmentServiceImpl implements ApartmentService {
 
@@ -18,15 +25,22 @@ public class ApartmentServiceImpl implements ApartmentService {
 	
 	@Override
 	@Transactional
-	public List<Apartment> getApartments(int theId) {
-		return apartmentRepository.getApartments(theId);
+	public Apartment getSingleApartment(int theId) {
+		return apartmentRepository.getSingleApartment(theId);
+	}
+	
+	@Override
+	@Transactional
+	public List<Apartment> getOwnerApartments(int theId) {
+		return apartmentRepository.getOwnerApartments(theId);
 	}
 
 	@Override
 	@Transactional
-	public Apartment getApartment(int theId) {
-		return apartmentRepository.getApartment(theId);
+	public List<Apartment> getAllApartments() {
+		return apartmentRepository.getAllApartments();
 	}
+
 
 	@Override
 	@Transactional

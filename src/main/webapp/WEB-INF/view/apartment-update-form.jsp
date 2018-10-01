@@ -7,7 +7,7 @@
 	<title>Apartment Update Form</title>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-form.css" />
-	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>
@@ -21,6 +21,8 @@
 		<h3>Save Apartment</h3>		
 		<form:form action="saveApartmentDetails" modelAttribute="apartment" method="POST">			
 			<form:hidden path="id"/>
+			<form:hidden path="waterConsumption"/>
+			<form:hidden path="heaterConsumption"/>
 			<form:hidden path="rent"/>
 			<form:hidden path="liabilities"/>
 			<form:hidden path="apartmentAddress.id"/>	
@@ -38,6 +40,11 @@
 						<td><label class=label1><form:errors path="numberOfRooms" class="error"/></label></td>
 					</tr>
 					<tr>
+						<td><label>Number of Occupants:</label></td>
+						<td><form:input path="numberOfOccupants"/></td>
+						<td><label class=label1><form:errors path="numberOfOccupants" class="error"/></label></td>
+					</tr>
+					<tr>
 						<td><label>Notes:</label></td>
 						<td><form:input path="notes"/></td>
 						<td><label class=label1><form:errors path="notes" class="error"/></label></td>
@@ -45,11 +52,13 @@
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save"/></td>
-					</tr>
+					</tr>			
 				</tbody>
 			</table>
 		</form:form>	
-
+		<br>
+		<p>Water consumption and heater consumption values are loaded from an external source. No updates in this form are allowed.</p>
+		<br>
 		<div style="clear; both;"></div>
 		
 		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartment.owner.id}">Back to Owner Detail</a></p>		

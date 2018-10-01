@@ -22,6 +22,13 @@ import com.marcin.residence.entity.OwnerMailingAddress;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
 
+/**
+ * Handles incoming requests, user input and interactions for creating, reading, updating
+ * and deleting the Apartment objects as well as displaying the requested Apartment content in a web page.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Controller
 @RequestMapping("/apartment")
 public class ApartmentController {
@@ -42,7 +49,7 @@ public class ApartmentController {
 	
 	@GetMapping("/updateApartmentDetails")
 	public String updateApartmentDetails(@RequestParam("apartmentId") int theId, Model theModel) {
-		Apartment theApartment = apartmentService.getApartment(theId);
+		Apartment theApartment = apartmentService.getSingleApartment(theId);
 		theModel.addAttribute("apartment", theApartment);	
 		return "apartment-update-form";
 	}
@@ -59,7 +66,7 @@ public class ApartmentController {
 	
 	@GetMapping("/updateApartmentAddress")
 	public String updateApartmentAddress(@RequestParam("apartmentId") int theId, Model theModel) {
-		ApartmentAddress theApartmentAddress = apartmentService.getApartment(theId).getApartmentAddress();
+		ApartmentAddress theApartmentAddress = apartmentService.getSingleApartment(theId).getApartmentAddress();
 		theModel.addAttribute("apartmentAddress", theApartmentAddress);	
 		return "apartment-address-update-form";
 	}

@@ -19,9 +19,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.Owner;
+import com.marcin.residence.entity.Rent;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
+import com.marcin.residence.service.RentService;
 
+/**
+ * Handles incoming requests, user input and interactions for creating, reading, updating
+ * and deleting the Owner objects as well as displaying the requested Owner content in a web page.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Controller
 @RequestMapping("/residence")
 public class OwnerController {
@@ -30,6 +39,9 @@ public class OwnerController {
 	private OwnerService ownerService;
 	@Autowired
 	private ApartmentService apartmentService;
+	@Autowired
+	private RentService rentService;
+	
 	
 	@GetMapping("/start")
 	public String start(Model theModel) {			
@@ -53,9 +65,11 @@ public class OwnerController {
 	 @GetMapping("/showDetails")
 	 public String showDetails(@RequestParam("ownerId") int theId, Model theModel) {
 		 Owner theOwner = ownerService.getOwner(theId);
-		 List<Apartment> theApartments = apartmentService.getApartments(theId);
+		 List<Apartment> theApartments = apartmentService.getOwnerApartments(theId);
+/*		 List<Rent> theRents = rentService.getRents(theApartments);	*/	 
 		 theModel.addAttribute("owner", theOwner);
 		 theModel.addAttribute("apartments", theApartments);
+//		 theModel.addAttribute("rents", theRents);
 		 return "detailed-owner-list";
 	 } 
 	

@@ -1,16 +1,21 @@
 package com.marcin.residence.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Represents an address for a given apartment, providing access to the name of the street and the number, 
+ * the city and the postal code.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Entity
 @Table(name="apartment_address")
 public class ApartmentAddress {

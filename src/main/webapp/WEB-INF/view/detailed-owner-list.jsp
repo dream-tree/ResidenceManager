@@ -6,8 +6,8 @@
 <head>
 	<title>Owner Details</title>
 	<meta charset="UTF-8">
-	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
-	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailed-owner-list.css"/>	
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailed-owner-list.css"/>	
 	<title>Owners List</title>
 </head>
 
@@ -161,17 +161,35 @@
 						<td class="apartment100">${tempApartment.area}</td>
 						<th class="apartment200">Number of Rooms</th>
 						<td class="apartment100">${tempApartment.numberOfRooms}</td>
-						<th class="apartment100" rowspan="3">Notes</th>
-						<td class="apartment300" rowspan="3" >${tempApartment.notes}</td>
-						<td class="apartment130" rowspan="3">
+						<th class="apartment100" rowspan="6">Notes</th>
+						<td class="apartment300" rowspan="6" >${tempApartment.notes}</td>
+						<td class="apartment130" rowspan="6">
 							<a href="${updateApartmentDetailsLink}">Update</a><br>
 							<a href="${deleteApartmentLink}"
 								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>
 						</td>
 					</tr>
 					<tr>
+						<th class="apartment100"></th>
+						<td class="apartment100"></td>
+						<th class="apartment200">Number of Occupants</th>
+						<td class="apartment100">${tempApartment.numberOfOccupants}</td>
+					</tr>	
+					<tr>
+						<th class="apartment100"></th>
+						<td class="apartment100"></td>
+						<th class="apartment200">Heater Consumption<br><small>(monthly forecast)</small></th>
+						<td class="apartment100">${tempApartment.heaterConsumption}</td>
+					</tr>		
+					<tr>
+						<th class="apartment100"></th>
+						<td class="apartment100"></td>
+						<th class="apartment200">Water Consumption<br><small>(monthly forecast)</small></th>
+						<td class="apartment100">${tempApartment.waterConsumption}</td>
+					</tr>			
+					<tr>
 						<th class="apartment100">Rent</th>
-						<td class="apartment100">${tempApartment.rent}</td>
+						<td class="apartment100">${tempApartment.rent.monthlyTotalRent}</td>
 						<th class="apartment200">Liabilities</th>
 						<td class="apartment100">${tempApartment.liabilities}</td>
 					</tr>

@@ -9,6 +9,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Represents a mailing address for a given owner, providing access to the name of the street and the number, 
+ * the city and the postal code as well as the owner a given apartment.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Entity
 @Table(name="owner_mailing_address")
 public class OwnerMailingAddress {

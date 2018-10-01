@@ -8,7 +8,7 @@
 	<title>Welcome to the Residence Manager</title>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main-page.css"/>
-	<link type = "text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
 </head>
 
 <body>
@@ -50,7 +50,32 @@
 							<input type="submit" value="Add New Owner" class="button" />
 						</form:form>	
 					</td>
+				</tr>				
+				<tr>
+					<td>
+						<form:form action="showRatesForm" method="GET">
+							<input type="submit" value="Rates Config" class="button" />
+						</form:form>	
+					</td>
+					<td>
+						<form:form action="calculateRent" method="GET">
+							<input type="submit" value="Calculate Rent" class="button"
+								onclick="if(!(confirm('You are going to re-calculate rent for all owners in the database.\nIt may take a while.\nProceed with caution!\nConfirm yor decision.'))) return false;" />
+						</form:form>	
+					</td>
 				</tr>
+				<tr>
+					<td>
+						<form:form action="xxx" method="GET">
+							<input type="submit" value="Fetch Bank Infos" class="button" />
+						</form:form>	
+					</td>
+					<td>
+						<form:form action="xxx" method="GET">
+							<input type="submit" value="Send Messages" class="button" />
+						</form:form>	
+					</td>
+				</tr>				
 				<tr>
 					<td>
 						<form:form action="${pageContext.request.contextPath}/logout" method="POST">

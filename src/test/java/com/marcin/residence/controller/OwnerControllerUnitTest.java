@@ -49,7 +49,7 @@ public class OwnerControllerUnitTest {
     private WebApplicationContext wac;
     private MockMvc mockMvc;
     
-    @Mock
+	@Mock
 	private OwnerService ownerService;
 	@Mock
 	private ApartmentService apartmentService; 
@@ -57,22 +57,22 @@ public class OwnerControllerUnitTest {
 	private OwnerController controller;	
 
 	@Mock
-    private Model model;
+	private Model model;
 	@Mock
-    private BindingResult theBindingResult;   
+	private BindingResult theBindingResult;   
 	
-    @Before
-    public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        MockitoAnnotations.initMocks(this);
-    }
+	@Before
+	public void setup() {
+		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void testStart() throws Exception {
 		mockMvc.perform(get("/residence/start", model))
 			.andExpect(status().isOk())
-		    .andExpect(forwardedUrl("main-page"))	
-		    .andReturn();	
+			.andExpect(forwardedUrl("main-page"))	
+			.andReturn();	
 	}
 
 	@Test
@@ -95,7 +95,6 @@ public class OwnerControllerUnitTest {
 	
 	@Test
 	public void testShowDetails() throws Exception {		
-	//	when(apartmentService.getApartments(any(Integer.class))).thenReturn(new ArrayList<Apartment>());
 		mockMvc
 			.perform(get("/residence/showDetails", model).param("ownerId", "1"))
 			.andExpect(status().isOk())
@@ -115,7 +114,6 @@ public class OwnerControllerUnitTest {
 	@Test
 	public void testShowFormForUpdate() throws Exception {		
 		Owner mockOwner = new Owner();
-	//	when(ownerService.getOwner(any(Integer.class))).thenReturn(mockOwner);		
 		mockMvc
 			.perform(get("/residence/showFormForUpdate", model).param("ownerId", "1"))
 			.andExpect(status().isOk())
@@ -126,7 +124,6 @@ public class OwnerControllerUnitTest {
 	@Test
 	public void testSaveOwner() throws Exception {		
 		Owner mockOwner = new Owner();		
-	//	doNothing().when(ownerService).saveOwner(any(Owner.class));
 		mockMvc
 			.perform(post("/residence/saveOwner", mockOwner, theBindingResult))
 			.andExpect(status().is(302))
@@ -135,7 +132,6 @@ public class OwnerControllerUnitTest {
 
 	@Test
 	public void testDeleteOwner() throws Exception {				
-	//	doNothing().when(ownerService).deleteOwner(any(Integer.class));
 		mockMvc
 			.perform(get("/residence/deleteOwner").param("ownerId", "1"))
 			.andExpect(status().is(302))

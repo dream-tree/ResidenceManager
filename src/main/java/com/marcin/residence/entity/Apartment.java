@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ * Represents an apartment, providing access to the apartment's area, number of rooms, number of occupants,
+ * media consumption, liabilities and additional info about the particular apartment
+ * as well as address for a given apartment, its owner and the rent.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Entity
 @Table(name="apartment")
 public class Apartment {
@@ -29,8 +36,14 @@ public class Apartment {
 	@Column(name="number_of_rooms")
 	private Integer numberOfRooms;
 	
-	@Column(name="rent")
-	private BigDecimal rent;
+	@Column(name="number_of_occupants")
+	private int numberOfOccupants;
+	
+	@Column(name="water_consumption")
+	private BigDecimal waterConsumption;
+	
+	@Column(name="heater_consumption")
+	private BigDecimal heaterConsumption;
 	
 	@Column(name="liabilities")
 	private BigDecimal liabilities;
@@ -42,22 +55,15 @@ public class Apartment {
 	@JoinColumn(name="apartment_address_id")
 	private ApartmentAddress apartmentAddress;
 	
+	@OneToOne(cascade=CascadeType.ALL/*, fetch=FetchType.LAZY*/)
+	@JoinColumn(name="rent_id")
+	private Rent rent;
+	
 	@ManyToOne
 	@JoinColumn(name="owner_id")
 	private Owner owner;
 	
 	public Apartment() {
-	}
-
-	public Apartment(BigDecimal area, Integer numberOfRooms, BigDecimal rent, BigDecimal liabilities, String notes,
-			ApartmentAddress apartmentAddress, Owner owner) {
-		this.area = area;
-		this.numberOfRooms = numberOfRooms;
-		this.rent = rent;
-		this.liabilities = liabilities;
-		this.notes = notes;
-		this.apartmentAddress=apartmentAddress;
-		this.owner = owner;
 	}
 
 	public int getId() {
@@ -80,17 +86,34 @@ public class Apartment {
 		return numberOfRooms;
 	}
 
+	public int getNumberOfOccupants() {
+		return numberOfOccupants;
+	}
+
+	public void setNumberOfOccupants(int numberOfOccupants) {
+		this.numberOfOccupants = numberOfOccupants;
+	}
+
+	public BigDecimal getWaterConsumption() {
+		return waterConsumption;
+	}
+
+	public void setWaterConsumption(BigDecimal waterConsumption) {
+		this.waterConsumption = waterConsumption;
+	}
+
+	public BigDecimal getHeaterConsumption() {
+		return heaterConsumption;
+	}
+
+	public void setHeaterConsumption(BigDecimal heaterConsumption) {
+		this.heaterConsumption = heaterConsumption;
+	}
+
 	public void setNumberOfRooms(Integer numberOfRooms) {
 		this.numberOfRooms = numberOfRooms;
 	}
 
-	public BigDecimal getRent() {
-		return rent;
-	}
-
-	public void setRent(BigDecimal rent) {
-		this.rent = rent;
-	}
 
 	public BigDecimal getLiabilities() {
 		return liabilities;
@@ -124,10 +147,20 @@ public class Apartment {
 		this.owner = owner;
 	}
 
+	public Rent getRent() {
+		return rent;
+	}
+
+	public void setRent(Rent rent) {
+		this.rent = rent;
+	}
+
 	@Override
 	public String toString() {
-		return "Apartment [id=" + id + ", area=" + area + ", numberOfRooms=" + numberOfRooms + ", rent=" + rent
-				+ ", liabilities=" + liabilities + ", notes=" + notes + "]";
+		return "Apartment [id=" + id + ", area=" + area + ", numberOfRooms=" + numberOfRooms + ", numberOfOccupants="
+				+ numberOfOccupants + ", waterConsumption=" + waterConsumption + ", heaterConsumption="
+				+ heaterConsumption + ", rent=" + rent + ", liabilities=" + liabilities + ", notes=" + notes
+				+ ", apartmentAddress=" + apartmentAddress + ", owner=" + owner + "]";
 	}
 }
 

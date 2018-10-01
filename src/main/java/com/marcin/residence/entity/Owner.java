@@ -23,6 +23,14 @@ import org.hibernate.validator.constraints.pl.PESEL;
 
 import com.marcin.residence.entity.validation.BankAccountNumber;
 
+/**
+ * Represents an owner, providing access to its first name, last name, phone number, email, 
+ * date of birth, PESEL and the bank account number as well as mailing address for a given owner
+ * and all of its apartments.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Entity
 @Table(name="owner")
 public class Owner {
@@ -180,6 +188,4 @@ public class Owner {
 				+ phoneNumber + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", pesel=" + pesel
 				+ ", bankAccount=" + bankAccount + "]";
 	}
-
-	
 }

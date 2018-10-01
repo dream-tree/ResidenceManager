@@ -11,6 +11,14 @@ import org.springframework.stereotype.Repository;
 import com.marcin.residence.entity.Owner;
 import com.marcin.residence.entity.OwnerMailingAddress;
 
+/**
+ * Provides the implementation for CRUD operations and common queries, i.e.
+ * for accessing, adding, updating and deleting an owner (or owners)
+ * as well as adding or updating its mailing address.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Repository
 public class OwnerRepositoryImpl implements OwnerRepository {
 

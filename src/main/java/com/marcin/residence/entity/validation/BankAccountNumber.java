@@ -8,6 +8,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ * The annotated element must be a 26-digit number and must include 2 (matching) control digits.
+ * 
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ */
 @Constraint(validatedBy=BankAccountNumberConstraintValidator.class)       
 @Target(ElementType.FIELD)                   
 @Retention(RetentionPolicy.RUNTIME)          
