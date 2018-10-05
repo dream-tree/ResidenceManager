@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2" pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-2" pageEncoding="ISO-8859-2" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
@@ -6,8 +6,8 @@
 <head>
 	<title>List of Owners</title>
 	<meta charset="UTF-8">	
- 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owner-list.css"/>
- 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css"/>
+ 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owner-list.css" />
+ 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css" />
 	<title>Owners List</title>
 </head>
 
