@@ -15,16 +15,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TestDbServlet
  */
 @WebServlet("/TestDbServlet")
-public class TestDbServletTwo extends HttpServlet { 
+public class TestDbServlet extends HttpServlet { 
+	
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String user = "home_user";
-		String pass = "home_user";
+		String pass = "***";
 		String jdbcUrl = "jdbc:mysql://localhost:3306/residence_tracker?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 		String driver = "com.mysql.cj.jdbc.Driver";   
 	
