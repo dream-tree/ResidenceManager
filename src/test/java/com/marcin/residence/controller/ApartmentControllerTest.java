@@ -65,10 +65,11 @@ public class ApartmentControllerTest {
 	
 	@Test
 	public void testAddApartment() throws Exception {
-		mockMvc.perform(get("/apartment/addApartment", model).param("ownerId", "1"))
+		mockMvc
+			.perform(get("/apartment/addApartment", model).param("ownerId", "1"))
 			.andExpect(status().isOk())
-		    .andExpect(forwardedUrl("apartment-update-form"))	
-		    .andReturn();	
+			.andExpect(forwardedUrl("apartment-update-form"))	
+			.andReturn();	
 	}
 
 	@Test
