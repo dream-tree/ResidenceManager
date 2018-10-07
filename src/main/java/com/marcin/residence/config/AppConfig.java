@@ -80,25 +80,25 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
-    	LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
-    	localSessionFactoryBean.setDataSource(dataSource());
-    	localSessionFactoryBean.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
-    	localSessionFactoryBean.setHibernateProperties(getHibernateProperties());
-    	return localSessionFactoryBean;
+		LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
+		localSessionFactoryBean.setDataSource(dataSource());
+		localSessionFactoryBean.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
+		localSessionFactoryBean.setHibernateProperties(getHibernateProperties());
+		return localSessionFactoryBean;
 	}
 	
 	private final Properties getHibernateProperties() {
-    	Properties hibernateProperties = new Properties();
-    	hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-    	hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-    	return hibernateProperties;
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		return hibernateProperties;
 	}
 	
 	@Bean
 	public PlatformTransactionManager hibernateTransactionManager() {
-    	HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-    	transactionManager.setSessionFactory(sessionFactory().getObject());
-    	return transactionManager;
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+		transactionManager.setSessionFactory(sessionFactory().getObject());
+		return transactionManager;
 	}
  
 	@Bean
