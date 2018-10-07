@@ -30,9 +30,9 @@ import com.marcin.residence.service.RatesService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class RatesControllerTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
     
 	@Mock
 	private RatesService ratesService;
