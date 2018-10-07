@@ -32,9 +32,9 @@ import com.marcin.residence.service.OwnerService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class OwnerControllerTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
     
 	@Mock
 	private OwnerService ownerService;

@@ -24,9 +24,9 @@ import com.marcin.residence.config.DispatcherServletInitializer;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class LoginControllerTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
     
 	@Autowired
 	private LoginController controller;	
