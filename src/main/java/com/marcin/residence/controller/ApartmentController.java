@@ -61,7 +61,7 @@ public class ApartmentController {
 		}
 		apartmentService.saveApartment(theApartment);	
 		int id = theApartment.getOwner().getId();
-		return "redirect:/residence/showDetails?ownerId="+id;
+		return "redirect:/residence/showDetails?ownerId=" + id;
 	}	
 	
 	@GetMapping("/updateApartmentAddress")
