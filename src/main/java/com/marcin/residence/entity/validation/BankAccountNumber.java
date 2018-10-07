@@ -20,10 +20,7 @@ import javax.validation.Payload;
 public @interface BankAccountNumber    {
 
     public String value() default "";                                         
-
     public String message() default "{custom.bankAccountNumber}";    
-
     public Class<?>[] groups() default {};    
-
     public Class<? extends Payload>[] payload() default {};     
 }  

@@ -47,9 +47,9 @@ public class RatesController {
 		return "redirect:/residence/start";
 	}
 	
-	 @InitBinder                                                                             
-	 public void initBinder(WebDataBinder dataBinder) {
-	      StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);   
-	      dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);                
-	 }
+	@InitBinder                                                                             
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);   
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);                
+	}
 }

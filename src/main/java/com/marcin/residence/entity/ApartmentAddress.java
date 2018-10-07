@@ -48,14 +48,6 @@ public class ApartmentAddress {
 	public ApartmentAddress() {		
 	}
 
-	public ApartmentAddress(String street, String apartmentNumber, String city, String postalCode, Apartment apartment) {
-		this.street = street;
-		this.apartmentNumber = apartmentNumber;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.apartment=apartment;
-	}
-
 	public int getId() {
 		return id;
 	}

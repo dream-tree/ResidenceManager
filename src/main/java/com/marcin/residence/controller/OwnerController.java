@@ -39,9 +39,6 @@ public class OwnerController {
 	private OwnerService ownerService;
 	@Autowired
 	private ApartmentService apartmentService;
-	@Autowired
-	private RentService rentService;
-	
 	
 	@GetMapping("/start")
 	public String start(Model theModel) {			
@@ -66,10 +63,8 @@ public class OwnerController {
 	 public String showDetails(@RequestParam("ownerId") int theId, Model theModel) {
 		 Owner theOwner = ownerService.getOwner(theId);
 		 List<Apartment> theApartments = apartmentService.getOwnerApartments(theId);
-/*		 List<Rent> theRents = rentService.getRents(theApartments);	*/	 
 		 theModel.addAttribute("owner", theOwner);
 		 theModel.addAttribute("apartments", theApartments);
-//		 theModel.addAttribute("rents", theRents);
 		 return "detailed-owner-list";
 	 } 
 	
@@ -104,9 +99,9 @@ public class OwnerController {
 		return "redirect:/residence/list";
 	}
 	  
-	 @InitBinder                                                                             
-	 public void initBinder(WebDataBinder dataBinder) {
-	      StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);   
-	      dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);                
-	 }
+	@InitBinder                                                                             
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);   
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);                
+	}
 }

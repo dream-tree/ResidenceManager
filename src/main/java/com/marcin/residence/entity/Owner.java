@@ -81,19 +81,6 @@ public class Owner {
 	public Owner() {	
 	}
 
-	public Owner(String firstName, String lastName, String phoneNumber, String email, LocalDate dateOfBirth, 
-			String pesel, String bankAccount, List<Apartment> apartments, OwnerMailingAddress ownerMailingAddress) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.dateOfBirth = dateOfBirth;
-		this.pesel = pesel;
-		this.bankAccount = bankAccount;
-		this.apartments = apartments;
-		this.ownerMailingAddress = ownerMailingAddress;
-	}
-
 	public void addApartment(Apartment apartment)  {
 		if(apartments==null) {
 			apartments = new ArrayList<>();

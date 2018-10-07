@@ -41,7 +41,6 @@ public class ApartmentServiceImpl implements ApartmentService {
 		return apartmentRepository.getAllApartments();
 	}
 
-
 	@Override
 	@Transactional
 	public void saveApartment(Apartment theApartment) {

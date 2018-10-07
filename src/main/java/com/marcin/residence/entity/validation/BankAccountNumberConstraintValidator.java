@@ -26,17 +26,13 @@ public class BankAccountNumberConstraintValidator implements ConstraintValidator
     	validNumber = bankAccountNumber.value();       
     } 
 
-    @Override                            
-    public boolean isValid(String theNumber, ConstraintValidatorContext theConstraintValidatorContext) {        	
+	@Override                            
+	public boolean isValid(String theNumber, ConstraintValidatorContext theConstraintValidatorContext) {        	
     	if (theNumber == null) {
     		return true;
-    	}    	
-    	if(theNumber.length()!=26) {
-    		return false;
-    	} else { 
-    		return validateNumber(theNumber);
-    	}
-    }
+    	}    
+    	return theNumber.length()!=26 ? false : validateNumber(theNumber);
+	}
     
     public boolean validateNumber(String theNumber) {
     	int countryCode = 2521;
@@ -45,6 +41,6 @@ public class BankAccountNumberConstraintValidator implements ConstraintValidator
     	String rearrangedNumber = numberWithoutCheckSum + countryCode + checkSum;
     	BigInteger rearrangedNumberForValidation = new BigInteger(rearrangedNumber);
     	int check = rearrangedNumberForValidation.mod(new BigInteger("97")).intValue();   
-        return check==1 ? true : false;
-    }	
+    	return check==1 ? true : false;
+	}	
 }

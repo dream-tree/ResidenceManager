@@ -46,14 +46,6 @@ public class OwnerMailingAddress {
 
 	public OwnerMailingAddress() {
 	}
-	
-	public OwnerMailingAddress(String street, String apartmentNumber, String city, String postalCode, Owner owner) {
-		this.street = street;
-		this.apartmentNumber = apartmentNumber;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.owner = owner;
-	}
 
 	public int getId() {
 		return id;

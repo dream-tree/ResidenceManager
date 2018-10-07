@@ -14,4 +14,5 @@ public interface RatesService {
 	
 	public Rates getRates();
 	public void saveRates(Rates theRates);
+	
 }
