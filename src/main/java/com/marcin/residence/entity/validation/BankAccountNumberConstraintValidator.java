@@ -19,28 +19,28 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class BankAccountNumberConstraintValidator implements ConstraintValidator<BankAccountNumber, String> {
 
-    private String validNumber;                        
-	
-    @Override                                                                           
-    public void initialize(BankAccountNumber bankAccountNumber) {
-    	validNumber = bankAccountNumber.value();       
-    } 
+	private String validNumber;
 
-	@Override                            
-	public boolean isValid(String theNumber, ConstraintValidatorContext theConstraintValidatorContext) {        	
-    	if (theNumber == null) {
-    		return true;
-    	}    
-    	return theNumber.length()!=26 ? false : validateNumber(theNumber);
+	@Override
+	public void initialize(BankAccountNumber bankAccountNumber) {
+		validNumber = bankAccountNumber.value();
 	}
-    
-    public boolean validateNumber(String theNumber) {
-    	int countryCode = 2521;
-    	String checkSum = theNumber.substring(0, 2);
-    	String numberWithoutCheckSum = theNumber.substring(2);
-    	String rearrangedNumber = numberWithoutCheckSum + countryCode + checkSum;
-    	BigInteger rearrangedNumberForValidation = new BigInteger(rearrangedNumber);
-    	int check = rearrangedNumberForValidation.mod(new BigInteger("97")).intValue();   
-    	return check==1 ? true : false;
-	}	
+
+	@Override
+	public boolean isValid(String theNumber, ConstraintValidatorContext theConstraintValidatorContext) {
+		if (theNumber == null) {
+			return true;
+		}
+		return theNumber.length() != 26 ? false : validateNumber(theNumber);
+	}
+
+	public boolean validateNumber(String theNumber) {
+		int countryCode = 2521;
+		String checkSum = theNumber.substring(0, 2);
+		String numberWithoutCheckSum = theNumber.substring(2);
+		String rearrangedNumber = numberWithoutCheckSum + countryCode + checkSum;
+		BigInteger rearrangedNumberForValidation = new BigInteger(rearrangedNumber);
+		int check = rearrangedNumberForValidation.mod(new BigInteger("97")).intValue();
+		return check == 1 ? true : false;
+	}
 }
