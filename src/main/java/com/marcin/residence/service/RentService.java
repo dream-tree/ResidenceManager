@@ -11,6 +11,5 @@ package com.marcin.residence.service;
  */
 public interface RentService {
 
-	
 	public void calculateAllRents();	
 }
