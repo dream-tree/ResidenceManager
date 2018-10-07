@@ -26,20 +26,20 @@ import com.marcin.residence.service.RentService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class RentControllerTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
     
 	@Mock
 	private RentService rentService;
 	@InjectMocks
 	private RentController controller;	
 	
-    @Before
-    public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        MockitoAnnotations.initMocks(this);
-    }
+	@Before
+	public void setup() {
+		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void testCalculateRent() throws Exception {

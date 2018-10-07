@@ -46,9 +46,9 @@ public class RatesControllerTest {
 	
 	@Before
 	public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        MockitoAnnotations.initMocks(this);
-    }
+		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void testShowRatesForm() throws Exception {
