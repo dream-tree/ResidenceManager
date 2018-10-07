@@ -51,8 +51,7 @@ public class ApartmentServiceImpl implements ApartmentService {
 	@Override
 	@Transactional
 	public void deleteApartment(int theApartmentId) {
-		apartmentRepository.deleteApartment(theApartmentId);
-		
+		apartmentRepository.deleteApartment(theApartmentId);		
 	}
 
 	@Override
@@ -60,5 +59,4 @@ public class ApartmentServiceImpl implements ApartmentService {
 	public void saveApartmentAddress(ApartmentAddress theApartmentAddress) {
 		apartmentRepository.saveApartmentAddress(theApartmentAddress);
 	}
-
 }

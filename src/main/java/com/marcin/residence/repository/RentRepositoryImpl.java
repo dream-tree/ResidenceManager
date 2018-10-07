@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.marcin.residence.entity.Apartment;
+import com.marcin.residence.entity.Rent;
 
 /**
  * Provides the implementation for CRUD operations and common queries, i.e.
@@ -22,16 +22,9 @@ public class RentRepositoryImpl implements RentRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	// TODO
 	@Override
-	public void saveRent(Apartment theApartment) {
-	}
-	
-	@Override
-	public void saveAllRents(List<Apartment> theApartments) {
+	public void saveRent(Rent theRent) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		for(Apartment apartment : theApartments) {		
-			currentSession.saveOrUpdate(apartment);			
-		}
+		currentSession.saveOrUpdate(theRent);			
 	}
 }

@@ -22,5 +22,5 @@ public interface ApartmentService {
 	public void saveApartment(Apartment theApartment);
 	public void deleteApartment(int theApartmentId);
 	public void saveApartmentAddress(ApartmentAddress theApartmentAddress);
-
+	
 }

@@ -24,7 +24,6 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	// takes single Apartment (and its ApartmentAddress) by the Apartment id
 	@Override
 	public Apartment getSingleApartment(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -37,7 +36,6 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		return theApartment;
 	}
 	
-	// takes all Apartment belonging to a given Owner (by the Owner id)
 	@Override
 	public List<Apartment> getOwnerApartments(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -49,7 +47,6 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		return apartments;
 	}
 
-	// takes all Apartment from the database
 	@Override
 	public List<Apartment> getAllApartments() {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -71,7 +68,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		Apartment theApartment = currentSession.get(Apartment.class, theApartmentId);
 		currentSession.delete(theApartment);
 	}
-
+	
 	@Override
 	public void saveApartmentAddress(ApartmentAddress theApartmentAddress) {
 		Session currentSession = sessionFactory.getCurrentSession();

@@ -65,13 +65,13 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 		 if (theSearchName != null && theSearchName.trim().length() > 0) {	
 			 // search for firstName or lastName, case insensitive
 			 theQuery = currentSession.createQuery("FROM Owner "
-							 				+ "WHERE lower(firstName) LIKE :theName "
-							 				+ "OR lower(lastName) LIKE :theName "
-							 				+ "OR id LIKE :theName",
-							 				Owner.class);
+					 	+ "WHERE lower(firstName) LIKE :theName "
+					 	+ "OR lower(lastName) LIKE :theName "
+					 	+ "OR id LIKE :theName",
+					 	Owner.class);
 			 theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
 		 } else {
-			 // if theSearchName is empty, get all customers
+			 // if theSearchName is empty, get all Owners
 			 theQuery = currentSession.createQuery("from Owner ORDER BY lastName", Owner.class);
 		 }	
 		 List<Owner> owners = theQuery.getResultList();
@@ -79,9 +79,9 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 	 }
 
 	@Override
-	public void saveOwnerMailingAddress(OwnerMailingAddress ownerMailingAddress) {
+	public void saveOwnerMailingAddress(OwnerMailingAddress theOwnerMailingAddress) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(ownerMailingAddress);
+		currentSession.saveOrUpdate(theOwnerMailingAddress);
 	}
 
 	@Override

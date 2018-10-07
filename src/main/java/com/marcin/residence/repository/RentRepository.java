@@ -1,8 +1,6 @@
 package com.marcin.residence.repository;
 
-import java.util.List;
-
-import com.marcin.residence.entity.Apartment;
+import com.marcin.residence.entity.Rent;
 
 /**
  * Provides the interface for CRUD operations and common queries, i.e.
@@ -13,6 +11,11 @@ import com.marcin.residence.entity.Apartment;
  */
 public interface RentRepository {
 
-	public void saveRent(Apartment theApartment);
-	public void saveAllRents(List<Apartment> theApartments);
+	/**
+	 * Saves an individual Rent for a given Apartment in the database.
+	 * 
+	 * @param theRent Rent for saving in the database
+	 */	
+	public void saveRent(Rent theRent);
+	
 }

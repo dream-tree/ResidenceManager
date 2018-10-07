@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,11 +52,11 @@ public class Apartment {
 	@Column(name="notes")
 	private String notes;
 	
-	@OneToOne(cascade=CascadeType.ALL/*, fetch=FetchType.LAZY*/)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="apartment_address_id")
 	private ApartmentAddress apartmentAddress;
 	
-	@OneToOne(cascade=CascadeType.ALL/*, fetch=FetchType.LAZY*/)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="rent_id")
 	private Rent rent;
 	

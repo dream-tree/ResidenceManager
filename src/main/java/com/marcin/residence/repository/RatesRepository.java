@@ -11,6 +11,17 @@ import com.marcin.residence.entity.Rates;
  */
 public interface RatesRepository {
 
+	/**
+	 * Retrieves rates for utilities from the database.
+	 * 
+	 * @return Rates object containing fixed rates for utilities
+	 */	
 	public Rates getRates();
+	
+	/**
+	 * Saves new rates for utilities in the database.
+	 * 
+	 * @param theRates Rates object containing new rates for utilities
+	 */	
 	public void saveRates(Rates theRates);
 }
