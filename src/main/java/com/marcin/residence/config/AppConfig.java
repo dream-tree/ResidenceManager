@@ -125,19 +125,19 @@ public class AppConfig implements WebMvcConfigurer {
 		return securityDataSource;
 	}
 	
-    @Bean
-    public MessageSource messageSource () {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("ValidationMessages");
-        return messageSource;
-    }
+	@Bean
+	public MessageSource messageSource () {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("ValidationMessages");
+		return messageSource;
+	}
     
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-          .addResourceHandler("/resources/**")
-          .addResourceLocations("/resources/"); 
-    }
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry
+			.addResourceHandler("/resources/**")
+			.addResourceLocations("/resources/"); 
+	}
     
 	private int getIntProperty(String propName) {		
 		String propVal = env.getProperty(propName);	
