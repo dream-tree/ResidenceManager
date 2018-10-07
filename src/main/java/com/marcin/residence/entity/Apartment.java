@@ -35,7 +35,7 @@ public class Apartment {
 	private BigDecimal area;
 	
 	@Column(name="number_of_rooms")
-	private Integer numberOfRooms;
+	private int numberOfRooms;
 	
 	@Column(name="number_of_occupants")
 	private int numberOfOccupants;
@@ -83,8 +83,12 @@ public class Apartment {
 		this.area = area;
 	}
 
-	public Integer getNumberOfRooms() {
+	public int getNumberOfRooms() {
 		return numberOfRooms;
+	}
+
+	public void setNumberOfRooms(int numberOfRooms) {
+		this.numberOfRooms = numberOfRooms;
 	}
 
 	public int getNumberOfOccupants() {
@@ -111,11 +115,6 @@ public class Apartment {
 		this.heaterConsumption = heaterConsumption;
 	}
 
-	public void setNumberOfRooms(Integer numberOfRooms) {
-		this.numberOfRooms = numberOfRooms;
-	}
-
-
 	public BigDecimal getLiabilities() {
 		return liabilities;
 	}
@@ -140,20 +139,20 @@ public class Apartment {
 		this.apartmentAddress = apartmentAddress;
 	}
 
-	public Owner getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-
 	public Rent getRent() {
 		return rent;
 	}
 
 	public void setRent(Rent rent) {
 		this.rent = rent;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
 
 	@Override

@@ -23,9 +23,10 @@
 			<form:hidden path="id"/>
 			<form:hidden path="waterConsumption"/>
 			<form:hidden path="heaterConsumption"/>
-			<form:hidden path="rent"/>
 			<form:hidden path="liabilities"/>
 			<form:hidden path="apartmentAddress.id"/>	
+			<form:hidden path="rent.id"/>
+			<form:hidden path="rent.monthlyTotalRent"/>
 			<form:hidden path="owner.id"/>
 			<table>
 				<tbody>
