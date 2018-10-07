@@ -32,11 +32,10 @@ import com.marcin.residence.service.ApartmentService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class ApartmentRepositoryImplTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    
-    @Autowired
-    private ApartmentService service;
+	@Autowired
+	private WebApplicationContext wac;  
+	@Autowired
+	private ApartmentService service;
 	
 	@Test
 	public void testGetSingleApartment() {		

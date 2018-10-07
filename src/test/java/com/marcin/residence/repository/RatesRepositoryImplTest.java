@@ -27,11 +27,10 @@ import com.marcin.residence.service.RatesService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class RatesRepositoryImplTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    
-    @Autowired
-    private RatesService service;
+	@Autowired
+	private WebApplicationContext wac;
+	@Autowired
+	private RatesService service;
 	
 	@Test
 	public void testGetGetRates() {		

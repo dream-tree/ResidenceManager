@@ -26,11 +26,10 @@ import com.marcin.residence.service.OwnerService;
 @ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
 public class OwnerRepositoryImplTest {
 
-    @Autowired
-    private WebApplicationContext wac;
-    
-    @Autowired
-    private OwnerService service;
+	@Autowired
+	private WebApplicationContext wac;
+	@Autowired
+	private OwnerService service;
 	
 	@Test
 	public void testGetOwner() {		
