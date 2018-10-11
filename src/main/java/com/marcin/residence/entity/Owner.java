@@ -46,7 +46,7 @@ public class Owner {
 	private String firstName;
 	
 	@NotNull(message="{notnull.firstName.lastName}")
-	@Pattern(regexp="[a-zA-Z]{1,}", message="{pattern.firstName.lastName}")
+	@Pattern(regexp="[a-zA-Z]{1,}([-' ]?[a-zA-Z]{1,})?", message="{pattern.firstName.lastName}")
 	@Column(name="last_name")
 	private String lastName;
 	

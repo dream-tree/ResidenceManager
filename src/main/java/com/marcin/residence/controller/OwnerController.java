@@ -5,13 +5,10 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.Owner;
-import com.marcin.residence.entity.Rent;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
-import com.marcin.residence.service.RentService;
 
 /**
  * Handles incoming requests, user input and interactions for creating, reading, updating
@@ -97,11 +92,5 @@ public class OwnerController {
 	public String deleteOwner(@RequestParam("ownerId") int theId) {
 		ownerService.deleteOwner(theId);
 		return "redirect:/residence/list";
-	}
-	  
-	@InitBinder                                                                             
-	public void initBinder(WebDataBinder dataBinder) {
-		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);   
-		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);                
 	}
 }
