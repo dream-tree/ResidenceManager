@@ -32,49 +32,49 @@ import com.marcin.residence.entity.validation.BankAccountNumber;
  * @version 4.00, September-October 2018
  */
 @Entity
-@Table(name="owner")
+@Table(name = "owner")
 public class Owner {
 	
 	@Id	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
 	
-	@NotNull(message="{notnull.firstName.lastName}")
-	@Pattern(regexp="[a-zA-Z]{1,}", message="{pattern.firstName.lastName}")
-	@Column(name="first_name")
+	@NotNull(message = "{notnull.firstName.lastName}")
+	@Pattern(regexp = "[a-zA-Z]{1,}", message = "{pattern.firstName.lastName}")
+	@Column(name = "first_name")
 	private String firstName;
 	
-	@NotNull(message="{notnull.firstName.lastName}")
-	@Pattern(regexp="[a-zA-Z]{1,}([-' ]?[a-zA-Z]{1,})?", message="{pattern.firstName.lastName}")
-	@Column(name="last_name")
+	@NotNull(message = "{notnull.firstName.lastName}")
+	@Pattern(regexp = "[a-zA-Z]{1,}([-' ]?[a-zA-Z]{1,})?", message = "{pattern.firstName.lastName}")
+	@Column(name = "last_name")
 	private String lastName;
 	
-	@Pattern(regexp="[0-9]{9}", message="{pattern.phoneNumber}")
-	@Column(name="phone_number")
+	@Pattern(regexp = "[0-9]{9}", message = "{pattern.phoneNumber}")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 	
-	@Pattern(regexp=".+@.+\\..+", message="{pattern.email}")
-	@Column(name="email")
+	@Pattern(regexp = ".+@.+\\..+", message = "{pattern.email}")
+	@Column(name = "email")
 	private String email;
 	
-	@Past(message="{past.dateOfBirth}")
-	@Column(name="date_of_birth")
+	@Past(message = "{past.dateOfBirth}")
+	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;   
 	
-	@PESEL(message="{pattern.pesel}")
-	@Column(name="pesel")
+	@PESEL(message = "{pattern.pesel}")
+	@Column(name = "pesel")
 	private String pesel;
 
 	@BankAccountNumber
-	@Column(name="bank_account")
+	@Column(name = "bank_account")
 	private String bankAccount;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="owner_mailing_address_id")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "owner_mailing_address_id")
 	private OwnerMailingAddress ownerMailingAddress;
 		
-	@OneToMany(mappedBy="owner", cascade={CascadeType.DETACH, CascadeType.MERGE, 
+	@OneToMany(mappedBy = "owner", cascade = {CascadeType.DETACH, CascadeType.MERGE, 
 			CascadeType.PERSIST, CascadeType.REFRESH})
 	private List<Apartment> apartments;
 	
@@ -82,7 +82,7 @@ public class Owner {
 	}
 
 	public void addApartment(Apartment apartment)  {
-		if(apartments==null) {
+		if (apartments == null) {
 			apartments = new ArrayList<>();
 		}
 		apartments.add(apartment);

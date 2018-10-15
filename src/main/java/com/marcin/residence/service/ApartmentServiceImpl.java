@@ -11,8 +11,8 @@ import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.repository.ApartmentRepository;
 
 /**
- * Provides the implementation for accessing, adding, updating and deleting an apartment (or apartments)
- * as well as adding or updating the address of the apartment. 
+ * Provides the implementation for accessing, adding, updating and deleting an apartment 
+ * (or apartments) as well as adding or updating the address of the apartment. 
  * 
  * @author dream-tree
  * @version 4.00, September-October 2018

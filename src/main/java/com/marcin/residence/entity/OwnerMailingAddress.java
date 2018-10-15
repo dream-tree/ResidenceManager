@@ -17,31 +17,31 @@ import javax.validation.constraints.Pattern;
  * @version 4.00, September-October 2018
  */
 @Entity
-@Table(name="owner_mailing_address")
+@Table(name = "owner_mailing_address")
 public class OwnerMailingAddress {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
 	
-	@Pattern(regexp="[ a-zA-Z]+", message="{pattern.street.city}")
-	@Column(name="street")
+	@Pattern(regexp = "[ a-zA-Z]+", message = "{pattern.street.city}")
+	@Column(name = "street")
 	private String street;
 	
-	@Pattern(regexp="\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?", message="{pattern.apartmentNumber}")
-	@Column(name="apartment_number")
+	@Pattern(regexp = "\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?", message = "{pattern.apartmentNumber}")
+	@Column(name = "apartment_number")
 	private String apartmentNumber;
 	
-	@Pattern(regexp="[a-zA-Z]+([ -][a-zA-Z]+)?", message="{pattern.street.city}")
-	@Column(name="city")
+	@Pattern(regexp = "[a-zA-Z]+([ -][a-zA-Z]+)?", message = "{pattern.street.city}")
+	@Column(name = "city")
 	private String city;
 	
-	@Pattern(regexp="\\d{2}-\\d{3}", message="{pattern.postalCode}")
-	@Column(name="postal_code")
+	@Pattern(regexp = "\\d{2}-\\d{3}", message = "{pattern.postalCode}")
+	@Column(name = "postal_code")
 	private String postalCode;
 	
-	@OneToOne(mappedBy="ownerMailingAddress")
+	@OneToOne(mappedBy = "ownerMailingAddress")
 	private Owner owner;
 
 	public OwnerMailingAddress() {

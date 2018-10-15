@@ -53,7 +53,8 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 	@Override
 	public List<Owner> getOwners() {	
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query<Owner> theQuery = currentSession.createQuery("from Owner ORDER BY lastName", Owner.class);
+		Query<Owner> theQuery = currentSession.createQuery("from Owner "
+				+ "ORDER BY lastName", Owner.class);
 		List<Owner> owners = theQuery.getResultList();		
 		return owners;
 	}
@@ -61,7 +62,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 	 @Override
 	 public List<Owner> searchOwners(String theSearchName) {
 		 Session currentSession = sessionFactory.getCurrentSession();
-		 Query theQuery = null;	
+		 Query<Owner> theQuery = null;	
 		 if (theSearchName != null && theSearchName.trim().length() > 0) {	
 			 // search for firstName or lastName, case insensitive
 			 theQuery = currentSession.createQuery("FROM Owner "
@@ -72,7 +73,8 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 			 theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
 		 } else {
 			 // if theSearchName is empty, get all Owners
-			 theQuery = currentSession.createQuery("from Owner ORDER BY lastName", Owner.class);
+			 theQuery = currentSession.createQuery("from Owner "
+			 		+ "ORDER BY lastName", Owner.class);
 		 }	
 		 List<Owner> owners = theQuery.getResultList();
 		 return owners;

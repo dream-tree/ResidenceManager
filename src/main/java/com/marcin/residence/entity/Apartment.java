@@ -15,53 +15,53 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Represents an apartment, providing access to the apartment's area, number of rooms, number of occupants,
- * media consumption, liabilities and additional info about the particular apartment
- * as well as address for a given apartment, its owner and the rent.
+ * Represents an apartment, providing access to the apartment's area, number of rooms, 
+ * number of occupants, media consumption, liabilities and additional info about 
+ * the particular apartment as well as address for a given apartment, its owner and the rent.
  * 
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
 @Entity
-@Table(name="apartment")
+@Table(name = "apartment")
 public class Apartment {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
 
-	@Column(name="area")
+	@Column(name = "area")
 	private BigDecimal area;
 	
-	@Column(name="number_of_rooms")
+	@Column(name = "number_of_rooms")
 	private int numberOfRooms;
 	
-	@Column(name="number_of_occupants")
+	@Column(name = "number_of_occupants")
 	private int numberOfOccupants;
 	
-	@Column(name="water_consumption")
+	@Column(name = "water_consumption")
 	private BigDecimal waterConsumption;
 	
-	@Column(name="heater_consumption")
+	@Column(name = "heater_consumption")
 	private BigDecimal heaterConsumption;
 	
-	@Column(name="liabilities")
+	@Column(name = "liabilities")
 	private BigDecimal liabilities;
 	
-	@Column(name="notes")
+	@Column(name = "notes")
 	private String notes;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="apartment_address_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "apartment_address_id")
 	private ApartmentAddress apartmentAddress;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="rent_id")
 	private Rent rent;
 	
 	@ManyToOne
-	@JoinColumn(name="owner_id")
+	@JoinColumn(name = "owner_id")
 	private Owner owner;
 	
 	public Apartment() {

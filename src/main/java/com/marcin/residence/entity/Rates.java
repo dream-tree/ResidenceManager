@@ -13,48 +13,48 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
 /**
- * Represents the rates for the apartmemt utilities, providing access to the repair fund rate, water rate,
- * heating rate, waste fee and the TV fee.
+ * Represents the rates for the apartment utilities, providing access to the repair fund rate, 
+ * water rate, heating rate, waste fee and the TV fee.
  * 
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
 @Entity
-@Table(name="rates")
+@Table(name = "rates")
 public class Rates {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
 	
-	@Column(name="repair_fund_rate")
-	@NotNull(message="{notnull.rates}")
-	@Digits(integer=4, fraction=2, message="{digits.rates}")
+	@Column(name = "repair_fund_rate")
+	@NotNull(message = "{notnull.rates}")
+	@Digits(integer = 4, fraction = 2, message = "{digits.rates}")
 	@DecimalMin("0.00")
 	private BigDecimal repairFundRate;
 	
-	@Column(name="water_rate")
-	@NotNull(message="{notnull.rates}")
-	@Digits(integer=4, fraction=2, message="{digits.rates}")
+	@Column(name = "water_rate")
+	@NotNull(message = "{notnull.rates}")
+	@Digits(integer = 4, fraction = 2, message = "{digits.rates}")
 	@DecimalMin("0.00")
 	private BigDecimal waterRate;
 	
-	@Column(name="heating_rate")
-	@NotNull(message="{notnull.rates}")
-	@Digits(integer=4, fraction=2, message="{digits.rates}")
+	@Column(name = "heating_rate")
+	@NotNull(message = "{notnull.rates}")
+	@Digits(integer = 4, fraction = 2, message = "{digits.rates}")
 	@DecimalMin("0.00")
 	private BigDecimal heatingRate;
 	
-	@Column(name="waste_fee")
-	@NotNull(message="{notnull.rates}")
-	@Digits(integer=4, fraction=2, message="{digits.rates}")
-	@DecimalMin(value="0.00")
+	@Column(name = "waste_fee")
+	@NotNull(message = "{notnull.rates}")
+	@Digits(integer = 4, fraction = 2, message = "{digits.rates}")
+	@DecimalMin(value = "0.00")
 	private BigDecimal wasteFee;
 	
-	@Column(name="tv_fee")
-	@NotNull(message="{notnull.rates}")
-	@Digits(integer=4, fraction=2, message="{digits.rates}")
+	@Column(name = "tv_fee")
+	@NotNull(message = "{notnull.rates}")
+	@Digits(integer = 4, fraction = 2, message = "{digits.rates}")
 	@DecimalMin("0.00")
 	private BigDecimal tvFee;
 	

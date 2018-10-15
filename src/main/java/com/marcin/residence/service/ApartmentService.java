@@ -16,7 +16,7 @@ import com.marcin.residence.entity.ApartmentAddress;
  */
 public interface ApartmentService {
 
-	public Apartment getSingleApartment(int theId);	
+	public Apartment getSingleApartment(int theId);
 	public List<Apartment> getOwnerApartments(int theId);	
 	public List<Apartment> getAllApartments();
 	public void saveApartment(Apartment theApartment);

@@ -14,7 +14,7 @@ import javax.validation.Payload;
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
-@Constraint(validatedBy=BankAccountNumberConstraintValidator.class)       
+@Constraint(validatedBy = BankAccountNumberConstraintValidator.class)       
 @Target(ElementType.FIELD)                   
 @Retention(RetentionPolicy.RUNTIME)          
 public @interface BankAccountNumber    {

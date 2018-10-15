@@ -40,9 +40,8 @@ public class RentServiceImpl implements RentService {
 		BigDecimal wasteFee = theRates.getWasteFee();
 		BigDecimal tvFee = theRates.getTvFee();
 		
-		List<Apartment> theApartments = apartmentService.getAllApartments();
-		
-		for(Apartment apartment : theApartments) {		
+		List<Apartment> theApartments = apartmentService.getAllApartments();		
+		for (Apartment apartment : theApartments) {		
 			BigDecimal repairFundTotalCost = repairFundRate.multiply(apartment.getArea());
 			BigDecimal waterTotalCost = waterRate.multiply(apartment.getWaterConsumption());
 			BigDecimal heatingTotalCost = heatingRate.multiply(apartment.getHeaterConsumption());
