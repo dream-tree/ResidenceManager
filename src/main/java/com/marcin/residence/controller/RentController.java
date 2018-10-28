@@ -9,7 +9,7 @@ import com.marcin.residence.service.RentService;
 
 /**
  * Handles incoming requests for updating the Rent entities.
- * 
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
@@ -17,11 +17,11 @@ import com.marcin.residence.service.RentService;
 @RequestMapping("/residence")
 public class RentController {
 
-	@Autowired
-	private RentService rentService;
-	
-	@GetMapping("/calculateRent")
-	public void calculateRent() {
-		rentService.calculateAllRents();
-	}
+    @Autowired
+    private RentService rentService;
+
+    @GetMapping("/calculateRent")
+    public void calculateRent() {
+        rentService.calculateAllRents();
+    }
 }

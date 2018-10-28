@@ -20,9 +20,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private DataSource dataSource;
-	
+    @Autowired
+    private DataSource dataSource;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource);
@@ -31,8 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.anyRequest().authenticated()   			
-				.antMatchers("/config/**").hasRole("ADMIN") 
+	            .anyRequest().authenticated()
+	            .antMatchers("/config/**").hasRole("ADMIN")
 				.antMatchers("/").hasRole("EMPLOYEE")
 			.and()
 			.formLogin()
@@ -42,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.logout().permitAll()
 			.and()
-			.exceptionHandling().accessDeniedPage("/access-denied");	
-	}	
-	
+		    .exceptionHandling().accessDeniedPage("/access-denied");
+	}
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	    web.ignoring().antMatchers("/resources/css/**");

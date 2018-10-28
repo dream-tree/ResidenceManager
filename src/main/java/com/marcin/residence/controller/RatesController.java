@@ -15,32 +15,33 @@ import com.marcin.residence.entity.Rates;
 import com.marcin.residence.service.RatesService;
 
 /**
- * Handles incoming requests for updating the Rate entity 
+ * Handles incoming requests for updating the Rate entity
  * as well as displaying the actual Rate details in a web page.
- * 
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
 @Controller
 @RequestMapping("/residence")
 public class RatesController {
-	
-	@Autowired 
-	private RatesService ratesService;
-	
-	@GetMapping("/showRatesForm")
-	public String showRatesForm(Model rates) {	
-		Rates theRates = ratesService.getRates();	
-		rates.addAttribute("rates", theRates);	
-		return "rates-form";
-	}
-	
-	@PostMapping("/saveRatesForm")
-	public String saveRatesForm(@Valid @ModelAttribute("rates") Rates theRates, BindingResult thebindingResult) {	
-		if(thebindingResult.hasErrors()) {
-			return "rates-form";
-		}
-		ratesService.saveRates(theRates);		
-		return "redirect:/residence/start";
-	}
+
+    @Autowired 
+    private RatesService ratesService;
+
+    @GetMapping("/showRatesForm")
+    public String showRatesForm(Model rates) {
+        Rates theRates = ratesService.getRates();
+        rates.addAttribute("rates", theRates);
+        return "rates-form";
+    }
+
+    @PostMapping("/saveRatesForm")
+    public String saveRatesForm(@Valid @ModelAttribute("rates") Rates theRates,
+            BindingResult thebindingResult) {
+        if (thebindingResult.hasErrors()) {
+            return "rates-form";
+        }
+        ratesService.saveRates(theRates);
+        return "redirect:/residence/start";
+    }
 }

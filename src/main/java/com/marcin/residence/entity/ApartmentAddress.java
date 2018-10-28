@@ -3,17 +3,16 @@ package com.marcin.residence.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
 /**
- * Represents an address for a given apartment, providing access to the name of the street and the number, 
- * the city and the postal code.
- * 
+ * Represents an address for a given apartment, providing access
+ * to the name of the street and the number, the city and the postal code.
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
@@ -21,84 +20,92 @@ import javax.validation.constraints.Pattern;
 @Table(name = "apartment_address")
 public class ApartmentAddress {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
-	
-	@Pattern(regexp = "[ a-zA-Z]+", message = "{pattern.street.city}")
-	@Column(name = "street")
-	private String street;
+    @Id
+    private int id;
 
-	@Pattern(regexp = "\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?", message = "{pattern.apartmentNumber}")
-	@Column(name="apartment_number")
-	private String apartmentNumber;
-	
-	@Pattern(regexp = "[a-zA-Z]+([ -][a-zA-Z]+)?", message = "{pattern.street.city}")
-	@Column(name = "city")
-	private String city;
-	
-	@Pattern(regexp = "\\d{2}-\\d{3}", message = "{pattern.postalCode}")
-	@Column(name = "postal_code")
-	private String postalCode;
+    @Pattern(regexp = "[ a-zA-Z]+",
+            message = "{pattern.street.city}")
+    @Column(name = "street")
+    private String street;
 
-	@OneToOne(mappedBy = "apartmentAddress")
-	private Apartment apartment;
-	
-	public ApartmentAddress() {		
-	}
+    @Pattern(regexp = "\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?",
+            message = "{pattern.apartmentNumber}")
+    @Column(name = "apartment_number")
+    private String apartmentNumber;
 
-	public int getId() {
-		return id;
-	}
+    @Pattern(regexp = "[a-zA-Z]+([ -][a-zA-Z]+)?",
+            message = "{pattern.street.city}")
+    @Column(name = "city")
+    private String city;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Pattern(regexp = "\\d{2}-\\d{3}",
+            message = "{pattern.postalCode}")
+    @Column(name = "postal_code")
+    private String postalCode;
 
-	public String getStreet() {
-		return street;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private Apartment apartment;
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    public ApartmentAddress() {		
+    }
 
-	public String getApartmentNumber() {
-		return apartmentNumber;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setApartmentNumber(String apartmentNumber) {
-		this.apartmentNumber = apartmentNumber;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-	public String getPostalCode() {
-		return postalCode;
-	}
+    public String getApartmentNumber() {
+        return apartmentNumber;
+    }
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
+    public void setApartmentNumber(String apartmentNumber) {
+        this.apartmentNumber = apartmentNumber;
+    }
 
-	public Apartment getApartment() {
-		return apartment;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public void setApartment(Apartment apartment) {
-		this.apartment = apartment;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	@Override
-	public String toString() {
-		return "ApartmentAddress [id=" + id + ", street=" + street + ", apartmentNumber=" + apartmentNumber + ", city="
-				+ city + ", postalCode=" + postalCode + "]";
-	}
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public Apartment getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(Apartment apartment) {
+        this.apartment = apartment;
+    }
+
+    @Override
+    public String toString() {
+        return "ApartmentAddress ["
+                + "id=" + id
+                + ", street=" + street
+                + ", apartmentNumber=" + apartmentNumber
+                + ", city=" + city
+                + ", postalCode=" + postalCode
+                + "]";
+    }
 }

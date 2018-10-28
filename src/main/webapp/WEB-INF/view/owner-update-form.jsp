@@ -22,7 +22,6 @@
 		
 		<form:form action="saveOwner" modelAttribute="owner" method="POST">	
 			<form:hidden path="id"/>
-			<form:hidden path="ownerMailingAddress.id"/>
 			<table>
 				<tbody>
 					<tr>

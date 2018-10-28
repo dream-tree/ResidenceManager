@@ -9,18 +9,19 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
- * The annotated element must be a 26-digit number and must include 2 (matching) control digits.
- * 
+ * The annotated element must be a 26-digit number
+ * and must include 2 (matching) control digits.
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
-@Constraint(validatedBy = BankAccountNumberConstraintValidator.class)       
-@Target(ElementType.FIELD)                   
-@Retention(RetentionPolicy.RUNTIME)          
+@Constraint(validatedBy = BankAccountNumberConstraintValidator.class)
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface BankAccountNumber    {
 
-    public String value() default "";                                         
-    public String message() default "{custom.bankAccountNumber}";    
-    public Class<?>[] groups() default {};    
-    public Class<? extends Payload>[] payload() default {};     
-}  
+    String value() default "";
+    String message() default "{custom.bankAccountNumber}";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+}

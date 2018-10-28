@@ -43,7 +43,7 @@
 					<c:url var="updateLink" value="/residence/showFormForUpdate">
 						<c:param name="ownerId" value="${tempOwner.id}"/>
 					</c:url>
-					<c:url var="deleteLink" value="/residence/delete">
+					<c:url var="deleteLink" value="/residence/deleteOwner">
 						<c:param name="ownerId" value="${tempOwner.id}"/>
 					</c:url>
 					<c:url var="detailsLink" value="/residence/showDetails">

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Owner;
-import com.marcin.residence.entity.OwnerMailingAddress;
+import com.marcin.residence.service.ApartmentAddressService;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
 
 /**
- * Handles incoming requests, user input and interactions for creating, reading, updating
- * and deleting the Apartment objects as well as displaying the requested Apartment content 
- * in a web page.
- * 
+ * Handles incoming requests, user input and interactions for creating,
+ * reading, updating and deleting the Apartment objects as well as displaying
+ * the requested Apartment content in a web page.
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
@@ -35,19 +35,22 @@ public class ApartmentController {
 	private ApartmentService apartmentService;
 	@Autowired
 	private OwnerService ownerService;
+    @Autowired
+    private ApartmentAddressService apartmentAddressService;
 
 	@GetMapping("/addApartment")
-	public String addApartment(@RequestParam("ownerId") int theId, Model theModel) {
+	public String addApartment(@RequestParam("ownerId") int theOwnerId, Model theModel) {
 		Apartment theApartment = new Apartment();
-		Owner theOwner = ownerService.getOwner(theId);
+		Owner theOwner = ownerService.getOwner(theOwnerId);
 		theApartment.setOwner(theOwner);
 		theModel.addAttribute("apartment", theApartment);
 		return "apartment-update-form";
 	}
 
 	@GetMapping("/updateApartmentDetails")
-	public String updateApartmentDetails(@RequestParam("apartmentId") int theId, Model theModel) {
-		Apartment theApartment = apartmentService.getSingleApartment(theId);
+	public String updateApartmentDetails(@RequestParam("apartmentId") int theApartmentId,
+	        Model theModel) {
+		Apartment theApartment = apartmentService.getSingleApartment(theApartmentId);
 		theModel.addAttribute("apartment", theApartment);
 		return "apartment-update-form";
 	}
@@ -59,44 +62,29 @@ public class ApartmentController {
 			return "apartment-update-form";
 		}
 		apartmentService.saveApartment(theApartment);
-		int id = theApartment.getOwner().getId();
-		return "redirect:/residence/showDetails?ownerId=" + id;
+		int theOwnerId = theApartment.getOwner().getId();
+		return "redirect:/residence/showDetails?ownerId=" + theOwnerId;
 	}
 
 	@GetMapping("/updateApartmentAddress")
-	public String updateApartmentAddress(@RequestParam("apartmentId") int theId, Model theModel) {
-		ApartmentAddress theApartmentAddress = apartmentService.getSingleApartment(theId).getApartmentAddress();
+	public String updateApartmentAddress(@RequestParam("apartmentId") int theApartmentId,
+	        @RequestParam("ownerId") int theOwnerId, Model theModel) {
+		ApartmentAddress theApartmentAddress =
+		        apartmentAddressService.getApartmentAddress(theApartmentId);
 		theModel.addAttribute("apartmentAddress", theApartmentAddress);
+		theModel.addAttribute("ownerId", theOwnerId);
 		return "apartment-address-update-form";
 	}
 
 	@PostMapping("/saveApartmentAddress")
-	public String saveApartmentAddress(@Valid @ModelAttribute("apartmentAddress") ApartmentAddress theApartmentAddress,
-			BindingResult theBindingResult) {
+	public String saveApartmentAddress(
+	        @Valid @ModelAttribute("apartmentAddress") ApartmentAddress theApartmentAddress,
+	        @RequestParam("ownerId") int theOwnerId,
+	        BindingResult theBindingResult) {
 		if (theBindingResult.hasErrors()) {
 			return "apartment-address-update-form";
 		}
-		apartmentService.saveApartmentAddress(theApartmentAddress);
-		int theOwnerId = theApartmentAddress.getApartment().getOwner().getId();
-		return "redirect:/residence/showDetails?ownerId=" + theOwnerId;
-	}
-
-	@GetMapping("/updateMailingAddress")
-	public String updateMailingAddress(@RequestParam("ownerId") int theId, Model theModel) {
-		OwnerMailingAddress theOwnerMailingAddress = ownerService.getOwner(theId).getOwnerMailingAddress();
-		theModel.addAttribute("ownerMailingAddress", theOwnerMailingAddress);
-		return "owner-mailing-address-form";
-	}
-
-	@PostMapping("/saveOwnerMailingAddress")
-	public String saveOwnerMailingAddress(
-			@Valid @ModelAttribute("ownerMailingAddress") OwnerMailingAddress ownerMailingAddress,
-			BindingResult theBindingResult) {
-		if (theBindingResult.hasErrors()) {
-			return "owner-mailing-address-form";
-		}
-		ownerService.saveOwnerMailingAddress(ownerMailingAddress);
-		int theOwnerId = ownerMailingAddress.getOwner().getId();
+		apartmentAddressService.saveApartmentAddress(theApartmentAddress);
 		return "redirect:/residence/showDetails?ownerId=" + theOwnerId;
 	}
 

@@ -64,7 +64,8 @@
 					<td class="link">
 						<a href="${updateOwnerLink}">Update Owner</a><br>
 						<a href="${deleteOwnerLink}"
-						onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) return false;">Delete Owner</a><br>
+						onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) return false;">
+						      Delete Owner</a><br>
 						<a href="${addApartmentLink}">Add Apartment</a>
 					</td>
 				</tr>
@@ -74,7 +75,7 @@
 	
 	<div id="container">
 		<div id="content">
-				<c:url var="updateMailingAddressLink" value="/apartment/updateMailingAddress">
+				<c:url var="updateMailingAddressLink" value="/residence/updateMailingAddress">
 					<c:param name="ownerId" value="${owner.id}" />
 				</c:url>	 				
 				<table class="address-table">
@@ -85,8 +86,8 @@
 					<tr>
 						<th class="city-header">Postal Code/City</th>
 						<td class="details-header">
-							${owner.ownerMailingAddress.postalCode}
-							${owner.ownerMailingAddress.city}
+							${ownerMailingAddress.postalCode}
+							${ownerMailingAddress.city}
 						</td>
 						<td class="link" rowspan="2">
 							<a href="${updateMailingAddressLink}">Add/Update</a>		
@@ -95,9 +96,9 @@
 					<tr>
 						<th class="city-header">Street/Apartment Number</th>
 						<td class="details-header">
-							<c:if test="${owner.ownerMailingAddress.street != null}">ul.</c:if>						
-							${owner.ownerMailingAddress.street}
-							${owner.ownerMailingAddress.apartmentNumber}
+							<c:if test="${ownerMailingAddress.street != null}">ul.</c:if>						
+							${ownerMailingAddress.street}
+							${ownerMailingAddress.apartmentNumber}
 						</td>
 					</tr>
 				</table>
@@ -118,6 +119,7 @@
 				</c:url>
 				<c:url var="updateApartmentAddressLink" value="/apartment/updateApartmentAddress">
 					<c:param name="apartmentId" value="${tempApartment.id}" />
+					<c:param name="ownerId" value="${tempApartment.owner.id}" />
 				</c:url>
 				<c:url var="deleteApartmentLink" value="/apartment/deleteApartment">
 					<c:param name="apartmentId" value="${tempApartment.id}" />
@@ -144,7 +146,7 @@
 					<tr>
 						<th class="city-header">Street/Apartment Number</th>
 						<td class="details-header">
-							<c:if test="${tempApartment.apartmentAddress.street != null}">ul.</c:if>	
+							<c:if test="${tempApartmentAddress.street != null}">ul.</c:if>	
 							${tempApartment.apartmentAddress.street}
 							${tempApartment.apartmentAddress.apartmentNumber}
 						</td>

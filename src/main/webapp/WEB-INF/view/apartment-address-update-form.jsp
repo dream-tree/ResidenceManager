@@ -19,10 +19,9 @@
 	
 	<div id="container">
 		<h3>Save Apartment Address</h3>		
-		<form:form action="saveApartmentAddress" modelAttribute="apartmentAddress" method="POST">			
+		<form:form action="saveApartmentAddress?ownerId=${ownerId}" modelAttribute="apartmentAddress" method="POST">		
 			<form:hidden path="id"/>
 			<form:hidden path="apartment.id"/>
-			<form:hidden path="apartment.owner.id"/>
 			<table>
 				<tbody>
 					<tr>
@@ -55,7 +54,7 @@
 
 		<div style="clear; both;"></div>		
 
-		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartmentAddress.apartment.owner.id}">Back to Owner Detail</a></p>		
+		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back to Owner Detail</a></p>		
 		<p><a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a></p>	
 
 	</div>

@@ -1,18 +1,20 @@
 package com.marcin.residence.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
 /**
- * Represents a mailing address for a given owner, providing access to the name of the street and the number, 
- * the city and the postal code as well as the owner a given apartment.
- * 
+ * Represents a mailing address for a given owner, providing access
+ * to the name of the street and the number, the city
+ * and the postal code as well as the owner a given apartment.
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
@@ -20,84 +22,92 @@ import javax.validation.constraints.Pattern;
 @Table(name = "owner_mailing_address")
 public class OwnerMailingAddress {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
-	
-	@Pattern(regexp = "[ a-zA-Z]+", message = "{pattern.street.city}")
-	@Column(name = "street")
-	private String street;
-	
-	@Pattern(regexp = "\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?", message = "{pattern.apartmentNumber}")
-	@Column(name = "apartment_number")
-	private String apartmentNumber;
-	
-	@Pattern(regexp = "[a-zA-Z]+([ -][a-zA-Z]+)?", message = "{pattern.street.city}")
-	@Column(name = "city")
-	private String city;
-	
-	@Pattern(regexp = "\\d{2}-\\d{3}", message = "{pattern.postalCode}")
-	@Column(name = "postal_code")
-	private String postalCode;
-	
-	@OneToOne(mappedBy = "ownerMailingAddress")
-	private Owner owner;
+    @Id
+    private int id;
 
-	public OwnerMailingAddress() {
-	}
+    @Pattern(regexp = "[ a-zA-Z]+",
+            message = "{pattern.street.city}")
+    @Column(name = "street")
+    private String street;
 
-	public int getId() {
-		return id;
-	}
+    @Pattern(regexp = "\\d+[a-zA-Z]?(/\\d+[a-zA-Z]?)?",
+            message = "{pattern.apartmentNumber}")
+    @Column(name = "apartment_number")
+    private String apartmentNumber;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Pattern(regexp = "[a-zA-Z]+([ -][a-zA-Z]+)?",
+            message = "{pattern.street.city}")
+    @Column(name = "city")
+    private String city;
 
-	public String getStreet() {
-		return street;
-	}
+    @Pattern(regexp = "\\d{2}-\\d{3}",
+            message = "{pattern.postalCode}")
+    @Column(name = "postal_code")
+    private String postalCode;
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private Owner owner;
 
-	public String getApartmentNumber() {
-		return apartmentNumber;
-	}
+    public OwnerMailingAddress() {
+    }
 
-	public void setApartmentNumber(String apartmentNumber) {
-		this.apartmentNumber = apartmentNumber;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public String getPostalCode() {
-		return postalCode;
-	}
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
+    public String getApartmentNumber() {
+        return apartmentNumber;
+    }
 
-	public Owner getOwner() {
-		return owner;
-	}
+    public void setApartmentNumber(String apartmentNumber) {
+        this.apartmentNumber = apartmentNumber;
+    }
 
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	@Override
-	public String toString() {
-		return "OwnerMailingAddress [id=" + id + ", street=" + street + ", apartmentNumber=" + apartmentNumber
-				+ ", city=" + city + ", postalCode=" + postalCode + ", owner=" + owner + "]";
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "OwnerMailingAddress ["
+                + "id=" + id
+                + ", street=" + street
+                + ", apartmentNumber=" + apartmentNumber
+                + ", city=" + city
+                + ", postalCode=" + postalCode
+                + "]";
+    }
 }
