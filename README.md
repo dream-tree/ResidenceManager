@@ -14,7 +14,7 @@ Features intended for implementation:
 ----
 
 Used technologies:
-Spring MVC, Spring Security, Hibernate ORM, Hibernate Validator, HTML, CSS, JSP, JSTL.<br>
+Spring MVC, Spring Security, Hibernate ORM, Hibernate Validator, HTML, CSS, JSP, JSTL, MySQL.<br>
 
 ---
 
