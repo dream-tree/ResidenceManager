@@ -14,7 +14,7 @@ import com.marcin.residence.entity.Owner;
 public interface OwnerRepository {
 
     /**
-     * Retrieves a single Owner from the database based on the Owner id.
+     * Gets a single Owner from the database based on the Owner id.
      *
      * @param theId database id of an Owner
      * @return an Owner with the given id
