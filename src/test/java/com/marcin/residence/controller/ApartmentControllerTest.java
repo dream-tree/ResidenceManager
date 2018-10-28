@@ -3,9 +3,7 @@ package com.marcin.residence.controller;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -20,8 +18,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultHandler;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,9 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.marcin.residence.config.AppConfig;
 import com.marcin.residence.config.DispatcherServletInitializer;
 import com.marcin.residence.entity.Apartment;
-import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Owner;
-import com.marcin.residence.entity.OwnerMailingAddress;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
 
