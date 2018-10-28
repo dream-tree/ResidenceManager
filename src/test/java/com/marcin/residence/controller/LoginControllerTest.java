@@ -21,27 +21,27 @@ import com.marcin.residence.config.DispatcherServletInitializer;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
+@ContextConfiguration(classes = { DispatcherServletInitializer.class, AppConfig.class })
 public class LoginControllerTest {
 
-	@Autowired
-	private WebApplicationContext wac;
-	private MockMvc mockMvc;
-    
-	@Autowired
-	private LoginController controller;	
-	
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	@Test
-	public void testStart() throws Exception {
-		mockMvc.perform(get("/showLoginPage"))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("login-page"))	
-			.andReturn();	
-	}
+    @Autowired
+    private WebApplicationContext wac;
+    private MockMvc mockMvc;
+
+    @Autowired
+    private LoginController controller;
+
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testStart() throws Exception {
+        mockMvc.perform(get("/showLoginPage"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("login-page"))
+        .andReturn();
+    }
 }

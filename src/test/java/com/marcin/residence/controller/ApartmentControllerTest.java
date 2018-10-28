@@ -32,78 +32,78 @@ import com.marcin.residence.service.OwnerService;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
+@ContextConfiguration(classes = { DispatcherServletInitializer.class, AppConfig.class })
 public class ApartmentControllerTest {
 
-	@Autowired
-	private WebApplicationContext wac;
-	private MockMvc mockMvc;
-    
-	@Mock
-	private OwnerService ownerService;
-	@Mock
-	private ApartmentService apartmentService; 
-	@InjectMocks
-	private ApartmentController controller;	
+    @Autowired
+    private WebApplicationContext wac;
+    private MockMvc mockMvc;
 
-	@Mock
-	private Model model;
-	@Mock
-	private BindingResult theBindingResult;   
-	
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	@Test
-	public void testAddApartment() throws Exception {
-		mockMvc
-			.perform(get("/apartment/addApartment", model).param("ownerId", "1"))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("apartment-update-form"))	
-			.andReturn();	
-	}
+    @Mock
+    private OwnerService ownerService;
+    @Mock
+    private ApartmentService apartmentService;
+    @InjectMocks
+    private ApartmentController controller;
 
-	@Test
-	public void testUpdateApartmentDetails() throws Exception {
-		mockMvc
-			.perform(get("/apartment/updateApartmentDetails", model).param("apartmentId", "1"))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("apartment-update-form"))
-			.andReturn();
-	}
-	
-	@Test
-	public void testUpdateApartmentAddress() throws Exception {		
-		when(apartmentService.getSingleApartment(any(Integer.class))).thenReturn(new Apartment());
-		mockMvc
-			.perform(get("/apartment/updateApartmentAddress", model).param("apartmentId", "1"))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("apartment-address-update-form"))
-			.andReturn();
-	}
-	
-	@Test
-	public void testUpdateMailingAddress() throws Exception {		
-		when(ownerService.getOwner(any(Integer.class))).thenReturn(new Owner());
-		mockMvc
-			.perform(get("/apartment/updateMailingAddress", model).param("ownerId", "10001"))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("owner-mailing-address-form"))
-			.andReturn();
-	}
-	
+    @Mock
+    private Model model;
+    @Mock
+    private BindingResult theBindingResult;
 
-	@Test 
-	public void testDeleteApartment() throws Exception {				
-		doNothing().when(apartmentService).deleteApartment(any(Integer.class));
-		mockMvc
-			.perform(get("/apartment/deleteApartment", model)
-					.param("apartmentId", "1")
-					.param("ownerId", "1"))
-			.andExpect(status().is(302))
-			.andReturn();		
-	}
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testAddApartment() throws Exception {
+        mockMvc
+        .perform(get("/apartment/addApartment", model).param("ownerId", "1"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("apartment-update-form"))
+        .andReturn();
+    }
+
+    @Test
+    public void testUpdateApartmentDetails() throws Exception {
+        mockMvc
+        .perform(get("/apartment/updateApartmentDetails", model).param("apartmentId", "1"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("apartment-update-form"))
+        .andReturn();
+    }
+
+    @Test
+    public void testUpdateApartmentAddress() throws Exception {
+        when(apartmentService.getSingleApartment(any(Integer.class))).thenReturn(new Apartment());
+        mockMvc
+        .perform(get("/apartment/updateApartmentAddress", model).param("apartmentId", "1"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("apartment-address-update-form"))
+        .andReturn();
+    }
+
+    @Test
+    public void testUpdateMailingAddress() throws Exception {
+        when(ownerService.getOwner(any(Integer.class))).thenReturn(new Owner());
+        mockMvc
+        .perform(get("/apartment/updateMailingAddress", model).param("ownerId", "10001"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("owner-mailing-address-form"))
+        .andReturn();
+    }
+
+
+    @Test 
+    public void testDeleteApartment() throws Exception {
+        doNothing().when(apartmentService).deleteApartment(any(Integer.class));
+        mockMvc
+        .perform(get("/apartment/deleteApartment", model)
+                .param("apartmentId", "1")
+                .param("ownerId", "1"))
+        .andExpect(status().is(302))
+        .andReturn();
+    }
 }

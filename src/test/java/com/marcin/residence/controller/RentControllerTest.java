@@ -23,28 +23,28 @@ import com.marcin.residence.service.RentService;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
+@ContextConfiguration(classes = { DispatcherServletInitializer.class, AppConfig.class })
 public class RentControllerTest {
 
-	@Autowired
-	private WebApplicationContext wac;
-	private MockMvc mockMvc;
-    
-	@Mock
-	private RentService rentService;
-	@InjectMocks
-	private RentController controller;	
-	
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	@Test
-	public void testCalculateRent() throws Exception {
-		mockMvc.perform(get("/residence/calculateRent"))
-			.andExpect(status().isOk())
-			.andReturn();	
-	}
+    @Autowired
+    private WebApplicationContext wac;
+    private MockMvc mockMvc;
+
+    @Mock
+    private RentService rentService;
+    @InjectMocks
+    private RentController controller;
+
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testCalculateRent() throws Exception {
+        mockMvc.perform(get("/residence/calculateRent"))
+        .andExpect(status().isOk())
+        .andReturn();
+    }
 }

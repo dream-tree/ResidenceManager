@@ -27,41 +27,41 @@ import com.marcin.residence.service.RatesService;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={DispatcherServletInitializer.class, AppConfig.class})
+@ContextConfiguration(classes = { DispatcherServletInitializer.class, AppConfig.class })
 public class RatesControllerTest {
 
-	@Autowired
-	private WebApplicationContext wac;
-	private MockMvc mockMvc;
-    
-	@Mock
-	private RatesService ratesService;
-	@InjectMocks
-	private RatesController controller;	
+    @Autowired
+    private WebApplicationContext wac;
+    private MockMvc mockMvc;
 
-	@Mock
-	private Model model;
-	@Mock
-	private BindingResult theBindingResult;   
-	
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	@Test
-	public void testShowRatesForm() throws Exception {
-		mockMvc.perform(get("/residence/showRatesForm", model))
-			.andExpect(status().isOk())
-			.andExpect(forwardedUrl("rates-form"))	
-			.andReturn();	
-	}
+    @Mock
+    private RatesService ratesService;
+    @InjectMocks
+    private RatesController controller;
 
-	@Test
-	public void testSaveRatesForm() throws Exception {
-		mockMvc.perform(post("/residence/saveRatesForm", theBindingResult))
-			.andExpect(status().is(302))
-			.andReturn();	
-	}
+    @Mock
+    private Model model;
+    @Mock
+    private BindingResult theBindingResult;
+
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testShowRatesForm() throws Exception {
+        mockMvc.perform(get("/residence/showRatesForm", model))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("rates-form"))
+        .andReturn();
+    }
+
+    @Test
+    public void testSaveRatesForm() throws Exception {
+        mockMvc.perform(post("/residence/saveRatesForm", theBindingResult))
+        .andExpect(status().is(302))
+        .andReturn();
+    }
 }
