@@ -1,5 +1,5 @@
 # Residence Manager
-![Login Page](/residence-manager2/src/main/webapp/resources/images/login.jpg)
+![Login Page](https://github.com/dream-tree/ResidenceManager/tree/master/src/main/resources/images/login.jpg)
 
 ## Table of contents
 * [General info](#general-info)
