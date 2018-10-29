@@ -20,10 +20,8 @@ calculating the current internal account balance and sending emails to the owner
 * Spring Security - version 5.0.7
 * Hibernate ORM - version 5.3.2
 * Hibernate Validator - version 6.0.12
-* HTML5, CSS, JSP, JSTL
-<br>
-* Running locally with MySQL Community Server 8.0 and Apache Tomcat v9.0
-<br>
+* HTML5, CSS, JSP, JSTL <br>
+* Running locally with MySQL Community Server 8.0 and Apache Tomcat v9.0 <br>
 * No Spring Boot used here. Spring with annotation based Java config used instead.
 
 ## Features
