@@ -10,17 +10,21 @@
 * [Contact](#contact)
 
 ## General info
-Residence Manager app provides a simple, smart residence&owner management solution for any housing cooperative business.
-It allows to track every single apartment, owner and its detailed info as well as fixed rent and liabilities. Application is/will be capable of tracking bank account operations (fetching payments), calculating the current internal account balance and sending emails to the owners with account overdrafts.
+Residence Manager web app provides a simple, smart residence & owner management solution for any housing cooperative business.
+It allows to track every single apartment, apartment owner and their detailed info as well as fixed rent and liabilities.
+Application is/will be capable of tracking bank account operations (fetching payments),
+calculating the current internal account balance and sending emails to the owners with account overdrafts.
 
 ## Technologies
 * Spring MVC - version 5.0.8
 * Spring Security - version 5.0.7
 * Hibernate ORM - version 5.3.2
 * Hibernate Validator - version 6.0.12
-* JDBC3 Connection and Statement Pooling - version 0.9.5.2
 * HTML5, CSS, JSP, JSTL
-* Running with MySQL Community Server 8.0
+<br>
+* Running locally with MySQL Community Server 8.0 and Apache Tomcat v9.0
+<br>
+* No Spring Boot used here. Spring with annotation based Java config used instead.
 
 ## Features
 List of ready features:
