@@ -1,20 +1,43 @@
 # Residence Manager
+![Login Page](/residence-manager2/src/main/webapp/resources/images/login.jpg)
 
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Features](#features)
+* [Status](#status)
+* [Contact](#contact)
+
+## General info
 Residence Manager app provides a simple, smart residence&owner management solution for any housing cooperative business.
 It allows to track every single apartment, owner and its detailed info as well as fixed rent and liabilities. Application is/will be capable of tracking bank account operations (fetching payments), calculating the current internal account balance and sending emails to the owners with account overdrafts.
 
-Project in progress.<br>
-Project is up and running.<br>
-Features intended for implementation:
-<ul>
-<li>sending emails (work in progress),</li>
-<li>fetching bank account payments.</li>
-</ul>
+## Technologies
+* Spring MVC - version 5.0.8
+* Spring Security - version 5.0.7
+* Hibernate ORM - version 5.3.2
+* Hibernate Validator - version 6.0.12
+* JDBC3 Connection and Statement Pooling - version 0.9.5.2
+* HTML5, CSS, JSP, JSTL
 
-----
+## Features
+List of features ready and TODOs for future development
+* Database authentication.
+* Reading, adding, updating and deleting: residences and owners and all of their details.
+* User input validation.
+* Calculating rent for a residence.
 
-Used technologies:
-Spring MVC, Spring Security, Hibernate ORM, Hibernate Validator, HTML, CSS, JSP, JSTL, MySQL.<br>
+To-do list:
+* Sending emails to owners with account overdraft.
+* Fetching bank account payments.
+* Liabilities calculation.
+
+## Status
+Project is in progress.
+Project is up and running.
+
+## Contact
+Created by [dream-tree](https://github.com/dream-tree/) - feel free to contact me!
 
 ---
 
