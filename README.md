@@ -23,26 +23,28 @@ It allows to track every single apartment, owner and its detailed info as well a
 * Running with MySQL Community Server 8.0
 
 ## Features
-List of features ready and TODOs for future development
-* Database authentication.
-* Reading, adding, updating and deleting: residences and owners and all of their details.
+List of ready features:
+* Logging in with database authentication.
+* Listing all database owners or searching by name (or a substring).
+* Adding or updating an owner or his/her residence(s) and all of their details.
+* Deleting an owner or a residence.
 * User input validation.
 * Calculating rent for a residence.
 
-To-do list:
+TODO list:
 * Sending emails to owners with account overdraft.
 * Fetching bank account payments.
 * Liabilities calculation.
 
 ## Status
-Project is in progress.
+Project is in progress.<br>
 Project is up and running.
 
 ## Contact
-Created by [dream-tree](https://github.com/dream-tree/) - feel free to contact me!
+Created by [dream-tree](www.linkedin.com/in/marcin-klimek) - feel free to contact me!
 
----
+--
 
 Project #006.
 
----
+--
