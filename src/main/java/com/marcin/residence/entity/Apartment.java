@@ -51,13 +51,13 @@ public class Apartment {
 
     @Column(name = "notes")
     private String notes;
-    
+
     @Transient
     private ApartmentAddress apartmentAddress;
-    
+
     @Transient
     private Rent rent;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private Owner owner;

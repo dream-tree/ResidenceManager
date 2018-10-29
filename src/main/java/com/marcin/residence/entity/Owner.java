@@ -35,7 +35,7 @@ import com.marcin.residence.entity.validation.BankAccountNumber;
 @Table(name = "owner")
 public class Owner {
 
-    @Id	
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
@@ -151,14 +151,6 @@ public class Owner {
     public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
-
-/*    public OwnerMailingAddress getOwnerMailingAddress() {
-        return ownerMailingAddress;
-    }
-
-    public void setOwnerMailingAddress(OwnerMailingAddress ownerMailingAddress) {
-        this.ownerMailingAddress = ownerMailingAddress;
-    }*/
 
     public List<Apartment> getApartments() {
         return apartments;

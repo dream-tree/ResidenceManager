@@ -47,7 +47,7 @@ public class ApartmentAddress {
     @MapsId
     private Apartment apartment;
 
-    public ApartmentAddress() {		
+    public ApartmentAddress() {
     }
 
     public int getId() {
