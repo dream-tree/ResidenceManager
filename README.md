@@ -1,5 +1,5 @@
 # Residence Manager
-![Login Page](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/login2.jpg)
+![Login Page](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/login4.jpg)
 
 
 ## Table of contents
@@ -19,7 +19,7 @@ It allows to track every single apartment, owner and its detailed info as well a
 * Hibernate ORM - version 5.3.2
 * Hibernate Validator - version 6.0.12
 * JDBC3 Connection and Statement Pooling - version 0.9.5.2
-* HTML5, CSS, JSP, JSTL<br>
+* HTML5, CSS, JSP, JSTL<br><br>
 Running with MySQL Community Server 8.0
 
 ## Features
