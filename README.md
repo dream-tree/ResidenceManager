@@ -27,14 +27,14 @@ calculating the current internal account balance and sending emails to the owner
 ## Features
 List of ready features:
 * Logging in with database authentication.
-* Listing all database owners or searching by name (or a substring).
+* Listing all database owners or searching owners by name (or a substring).
 * Adding or updating an owner or his/her residence(s) and all of their details.
 * Deleting an owner or a residence.
 * User input validation.
 * Calculating rent for a residence.
 
 TODO list:
-* Sending emails to owners with account overdraft.
+* Sending emails to owners with an account overdraft.
 * Fetching bank account payments.
 * Liabilities calculation.
 
