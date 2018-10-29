@@ -41,10 +41,11 @@ Project is in progress.<br>
 Project is up and running.
 
 ## Contact
-Created by [dream-tree](www.linkedin.com/in/marcin-klimek) - feel free to contact me!
+Created by [dream-tree](https://www.linkedin.com/in/marcin-klimek) - feel free to contact me!
 
---
+
+---
 
 Project #006.
 
---
+---
