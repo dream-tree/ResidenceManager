@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * Provides the Spring Web Security features for logging to the application.
- * 
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
@@ -30,18 +30,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+	    http.authorizeRequests()
 	            .anyRequest().authenticated()
 	            .antMatchers("/config/**").hasRole("ADMIN")
-				.antMatchers("/").hasRole("EMPLOYEE")
+	            .antMatchers("/").hasRole("EMPLOYEE")
 			.and()
-			.formLogin()
-				.loginPage("/showLoginPage")
-				.loginProcessingUrl("/authenticateTheUser")
-				.permitAll()
-			.and()
-			.logout().permitAll()
-			.and()
+		    .formLogin()
+		        .loginPage("/showLoginPage")
+		        .loginProcessingUrl("/authenticateTheUser")
+		        .permitAll()
+		    .and()
+		    .logout().permitAll()
+		    .and()
 		    .exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
