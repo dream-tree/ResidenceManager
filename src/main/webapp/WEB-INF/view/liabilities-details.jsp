@@ -41,7 +41,7 @@
 				<c:forEach var="liability" items="${liabilityList}" varStatus="status"> 	
 					<tr>
 					    <td>${status.count}</td>
-						<td>${liability.chargeDate}</td>
+						<td>${liability.calculationDate}</td>
 						<td>${liability.singleLiabilityValue}</td>
 						<td><c:if test="${liability.liabilityFlag==true}">YES</c:if>
 						    <c:if test="${liability.liabilityFlag==false}">NO</c:if></td>

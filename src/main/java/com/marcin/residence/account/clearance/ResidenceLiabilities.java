@@ -11,14 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.marcin.residence.entity.Apartment;
 
 /**
- * Represents current residence bank account transfers value.
+ * Represents residence liabilities i.e., all liabilities calculations over
+ * time and the current total liabilities amount for a given residence.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -33,21 +32,22 @@ public class ResidenceLiabilities {
     private int id;
 
     /**
-     * Date of a single liability charge {@link ResidenceLiabilities#singleLiabilityValue}
-     * on the basis of an apartment rent or date of the calculation of total value
-     * of liabilities for a given apartment {@link ResidenceLiabilities#totalLiabilitiesValue}.
+     * Date of a single liability calculation {@link ResidenceLiabilities#singleLiabilityValue}
+     * calculated on the basis of an apartment rent, or 
+     * date of the calculation of total value of liabilities for a given apartment 
+     * {@link ResidenceLiabilities#totalLiabilitiesValue}.
      */
-    @Column(name = "charge_date")
-    private LocalDate chargeDate;
+    @Column(name = "calculation_date")
+    private LocalDate calculationDate;
 
     /**
-     * Single liability value calculated monthly.
+     * Single liability amount calculated monthly.
      */
     @Column(name = "single_liability_value")
     private BigDecimal singleLiabilityValue;
 
     /**
-     *  Total value of liabilities after the recalculation process i.e, reducing
+     *  Total amount of liabilities after the recalculation process i.e, reducing
      *  current liabilities amount by the available bank account transfers.
      */
     @Column(name = "total_liabilities_value")
@@ -79,12 +79,12 @@ public class ResidenceLiabilities {
         this.id = id;
     }
 
-    public LocalDate getChargeDate() {
-        return chargeDate;
+    public LocalDate getCalculationDate() {
+        return calculationDate;
     }
 
-    public void setChargeDate(LocalDate chargeDate) {
-        this.chargeDate = chargeDate;
+    public void setCalculationDate(LocalDate calculationDate) {
+        this.calculationDate = calculationDate;
     }
 
     public BigDecimal getSingleLiabilityValue() {
@@ -123,7 +123,7 @@ public class ResidenceLiabilities {
     public String toString() {
         return "ResidenceLiabilities "
                 + "[id=" + id
-                + ", chargeDate=" + chargeDate
+                + ", calculationDate=" + calculationDate
                 + ", singleLiabilityValue=" + singleLiabilityValue
                 + ", totalLiabilitiesValue=" + totalLiabilitiesValue
                 + ", liabilityFlag=" + liabilityFlag + "]";

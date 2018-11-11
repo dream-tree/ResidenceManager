@@ -40,10 +40,10 @@ import com.marcin.residence.service.RentService;
 @RequestMapping("/apartment")
 public class ApartmentController {
 
-	@Autowired
-	private ApartmentService apartmentService;
-	@Autowired
-	private OwnerService ownerService;
+    @Autowired
+    private ApartmentService apartmentService;
+    @Autowired
+    private OwnerService ownerService;
     @Autowired
     private ApartmentAddressService apartmentAddressService;
     @Autowired
