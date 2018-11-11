@@ -44,7 +44,8 @@ Project is in progress.<br>
 Project is up and running.
 
 ## Images
-![1](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg?v=1000&s=550)
+![1](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg)
+<img src="https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg" width="1000" height="550">
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard05.jpg?v=1000&s=550)
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07a.jpg =1000x550)
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07b.jpg =1000x550)
