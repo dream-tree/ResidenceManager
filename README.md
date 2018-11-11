@@ -7,7 +7,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [Status](#status)
-* [Images] (#images)
+* [Images](#images)
 * [Contact](#contact)
 
 ## General info
