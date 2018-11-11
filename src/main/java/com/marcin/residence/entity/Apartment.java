@@ -1,7 +1,10 @@
 package com.marcin.residence.entity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,8 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.marcin.residence.account.clearance.BankAccountTransactions;
+import com.marcin.residence.account.clearance.ResidenceLiabilities;
 
 /**
  * Represents an apartment, providing access to the apartment's area,
@@ -52,16 +59,22 @@ public class Apartment {
     @Column(name = "notes")
     private String notes;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+    
+    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BankAccountTransactions> bankAccountTransactions;
+
     @Transient
     private ApartmentAddress apartmentAddress;
 
     @Transient
     private Rent rent;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
-
+    
+    @Transient
+    private ResidenceLiabilities residenceLiabilities;
+        
     public Apartment() {
     }
 
@@ -112,14 +125,7 @@ public class Apartment {
     public void setHeaterConsumption(BigDecimal heaterConsumption) {
         this.heaterConsumption = heaterConsumption;
     }
-
-    public BigDecimal getLiabilities() {
-        return liabilities;
-    }
-
-    public void setLiabilities(BigDecimal liabilities) {
-        this.liabilities = liabilities;
-    }
+ 
 
     public String getNotes() {
         return notes;
@@ -153,6 +159,30 @@ public class Apartment {
         this.rent = rent;
     }
 
+    public ResidenceLiabilities getResidenceLiabilities() {
+        return residenceLiabilities;
+    }
+
+    public void setResidenceLiabilities(ResidenceLiabilities residenceLiabilities) {
+        this.residenceLiabilities = residenceLiabilities;
+    }
+
+    public List<BankAccountTransactions> getBankAccountTransactions() {
+        return bankAccountTransactions;
+    }
+
+    public void setBankAccountTransactions(List<BankAccountTransactions> bankAccountTransactions) {
+        this.bankAccountTransactions = bankAccountTransactions;
+    }
+
+    public BigDecimal getLiabilities() {
+        return liabilities;
+    }
+
+    public void setLiabilities(BigDecimal liabilities) {
+        this.liabilities = liabilities;
+    }
+
     @Override
     public String toString() {
         return "Apartment "
@@ -162,7 +192,6 @@ public class Apartment {
                 + ", numberOfOccupants=" + numberOfOccupants
                 + ", waterConsumption=" + waterConsumption
                 + ", heaterConsumption=" + heaterConsumption
-                + ", liabilities=" + liabilities
                 + ", notes=" + notes
                 + "]";
     }

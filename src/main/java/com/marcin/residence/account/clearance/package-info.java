@@ -10,15 +10,24 @@
  *
  * As for now the bank account transfers are fixed "by hand" and are fetched
  * from the database since an appropriate API for this purpose is another
- * kind of challenge for me by now.
+ * kind of challenge for me by now (just playing now with Account Information API 
+ * from https://developer.ing.com/api-marketplace/marketplace).
  *
  * First version of this task is to be designed for a single residence
  * rather than for the all residences stored in the database.
  *
- * Note: Liabilities always concern a single apartment and bank account
- * transfers always concern a single owner. Since an owner may have more than
- * one residence, the liabilities and transfers do not match as one-to-one
- * relationship.
+ * Note: Liabilities always concern a single apartment (not an owner) and the bank
+ * account is also assigned to a particular apartment. Since an owner may have more
+ * than one residence, his total liabilities amount is a sum of liabilities of
+ * apartments owned by him.
+ * 
+ * Note: Package structure in com.marcin.residence.account module is organized in
+ * a different manner than in the main module (general com.marcin.residence tree).
+ * There are no controller/entity/service/repository sections here. It is rather
+ * divided taking into account the available features. These two different way of
+ * organizing classes will change in the future and a single system will be chosen.
+ * This app grows constantly up that`s why it will be eventually organized by 
+ * features probably.
  *
  * WORK IN PROGRESS.
  */

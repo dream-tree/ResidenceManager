@@ -21,7 +21,8 @@ public class RentController {
     private RentService rentService;
 
     @GetMapping("/calculateRent")
-    public void calculateRent() {
+    public String calculateRent() {
         rentService.calculateAllRents();
+        return "rent-calculation-result";
     }
 }

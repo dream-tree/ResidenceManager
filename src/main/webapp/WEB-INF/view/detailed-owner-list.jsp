@@ -155,7 +155,7 @@
 				<br>
 				<table class="apartment-table">
 					<tr>
-						<th class="apartmen-theader" colspan="6">Apartment #${status.count} Details</th>
+						<th class="apartment-header" colspan="6">Apartment #${status.count} Details</th>
 						<th class="action-header">Action</th>
 					</tr>
 					<tr>
@@ -163,9 +163,9 @@
 						<td class="apartment100">${tempApartment.area}</td>
 						<th class="apartment200">Number of Rooms</th>
 						<td class="apartment100">${tempApartment.numberOfRooms}</td>
-						<th class="apartment100" rowspan="6">Notes</th>
-						<td class="apartment300" rowspan="6" >${tempApartment.notes}</td>
-						<td class="apartment130" rowspan="6">
+						<th class="apartment100" rowspan="7">Notes</th>
+						<td class="apartment300" rowspan="7" >${tempApartment.notes}</td>
+						<td class="apartment130" rowspan="7">
 							<a href="${updateApartmentDetailsLink}">Update</a><br>
 							<a href="${deleteApartmentLink}"
 								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>
@@ -197,21 +197,26 @@
 					</tr>
 					<tr>
 						<td class="apartment100c" colspan="2">
-						<!-- TODO link: copied from other place -->
-							<a href="${updateApartmentLink}">Show Rent Details</a> 
+							<a href="${pageContext.request.contextPath}
+							/apartment/showRentDetails?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Rent Details</a> 
 						</td>
 						<td class="apartment200c" colspan="2">
-						<!-- TODO link: copied from other place -->
-							<a href="${updateApartmentLink}">Show Liabilities Details</a> 
+							<a href="${pageContext.request.contextPath}
+							/apartment/showLiabilities?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Liabilities</a>
 						</td>
-					</tr>				
+					</tr>
+					<tr>
+						<td class="apartment100c" colspan="4">
+						    <a href="${pageContext.request.contextPath}/apartment/showApartmentTransactions?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Transactions</a>
+                        </td>
+					</tr>			
 				</table>
 				<br><br><br>
 			</c:forEach>
 		</div>
 	</div>
 	<p>
-		<a href="${pageContext.request.contextPath}/residence/list">Back to List</a>
+		<a href="${pageContext.request.contextPath}/residence/list">Back to List of Owners</a>
 	</p>
 	<p>
 		<a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a>

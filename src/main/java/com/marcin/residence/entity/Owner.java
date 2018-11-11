@@ -80,13 +80,13 @@ public class Owner {
     public Owner() {
     }
 
-    public void addApartment(Apartment apartment) {
+/*    public void addApartment(Apartment apartment) {
         if (apartments == null) {
             apartments = new ArrayList<>();
         }
         apartments.add(apartment);
         apartment.setOwner(this);
-    }
+    }*/
 
     public int getId() {
         return id;

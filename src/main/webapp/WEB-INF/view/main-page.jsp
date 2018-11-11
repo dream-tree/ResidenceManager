@@ -20,11 +20,10 @@
 	<p>Welcome to Residence Manager application.</p>
 	<p>You can search for a particular house owner using search bar below.
 	You can search by the first name, the last name or the owner id. You are allowed to search for substrings too.</p>	
-	<p>Search is case insensitive.</p>	
-	<p>You can also check all house owners in the database and then update or delete chosen owner account
+	<p>Search is case insensitive. You can also check all house owners in the database and then update or delete chosen owner account
 	by choosing Show All Owners tab.</p>
-	<p>You can also add a new house owner, his apartment data, transactions and occupants by choosing Add New Owner tab.</p>
-	<p>Try one of the appropriate link below.</p>
+	<p>You can also add a new house owner and his apartment(s) data by choosing Add New Owner tab. You can set new rates for utilities and calculate rents for all apartments.</p>
+	<p>Fetching bank data and sending messages features are not available yet. All other features available on the subsequent pages. Try one of the appropriate links below.</p>
 	
 	<div id="container">
 		<div id="content">
@@ -59,7 +58,7 @@
 					</td>
 					<td>
 						<form:form action="calculateRent" method="GET">
-							<input type="submit" value="Calculate Rent" class="button"
+							<input type="submit" value="Calculate Rents" class="button"
 								onclick="if(!(confirm('You are going to re-calculate rent for all owners in the database.\nIt may take a while.\nProceed with caution!\nConfirm yor decision.'))) return false;" />
 						</form:form>	
 					</td>

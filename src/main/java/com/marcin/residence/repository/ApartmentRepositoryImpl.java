@@ -52,7 +52,8 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         Session currentSession = sessionFactory.getCurrentSession();
         List<Apartment> apartments = currentSession.createQuery(
                 "SELECT a FROM Apartment a "
-                        + "WHERE a.owner.id=:id ", Apartment.class)
+                        + "WHERE a.owner.id=:id ",
+                        Apartment.class)
                 .setParameter("id", theOwnerId)
                 .getResultList();
         return apartments;

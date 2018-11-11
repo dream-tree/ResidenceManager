@@ -1,5 +1,8 @@
 package com.marcin.residence.controller;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.marcin.residence.account.clearance.BankAccountTransactions;
+import com.marcin.residence.account.clearance.BankAccountTransactionsService;
+import com.marcin.residence.account.clearance.ResidenceLiabilities;
+import com.marcin.residence.account.clearance.ResidenceLiabilitiesService;
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Owner;
+import com.marcin.residence.entity.Rent;
 import com.marcin.residence.service.ApartmentAddressService;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
+import com.marcin.residence.service.RentService;
 
 /**
  * Handles incoming requests, user input and interactions for creating,
@@ -37,6 +46,12 @@ public class ApartmentController {
 	private OwnerService ownerService;
     @Autowired
     private ApartmentAddressService apartmentAddressService;
+    @Autowired
+    private BankAccountTransactionsService bankAccountTransactionsService;
+    @Autowired
+    private RentService rentService;
+    @Autowired
+    private ResidenceLiabilitiesService residenceLiabilitiesService;
 
 	@GetMapping("/addApartment")
 	public String addApartment(@RequestParam("ownerId") int theOwnerId, Model theModel) {
@@ -94,4 +109,36 @@ public class ApartmentController {
 		apartmentService.deleteApartment(theApartmentId);
 		return "redirect:/residence/showDetails?ownerId=" + theOwnerId;
 	}
+
+    @GetMapping("/showApartmentTransactions")
+    public String showApartmentTransactions(@RequestParam("apartmentId") int theApartmentId,
+            @RequestParam("ownerId") int theOwnerId, Model theModel) {
+        List<BankAccountTransactions> theTransactionList = bankAccountTransactionsService
+                .getTransactions(theApartmentId);
+        theModel.addAttribute("transactionList", theTransactionList);
+        theModel.addAttribute("ownerId", theOwnerId);
+        return "transactions";
+    }
+
+    @GetMapping("/showRentDetails")
+    public String showRentDetails(@RequestParam("apartmentId") int theApartmentId,
+            @RequestParam("ownerId") int theOwnerId, Model theModel) {
+        Rent theRent = rentService.getRent(theApartmentId);
+        theModel.addAttribute("rent", theRent);
+        theModel.addAttribute("ownerId", theOwnerId);
+        return "rent-details";
+    }
+
+    @GetMapping("/showLiabilities")
+    public String showLiabilities(@RequestParam("apartmentId") int theApartmentId,
+            @RequestParam("ownerId") int theOwnerId, Model theModel) {
+        List<ResidenceLiabilities> theLiabilityList =
+                residenceLiabilitiesService.getLiabilities(theApartmentId);
+        theModel.addAttribute("liabilityList", theLiabilityList);
+        theModel.addAttribute("ownerId", theOwnerId);
+        BigDecimal currentTotalLiabilitiesValue = 
+                theLiabilityList.get(theLiabilityList.size() - 1).getTotalLiabilitiesValue();
+        theModel.addAttribute("totalLiabilitiesValue", currentTotalLiabilitiesValue);
+        return "liabilities-details";
+    }
 }
