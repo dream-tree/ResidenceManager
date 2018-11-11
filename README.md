@@ -44,19 +44,18 @@ Project is in progress.<br>
 Project is up and running.
 
 ## Images
-![1](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg)
-<img src="https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg" width="1000" height="550">
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard05.jpg?v=1000&s=550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07a.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07b.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07c.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard08.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard09.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard10.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard21.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard22.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard23.jpg =1000x550)
-![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard99last.jpg =1000x550)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard05.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07a.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07b.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07c.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard08.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard09.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard10.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard21.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard22.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard23.jpg)
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard99last.jpg)
 
 ## Contact
 Created by [dream-tree](https://www.linkedin.com/in/marcin-klimek) - feel free to contact me!
