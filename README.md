@@ -45,16 +45,27 @@ Project is up and running.
 
 ## Images
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard05.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07a.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07b.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07c.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard08.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard09.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard10.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard21.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard22.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard23.jpg)
+---
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard99last.jpg)
 
 ## Contact
