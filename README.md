@@ -29,17 +29,17 @@ calculating the current internal account balance and sending emails to the owner
 List of ready features:
 * Logging in with database authentication.
 * Listing all database owners or searching an owner by name (or a substring).
-* Adding or updating an owner or his/her residence(s) and all of their details.
+* Adding or updating an owner or his/her apartment(s) and all of their details.
 * User input validation.
-* Deleting an owner or a residence.
+* Deleting an owner or a apartment.
 * Listing rent details, apartment liabilities and bank transfers.
-* Calculating rent for all residence after setting the rates for utilities.
-* Scheduler for monthly addition of current rent to the apartment total liability value.
-* Recalculation of the apartment total liability value based on the added monthly rent.
+* Calculating rents for all apartments after setting up the rates for utilities.
+* Scheduler for monthly addition of the current rent amount to the total liability value on the apartment account.
+* Recalculation of the apartment total liability value based on the monthly rent added previously.
 
 TODO list:
 * Scheduler for adding bank transactions to an apartment account.
-* Liabilities recalculation (after addition of the bank transfers).
+* Total liability value recalculation (after addition of the bank transfers).
 * Sending emails to owners with an account overdraft.
 * Fetching bank account transfers.
 
