@@ -193,7 +193,7 @@
 						<th class="apartment100">Rent</th>
 						<td class="apartment100">${tempApartment.rent.monthlyTotalRent}</td>
 						<th class="apartment200">Liabilities</th>
-						<td class="apartment100">${tempApartment.liabilities}</td>
+						<td class="apartment100">${tempApartment.apartmentAccountBalance.totalLiabilitiesValue}</td>
 					</tr>
 					<tr>
 						<td class="apartment100c" colspan="2">
@@ -202,7 +202,7 @@
 						</td>
 						<td class="apartment200c" colspan="2">
 							<a href="${pageContext.request.contextPath}
-							/apartment/showLiabilities?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Liabilities</a>
+							/apartment/showApartmentLiabilities?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Liabilities</a>
 						</td>
 					</tr>
 					<tr>

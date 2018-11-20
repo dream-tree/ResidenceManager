@@ -1,7 +1,6 @@
 package com.marcin.residence.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,15 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.pl.PESEL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.marcin.residence.entity.validation.BankAccountNumber;
 
@@ -64,6 +62,7 @@ public class Owner {
 
     @Past(message = "{past.dateOfBirth}")
     @Column(name = "date_of_birth")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate dateOfBirth;
 
     @PESEL(message = "{pattern.pesel}")
@@ -79,14 +78,6 @@ public class Owner {
 
     public Owner() {
     }
-
-/*    public void addApartment(Apartment apartment) {
-        if (apartments == null) {
-            apartments = new ArrayList<>();
-        }
-        apartments.add(apartment);
-        apartment.setOwner(this);
-    }*/
 
     public int getId() {
         return id;

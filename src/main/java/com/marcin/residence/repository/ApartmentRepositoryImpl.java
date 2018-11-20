@@ -1,5 +1,7 @@
 package com.marcin.residence.repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -7,9 +9,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.marcin.residence.account.balance.ApartmentAccountBalance;
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Rent;
+import com.sun.mail.handlers.text_html;
 
 /**
  * Provides the implementation for CRUD operations and common queries, i.e.
@@ -74,23 +78,34 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     }
 
     /**
-     * Saves a new Apartment or updates an existing one in the database.
+     * Updates an existing apartment in the database.
      *
-     * @param theApartment an Apartment to be saved or updated
+     * @param theApartment an apartment to be updated
      */
     @Override
-    public void saveApartment(Apartment theApartment) {
+    public void updateApartment(Apartment theApartment) {
         Session currentSession = sessionFactory.getCurrentSession();
-        int theApartmentId = theApartment.getId();
-        currentSession.saveOrUpdate(theApartment);
-        if (theApartmentId == 0) {
-            ApartmentAddress theApartmentAddress = new ApartmentAddress();
-            theApartmentAddress.setApartment(theApartment);
-            Rent theRent = new Rent();
-            theRent.setApartment(theApartment);
-            currentSession.save(theApartmentAddress);
-            currentSession.save(theRent);
-        }
+        currentSession.update(theApartment);
+    }
+
+    /**
+     * Saves a new apartment in the database altogether with the predefined rent,
+     * apartment address and apartment account balance.
+     *
+     * @param theApartment a new apartment to be saved 
+     * @param theRent a predefined ("zero" values) apartment rent to be saved 
+     * @param theApartmentAddress a predefined apartment address to be saved 
+     * @param theBalance a predefined ("zero" values) apartment account balance
+     *          to be saved 
+     */
+    @Override
+    public void saveApartment(Apartment theApartment, Rent theRent,
+            ApartmentAddress theApartmentAddress, ApartmentAccountBalance theBalance) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(theApartment);
+        currentSession.save(theApartmentAddress);
+        currentSession.save(theRent);
+        currentSession.save(theBalance);     
     }
 
     /**

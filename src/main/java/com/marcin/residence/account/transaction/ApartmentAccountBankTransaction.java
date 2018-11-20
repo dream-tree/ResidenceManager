@@ -1,4 +1,4 @@
-package com.marcin.residence.account.clearance;
+package com.marcin.residence.account.transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,15 +16,15 @@ import javax.persistence.Table;
 import com.marcin.residence.entity.Apartment;
 
 /**
- * Represents individual bank account transactions for a given apartment i.e.,
- * owner transfers into bank account associated with given apartment.
+ * Represents a bank transaction for a given apartment account i.e.,
+ * owner transfer into bank account associated with given apartment.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
 @Entity
 @Table(name = "bank_account_transactions ")
-public class BankAccountTransactions {
+public class ApartmentAccountBankTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,6 +50,7 @@ public class BankAccountTransactions {
     private BigDecimal transactionAmount;
 
     /**
+     * TODO: if necessary
      * Determines if a given transaction is already cleared i.e.,
      * if liabilities are already reduced by this particular
      * transaction amount:
@@ -65,13 +66,7 @@ public class BankAccountTransactions {
     @JoinColumn(name = "apartment_id")
     private Apartment apartment;
 
-/*    *//**
-     * Bank account number.
-     *//*
-    @Column(name = "account_number")
-    private BigDecimal accountNumber;*/
-
-    public BankAccountTransactions() {
+    public ApartmentAccountBankTransaction() {
     }
 
     public Apartment getApartment() {
@@ -129,7 +124,6 @@ public class BankAccountTransactions {
                 + ", transactionId=" + transactionId
                 + ", transactionAmount=" + transactionAmount
                 + ", transactionDate=" + transactionDate
-                + ", transactionFlag=" + transactionFlag
-               /* + ", accountNumber=" + accountNumber + "]"*/;
+                + ", transactionFlag=" + transactionFlag;
     }
 }

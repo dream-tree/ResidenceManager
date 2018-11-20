@@ -21,9 +21,6 @@
 		<h3>Save Apartment</h3>		
 		<form:form action="saveApartmentDetails" modelAttribute="apartment" method="POST">			
 			<form:hidden path="id"/>
-			<form:hidden path="waterConsumption"/>
-			<form:hidden path="heaterConsumption"/>
-			<form:hidden path="liabilities"/>
 			<form:hidden path="apartmentAddress.id"/>	
 			<form:hidden path="rent.id"/>
 			<form:hidden path="rent.monthlyTotalRent"/>
@@ -46,6 +43,16 @@
 						<td><label class=label1><form:errors path="numberOfOccupants" class="error"/></label></td>
 					</tr>
 					<tr>
+                        <td><label>Water Consumption:</label></td>
+                        <td><form:input path="waterConsumption"/></td>
+                        <td><label class=label1><form:errors path="waterConsumption" class="error"/></label></td>
+                    </tr>
+                    <tr>
+                        <td><label>Heater Consumption:</label></td>
+                        <td><form:input path="heaterConsumption"/></td>
+                        <td><label class=label1><form:errors path="heaterConsumption" class="error"/></label></td>
+                    </tr>
+					<tr>
 						<td><label>Notes:</label></td>
 						<td><form:input path="notes"/></td>
 						<td><label class=label1><form:errors path="notes" class="error"/></label></td>
@@ -58,7 +65,11 @@
 			</table>
 		</form:form>	
 		<br>
-		<p>Water consumption and heater consumption values are loaded from an external source. No updates in this form are allowed.</p>
+		<p>Water consumption and heater consumption values are generally loaded from an external source. 
+		No updates in this form should be allowed in production.</p> 
+		<p>Nevertheless if these vales are not updated before the process of recalculating the
+		rent value for the apartment, it is necessary to fill these input fields, due to the null 
+		value in database in such a case.</p>
 		<br>
 		<div style="clear; both;"></div>
 		

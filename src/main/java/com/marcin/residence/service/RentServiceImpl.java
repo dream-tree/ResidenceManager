@@ -2,6 +2,7 @@ package com.marcin.residence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
 
@@ -12,10 +13,11 @@ import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.Rates;
 import com.marcin.residence.entity.Rent;
 import com.marcin.residence.repository.RentRepository;
+import com.sun.mail.handlers.image_gif;
 
 /**
- * Provides the implementation for calculating, adding and updating the rents
- * for all available apartments in the database.
+ * Provides the implementation for accessing, adding and updating (calculating)
+ * rent for an apartment.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -29,6 +31,8 @@ public class RentServiceImpl implements RentService {
     private ApartmentService apartmentService;
     @Autowired
     private RentRepository rentRepository;
+    
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     /**
      * Gets a current Rent for given Apartment.
@@ -44,29 +48,28 @@ public class RentServiceImpl implements RentService {
     /**
      * Calculates rents for all apartments in the database after an update
      * on rates for utilities is made.
-     * It gets the current rates for utilities and all available Apartments
-     * in the database altogether with their fixed cost driving components,
-     * and then it calculates new rent for a given apartment based on those
-     * factors. In the last step, the new rent for a given apartment is saved
+     * It gets the current rates for utilities and all available apartments
+     * altogether with their fixed cost driving components, and then it
+     * calculates new rent for a given apartment based on those factors.
+     * In the last step, the new rent for a given apartment is saved
      * in the database.
      */
     @Override
     @Transactional
     public void calculateAllRents() {
         Rates theRates = ratesService.getRates();
-        System.out.println("RATES: " + theRates);
         BigDecimal repairFundRate = theRates.getRepairFundRate();
         BigDecimal waterRate = theRates.getWaterRate();
         BigDecimal heatingRate = theRates.getHeatingRate();
         BigDecimal wasteFee = theRates.getWasteFee();
         BigDecimal tvFee = theRates.getTvFee();
-
-        // try-catch clause in case of a new apartment was added but heater or
-        // water consumption were not estimated yet (loaded from an external source)
+        int i = 0;
+        // try-catch clause used in case of a new apartment was added but the heater 
+        // or water consumption, loaded from an external source, were not estimated yet
         try {
             List<Apartment> theApartments = apartmentService.getAllApartments();
-            System.out.println("APARTMENTS1: " + theApartments.size());
             for (Apartment apartment : theApartments) {
+                i++;
                 BigDecimal repairFundTotalCost = repairFundRate.multiply(
                         apartment.getArea());
                 BigDecimal waterTotalCost = waterRate.multiply(
@@ -80,20 +83,31 @@ public class RentServiceImpl implements RentService {
                         .add(heatingTotalCost)
                         .add(wasteFeeTotalCost)
                         .add(tvFee);
-                System.out.println("APARTMENTS2: " + theApartments);
                 Rent theRent = getRent(apartment.getId());
-                System.out.println("RENT: " + theRent);
                 theRent.setRepairFundTotalCost(repairFundTotalCost);
                 theRent.setWaterTotalCost(waterTotalCost);
                 theRent.setHeatingTotalCost(heatingTotalCost);
                 theRent.setWasteFeeTotalCost(wasteFeeTotalCost);
                 theRent.setTvFeeTotal(tvFee);
                 theRent.setMonthlyTotalRent(monthlyTotalRent);
-                System.out.println("RENT: " + theRent);
+                System.out.println("Apartment # " + i + ", " + apartment);
+                System.out.println("Rent      # " + i + ", " + theRent);
                 rentRepository.saveRent(theRent);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.info(">> RentServiceImpl#calculateAllRents: " + ex.getMessage());
         }
+    }
+    
+    /**
+     * Gets all rents for all apartments in order to calculate current
+     * apartments liabilities.
+     *
+     * @return list of Rent objects
+     */
+    @Override
+    @Transactional
+    public List<Rent> getAllRents() {
+        return rentRepository.getAllRents();
     }
 }

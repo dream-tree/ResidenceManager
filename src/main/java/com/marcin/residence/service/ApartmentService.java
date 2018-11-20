@@ -16,40 +16,40 @@ import com.marcin.residence.entity.Apartment;
 public interface ApartmentService {
 
     /**
-     * Gets a single Apartment from the database based on the Apartment id.
+     * Gets a single apartment from the database based on the apartment id.
      *
-     * @param theApartmentId database id of an Apartment
-     * @return an Apartment retrieved from the database
+     * @param theApartmentId database id of an apartment
+     * @return an apartment retrieved from the database
      */
     Apartment getSingleApartment(int theApartmentId);
 
     /**
-     * Gets all Apartment-s of a given Owner from the database
-     * based on the Owner id.
+     * Gets all apartments of a given owner from the database
+     * based on the owner id.
      *
-     * @param theOwnerId database id of an Owner
-     * @return list of Apartment-s retrieved from the database
+     * @param theOwnerId database id of an owner
+     * @return list of apartments retrieved from the database
      */
     List<Apartment> getOwnerApartments(int theOwnerId);
 
     /**
-     * Gets all Apartment-s from the database.
+     * Gets all apartments from the database.
      *
-     * @return list of all Apartment-s retrieved from the database
+     * @return list of all apartments retrieved from the database
      */
     List<Apartment> getAllApartments();
 
     /**
-     * Saves or updates a single Apartment in the database.
+     * Saves or updates a single apartment in the database. 
      *
      * @param theApartment an apartment to be saved or updated in the database
      */
     void saveApartment(Apartment theApartment);
 
     /**
-     * Deletes a single Apartment from the database based on the Apartment id.
+     * Deletes a single apartment from the database based on the id of an apartment.
      *
-     * @param theApartmentId id of an Apartment to be deleted from the database
+     * @param theApartmentId id of an apartment to be deleted from the database
      */
     void deleteApartment(int theApartmentId);
 

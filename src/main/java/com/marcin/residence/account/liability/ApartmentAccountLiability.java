@@ -1,4 +1,4 @@
-package com.marcin.residence.account.clearance;
+package com.marcin.residence.account.liability;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,15 +16,15 @@ import javax.persistence.Table;
 import com.marcin.residence.entity.Apartment;
 
 /**
- * Represents residence liabilities i.e., all liabilities calculations over
- * time and the current total liabilities amount for a given residence.
+ * Represents an apartment account liability amount calculated monthly (mainly
+ * on the rent basis).
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */
 @Entity
-@Table(name = "residence_liabilities")
-public class ResidenceLiabilities {
+@Table(name = "apartment_liability")
+public class ApartmentAccountLiability {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,33 +32,27 @@ public class ResidenceLiabilities {
     private int id;
 
     /**
-     * Date of a single liability calculation {@link ResidenceLiabilities#singleLiabilityValue}
-     * calculated on the basis of an apartment rent, or 
-     * date of the calculation of total value of liabilities for a given apartment 
-     * {@link ResidenceLiabilities#totalLiabilitiesValue}.
+     * Date of a new liability value calculation
+     * {@linkResidenceLiabilities#liabilityValue}
+     * based usually on the the apartment rent.
      */
     @Column(name = "calculation_date")
     private LocalDate calculationDate;
 
     /**
-     * Single liability amount calculated monthly.
+     * Single liability amount usually calculated monthly.
      */
-    @Column(name = "single_liability_value")
-    private BigDecimal singleLiabilityValue;
+    @Column(name = "liability_value")
+    private BigDecimal liabilityValue;
 
     /**
-     *  Total amount of liabilities after the recalculation process i.e, reducing
-     *  current liabilities amount by the available bank account transfers.
-     */
-    @Column(name = "total_liabilities_value")
-    private BigDecimal totalLiabilitiesValue;
-
-    /**
-     * Determines if a given liability is already repaid i.e.,
-     * if liability is already met by available bank account transfers:
+     * TODO: useless property
+     * Determines if a given single liability amount
+     * {@link ApartmentAccountLiability#liabilityValue} is already included
+     * in the apartment account balance value:
      * <ul>
-     * <li>0 means liability is not repaid</li>
-     * <li>0 means transaction is repaid</li>
+     * <li>0 means liability is not included</li>
+     * <li>0 means transaction is included.</li>
      * </ul>
      */
     @Column(name = "liability_flag")
@@ -68,7 +62,7 @@ public class ResidenceLiabilities {
     @JoinColumn(name = "apartment_id")
     private Apartment apartment;
 
-    public ResidenceLiabilities() {
+    public ApartmentAccountLiability() {
     }
 
     public int getId() {
@@ -87,20 +81,12 @@ public class ResidenceLiabilities {
         this.calculationDate = calculationDate;
     }
 
-    public BigDecimal getSingleLiabilityValue() {
-        return singleLiabilityValue;
+    public BigDecimal getLiabilityValue() {
+        return liabilityValue;
     }
 
-    public void setSingleLiabilityValue(BigDecimal singleLiabilityValue) {
-        this.singleLiabilityValue = singleLiabilityValue;
-    }
-
-    public BigDecimal getTotalLiabilitiesValue() {
-        return totalLiabilitiesValue;
-    }
-
-    public void setTotalLiabilitiesValue(BigDecimal totalLiabilitiesValue) {
-        this.totalLiabilitiesValue = totalLiabilitiesValue;
+    public void setLiabilityValue(BigDecimal liabilityValue) {
+        this.liabilityValue = liabilityValue;
     }
 
     public boolean isLiabilityFlag() {
@@ -110,7 +96,7 @@ public class ResidenceLiabilities {
     public void setLiabilityFlag(boolean liabilityFlag) {
         this.liabilityFlag = liabilityFlag;
     }
-
+    
     public Apartment getApartment() {
         return apartment;
     }
@@ -124,8 +110,7 @@ public class ResidenceLiabilities {
         return "ResidenceLiabilities "
                 + "[id=" + id
                 + ", calculationDate=" + calculationDate
-                + ", singleLiabilityValue=" + singleLiabilityValue
-                + ", totalLiabilitiesValue=" + totalLiabilitiesValue
+                + ", liabilityValue=" + liabilityValue
                 + ", liabilityFlag=" + liabilityFlag + "]";
     }
 }

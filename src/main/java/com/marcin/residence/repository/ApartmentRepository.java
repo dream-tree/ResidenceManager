@@ -2,7 +2,10 @@ package com.marcin.residence.repository;
 
 import java.util.List;
 
+import com.marcin.residence.account.balance.ApartmentAccountBalance;
 import com.marcin.residence.entity.Apartment;
+import com.marcin.residence.entity.ApartmentAddress;
+import com.marcin.residence.entity.Rent;
 
 /**
  * Provides the interface for CRUD operations and common queries, i.e.
@@ -37,12 +40,25 @@ public interface ApartmentRepository {
     List<Apartment> getAllApartments();
 
     /**
-     * Saves a new Apartment or updates an existing one in the database.
+     * Updates an existing apartment in the database.
      *
-     * @param theApartment an Apartment to be saved or updated
+     * @param theApartment an apartment to be updated
      */
-    void saveApartment(Apartment theApartment);
-
+    public void updateApartment(Apartment theApartment);
+    
+    /**
+     * Saves a new apartment in the database altogether with the predefined rent,
+     * apartment address and apartment account balance.
+     *
+     * @param theApartment a new apartment to be saved 
+     * @param theRent a predefined ("zero" values) apartment rent to be saved 
+     * @param theApartmentAddress a predefined apartment address to be saved 
+     * @param theBalance predefined ("zero" values) apartment account balance
+     *          to be saved 
+     */  
+    public void saveApartment(Apartment theApartment, Rent theRent,
+            ApartmentAddress theApartmentAddress, ApartmentAccountBalance theBalance);
+    
     /**
      * Deletes an Apartment of a given id from the database.
      *

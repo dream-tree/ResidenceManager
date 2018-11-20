@@ -17,8 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.marcin.residence.account.clearance.BankAccountTransactions;
-import com.marcin.residence.account.clearance.ResidenceLiabilities;
+import com.marcin.residence.account.balance.ApartmentAccountBalance;
+import com.marcin.residence.account.liability.ApartmentAccountLiability;
+import com.marcin.residence.account.transaction.ApartmentAccountBankTransaction;
 
 /**
  * Represents an apartment, providing access to the apartment's area,
@@ -53,28 +54,22 @@ public class Apartment {
     @Column(name = "heater_consumption")
     private BigDecimal heaterConsumption;
 
-    @Column(name = "liabilities")
-    private BigDecimal liabilities;
-
     @Column(name = "notes")
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private Owner owner;
-    
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<BankAccountTransactions> bankAccountTransactions;
 
     @Transient
     private ApartmentAddress apartmentAddress;
 
     @Transient
     private Rent rent;
-    
+
     @Transient
-    private ResidenceLiabilities residenceLiabilities;
-        
+    private ApartmentAccountBalance apartmentAccountBalance;
+
     public Apartment() {
     }
 
@@ -125,7 +120,6 @@ public class Apartment {
     public void setHeaterConsumption(BigDecimal heaterConsumption) {
         this.heaterConsumption = heaterConsumption;
     }
- 
 
     public String getNotes() {
         return notes;
@@ -159,28 +153,12 @@ public class Apartment {
         this.rent = rent;
     }
 
-    public ResidenceLiabilities getResidenceLiabilities() {
-        return residenceLiabilities;
+    public ApartmentAccountBalance getApartmentAccountBalance() {
+        return apartmentAccountBalance;
     }
 
-    public void setResidenceLiabilities(ResidenceLiabilities residenceLiabilities) {
-        this.residenceLiabilities = residenceLiabilities;
-    }
-
-    public List<BankAccountTransactions> getBankAccountTransactions() {
-        return bankAccountTransactions;
-    }
-
-    public void setBankAccountTransactions(List<BankAccountTransactions> bankAccountTransactions) {
-        this.bankAccountTransactions = bankAccountTransactions;
-    }
-
-    public BigDecimal getLiabilities() {
-        return liabilities;
-    }
-
-    public void setLiabilities(BigDecimal liabilities) {
-        this.liabilities = liabilities;
+    public void setApartmentAccountBalance(ApartmentAccountBalance apartmentAccountBalance) {
+        this.apartmentAccountBalance = apartmentAccountBalance;
     }
 
     @Override

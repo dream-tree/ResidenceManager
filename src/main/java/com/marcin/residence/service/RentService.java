@@ -1,10 +1,12 @@
 package com.marcin.residence.service;
 
+import java.util.List;
+
 import com.marcin.residence.entity.Rent;
 
 /**
- * Provides the service for calculating, adding and updating the rents for all
- * available apartments in the database.
+ * Provides the service for accessing, adding and updating (calculating) rent
+ * for an apartment.
  * All requests should interact with the database through this interface
  * rather than directly through the repository interface.
  *
@@ -14,9 +16,9 @@ import com.marcin.residence.entity.Rent;
 public interface RentService {
 
     /**
-     * Gets a current Rent for given Apartment.
-     * @param theApartmentId database id of an Apartment
-     * @return a current Rent for given Apartment
+     * Gets a current rent for given apartment.
+     * @param theApartmentId database id of an apartment
+     * @return a current rent for given apartment
      */
     Rent getRent(int theApartmentId);
     
@@ -26,4 +28,11 @@ public interface RentService {
      */
     void calculateAllRents();
 
+    /**
+     * Gets all rents for all apartments in order to calculate current
+     * apartments liabilities).
+     *
+     * @return list of Rent objects
+     */
+    List<Rent> getAllRents();
 }

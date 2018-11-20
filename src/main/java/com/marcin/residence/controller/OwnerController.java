@@ -61,7 +61,7 @@ public class OwnerController {
     }
 
     @GetMapping("/showDetails")
-    public String showDetails(@RequestParam("ownerId") int theOwnerId, Model theModel) { 
+    public String showDetails(@RequestParam("ownerId") int theOwnerId, Model theModel) {
         Owner theOwner = ownerService.getOwner(theOwnerId);
         OwnerMailingAddress theOwnerMailingAddress =
                 ownerMailingAddressService.getOwnerMailingAddress(theOwnerId);
@@ -69,6 +69,8 @@ public class OwnerController {
         theModel.addAttribute("owner", theOwner);
         theModel.addAttribute("ownerMailingAddress", theOwnerMailingAddress);
         theModel.addAttribute("apartments", theApartments);
+        Apartment apartment = theApartments.get(0);
+        System.out.println(apartment.getApartmentAccountBalance());
         return "detailed-owner-list";
     }
 
@@ -102,7 +104,7 @@ public class OwnerController {
         ownerService.deleteOwner(theOwnerId);
         return "redirect:/residence/list";
     }
-        
+
     @GetMapping("/updateMailingAddress")
     public String updateMailingAddress(@RequestParam("ownerId") int theOwnerId, Model theModel) {
         OwnerMailingAddress theOwnerMailingAddress =

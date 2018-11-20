@@ -14,6 +14,14 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+/**
+ * Provides an email service for sending messages to apartment owners.
+ *
+ * @author dream-tree
+ * @version 4.00, September-October 2018
+ *
+ * TODO
+ */
 public class EmailService {
 
     private String host = "";

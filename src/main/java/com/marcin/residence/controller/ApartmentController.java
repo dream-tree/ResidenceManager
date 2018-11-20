@@ -1,6 +1,6 @@
 package com.marcin.residence.controller;
 
-import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.marcin.residence.account.clearance.BankAccountTransactions;
-import com.marcin.residence.account.clearance.BankAccountTransactionsService;
-import com.marcin.residence.account.clearance.ResidenceLiabilities;
-import com.marcin.residence.account.clearance.ResidenceLiabilitiesService;
+import com.marcin.residence.account.balance.ApartmentAccountBalance;
+import com.marcin.residence.account.balance.ApartmentAccountBalanceService;
+import com.marcin.residence.account.liability.ApartmentAccountLiability;
+import com.marcin.residence.account.liability.ApartmentAccountLiabilityService;
+import com.marcin.residence.account.transaction.ApartmentAccountBankTransaction;
+import com.marcin.residence.account.transaction.ApartmentAccountBankTransactionService;
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Owner;
@@ -47,11 +49,13 @@ public class ApartmentController {
     @Autowired
     private ApartmentAddressService apartmentAddressService;
     @Autowired
-    private BankAccountTransactionsService bankAccountTransactionsService;
+    private ApartmentAccountBankTransactionService bankAccountTransactionsService;
     @Autowired
     private RentService rentService;
     @Autowired
-    private ResidenceLiabilitiesService residenceLiabilitiesService;
+    private ApartmentAccountLiabilityService residenceLiabilitiesService;
+    @Autowired
+    private ApartmentAccountBalanceService apartmentAccountBalanceService;
 
 	@GetMapping("/addApartment")
 	public String addApartment(@RequestParam("ownerId") int theOwnerId, Model theModel) {
@@ -113,7 +117,7 @@ public class ApartmentController {
     @GetMapping("/showApartmentTransactions")
     public String showApartmentTransactions(@RequestParam("apartmentId") int theApartmentId,
             @RequestParam("ownerId") int theOwnerId, Model theModel) {
-        List<BankAccountTransactions> theTransactionList = bankAccountTransactionsService
+        List<ApartmentAccountBankTransaction> theTransactionList = bankAccountTransactionsService
                 .getTransactions(theApartmentId);
         theModel.addAttribute("transactionList", theTransactionList);
         theModel.addAttribute("ownerId", theOwnerId);
@@ -129,16 +133,23 @@ public class ApartmentController {
         return "rent-details";
     }
 
-    @GetMapping("/showLiabilities")
-    public String showLiabilities(@RequestParam("apartmentId") int theApartmentId,
+    @GetMapping("/showApartmentLiabilities")
+    public String showApartmentLiabilities(@RequestParam("apartmentId") int theApartmentId,
             @RequestParam("ownerId") int theOwnerId, Model theModel) {
-        List<ResidenceLiabilities> theLiabilityList =
+        List<ApartmentAccountLiability> theLiabilityList =
                 residenceLiabilitiesService.getLiabilities(theApartmentId);
+        ApartmentAccountBalance theBalance =
+                apartmentAccountBalanceService.getApartmentAccountBalance(theApartmentId); 
+
+        System.out.println("HERE1!!!" + theBalance);
+        System.out.println("HERE2!!!" + theBalance.getCalculationDate());
+        System.out.println("HERE3!!!" + theBalance.getTotalLiabilitiesValue());
+        String[] theDateTimeSeparated = theBalance.getCalculationDate().toString().split("T");
+        System.out.println("HERE4!!!" + Arrays.toString(theDateTimeSeparated));
         theModel.addAttribute("liabilityList", theLiabilityList);
+        theModel.addAttribute("balance", theBalance);
+        theModel.addAttribute("dateTime", theDateTimeSeparated);
         theModel.addAttribute("ownerId", theOwnerId);
-        BigDecimal currentTotalLiabilitiesValue = 
-                theLiabilityList.get(theLiabilityList.size() - 1).getTotalLiabilitiesValue();
-        theModel.addAttribute("totalLiabilitiesValue", currentTotalLiabilitiesValue);
         return "liabilities-details";
     }
 }

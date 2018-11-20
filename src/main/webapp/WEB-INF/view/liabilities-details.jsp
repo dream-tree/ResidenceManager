@@ -36,20 +36,28 @@
 					<th>No.</th>
 					<th class="apartment150">Calculation Date</th>
 					<th class="apartment150">Amount of Liability</th>
-					<th>Reduced</th>
+					<th>Paid off (Y/N)</th>
 				</tr>	
 				<c:forEach var="liability" items="${liabilityList}" varStatus="status"> 	
 					<tr>
 					    <td>${status.count}</td>
 						<td>${liability.calculationDate}</td>
-						<td>${liability.singleLiabilityValue}</td>
+						<td>${liability.liabilityValue}</td>
 						<td><c:if test="${liability.liabilityFlag==true}">YES</c:if>
 						    <c:if test="${liability.liabilityFlag==false}">NO</c:if></td>
                 </c:forEach>
 				<tr>
 					<th colspan="3">Total Current Amount of Liabilities</th>
-					<td>${totalLiabilitiesValue}</td>
+					<td colspan="1">${balance.totalLiabilitiesValue}</td>
 				</tr>
+				<tr>
+                    <th colspan="3">Calculation Date</th>
+                    <td colspan="1"><c:out value="${dateTime[0]}"/></td>
+                </tr>
+                <tr>
+                    <th colspan="3">Calculation Time</th>
+                    <td colspan="1"><c:out value="${dateTime[1]}"/></td>
+                </tr>
 			</table>
 		</div>
 	</div>
