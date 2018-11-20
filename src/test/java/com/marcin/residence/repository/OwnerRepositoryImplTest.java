@@ -50,7 +50,7 @@ public class OwnerRepositoryImplTest {
         assertEquals("43-200", actualOwnerMailingAddress.getPostalCode());
     }
 
-    @Test(expected=NoResultException.class)
+    @Test(expected = NoResultException.class)
     public void testGetNonExistingOwner() {
         service.getOwner(10524);
     }
