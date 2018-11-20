@@ -60,6 +60,6 @@ public class RentRepositoryImpl implements RentRepository {
         List<Rent> list = currentSession.createQuery(
                 "SELECT NEW Rent(rent.id, rent.monthlyTotalRent) FROM Rent rent",
                 Rent.class).getResultList();
-        return list; 
+        return list;
     }
 }

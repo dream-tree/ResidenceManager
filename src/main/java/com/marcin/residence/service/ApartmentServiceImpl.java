@@ -35,7 +35,7 @@ public class ApartmentServiceImpl implements ApartmentService {
     private ApartmentAddressRepository apartmentAddressRepository;
     @Autowired
     private ApartmentAccountBalanceRepository apartmentAccountBalanceRepository;
-    
+
     /**
      * Gets a single apartment from the database based on the apartment id.
      *
@@ -49,7 +49,7 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     /**
-     * Gets all apartments of a given owner from the database based on the 
+     * Gets all apartments of a given owner from the database based on the
      * the owner id. It also sets the corresponding ApartmentAddress, Rent and
      * ApartmentAccountBalance properties to the retrieved Apartment to show
      * the required information to the end-user on a web page.
@@ -121,9 +121,10 @@ public class ApartmentServiceImpl implements ApartmentService {
     public void deleteApartment(int theApartmentId) {
         apartmentRepository.deleteApartment(theApartmentId);
     }
-    
+
     /**
-     * Constructs new Rent object for an Apartment setting its property values to zero.
+     * Constructs new Rent object for an Apartment and sets its property values
+     * to zero.
      *
      * @return a new Rent object
      */
@@ -134,13 +135,13 @@ public class ApartmentServiceImpl implements ApartmentService {
         theRent.setTvFeeTotal(BigDecimal.valueOf(0.0));
         theRent.setWasteFeeTotalCost(BigDecimal.valueOf(0.0));
         theRent.setWaterTotalCost(BigDecimal.valueOf(0.0));
-        theRent.setMonthlyTotalRent(BigDecimal.valueOf(0.0));      
+        theRent.setMonthlyTotalRent(BigDecimal.valueOf(0.0));
         return theRent;
     }
-    
+
     /**
      * Constructs new ApartmentAccountBalance object for an Apartment
-     * setting its property values to zero.
+     * and sets its property values to zero.
      *
      * @return a new ApartmentAccountBalance object
      */
@@ -149,5 +150,5 @@ public class ApartmentServiceImpl implements ApartmentService {
         theBalance.setTotalLiabilitiesValue(BigDecimal.valueOf(0.0));
         theBalance.setCalculationDate(LocalDateTime.now());
         return theBalance;
-    }     
+    }
 }

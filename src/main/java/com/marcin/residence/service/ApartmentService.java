@@ -40,7 +40,7 @@ public interface ApartmentService {
     List<Apartment> getAllApartments();
 
     /**
-     * Saves or updates a single apartment in the database. 
+     * Saves or updates a single apartment in the database.
      *
      * @param theApartment an apartment to be saved or updated in the database
      */

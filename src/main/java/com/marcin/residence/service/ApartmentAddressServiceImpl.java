@@ -21,21 +21,21 @@ public class ApartmentAddressServiceImpl implements ApartmentAddressService {
     private ApartmentAddressRepository repository;
 
     /**
-     * Gets an ApartmentAddress from the database based on the Apartment id.
+     * Gets an apartment address from the database based on the id of an apartment.
      *
-     * @param theApartmentId database id of an Apartment
-     * @return an address of an Apartment
+     * @param theApartmentId database id of an apartment
+     * @return an address of an apartment
      */
     @Override
     @Transactional
-    public ApartmentAddress getApartmentAddress(int theId) {
-        return repository.getApartmentAddress(theId);
+    public ApartmentAddress getApartmentAddress(int theApartmentId) {
+        return repository.getApartmentAddress(theApartmentId);
     }
 
     /**
-     * Saves or updates an ApartmentAddress in the database.
+     * Saves or updates an apartment address in the database.
      *
-     * @param theApartmentAddress an address of a given Apartment
+     * @param theApartmentAddress an address of a given apartment
      *      to be saved or updated in the database
      */
     @Override

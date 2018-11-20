@@ -32,9 +32,8 @@ public class ApartmentAccountLiability {
     private int id;
 
     /**
-     * Date of a new liability value calculation
-     * {@linkResidenceLiabilities#liabilityValue}
-     * based usually on the the apartment rent.
+     * Date of a new liability value calculation based usually on the apartment
+     * rent.
      */
     @Column(name = "calculation_date")
     private LocalDate calculationDate;
@@ -47,12 +46,12 @@ public class ApartmentAccountLiability {
 
     /**
      * TODO: useless property
-     * Determines if a given single liability amount
+     * Determines if a given single liability value
      * {@link ApartmentAccountLiability#liabilityValue} is already included
      * in the apartment account balance value:
      * <ul>
      * <li>0 means liability is not included</li>
-     * <li>0 means transaction is included.</li>
+     * <li>1 means transaction is included.</li>
      * </ul>
      */
     @Column(name = "liability_flag")

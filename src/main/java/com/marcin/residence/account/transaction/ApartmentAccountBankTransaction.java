@@ -51,12 +51,11 @@ public class ApartmentAccountBankTransaction {
 
     /**
      * TODO: if necessary
-     * Determines if a given transaction is already cleared i.e.,
-     * if liabilities are already reduced by this particular
-     * transaction amount:
+     * Determines if a given transaction is already cleared i.e., if liabilities
+     * are already reduced by this particular transaction amount:
      * <ul>
      * <li>0 means transaction is not cleared</li>
-     * <li>0 means transaction is cleared</li>
+     * <li>1 means transaction is cleared</li>
      * </ul>
      */
     @Column(name = "transaction_flag")

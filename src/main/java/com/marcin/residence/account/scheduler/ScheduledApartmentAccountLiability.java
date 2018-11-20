@@ -48,10 +48,10 @@ public class ScheduledApartmentAccountLiability {
     /**
      * Updates every apartment account balance with a new liability based on
      * the current rent amount (bulk operation).
-     * Note: ApartmentLiability entity DOES NOT SHARE the Primary Key with the
-     * Apartment entity (@ManyToOne annotation used).
+     * Note: ApartmentLiability entity DOES NOT SHARE the Primary Key with
+     * the Apartment entity.
      * [That`s why an INSERT INTO statement with specified apartment_id is used
-     * instead of save() method in the repository.]
+     * in the repository instead of save() method.]
      *
      * @param rentList list of rents for all apartments in the database
      */

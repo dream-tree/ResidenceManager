@@ -33,7 +33,7 @@ public class ApartmentAccountBankTransactionRepositoryImpl implements
         List<ApartmentAccountBankTransaction> transactionList =
                 currentSession.createQuery(
                         "SELECT a FROM ApartmentBankTransaction a "
-                                + "WHERE a.apartment.id=:apartmentId ",
+                                + "WHERE a.apartment.id = :apartmentId ",
                                 ApartmentAccountBankTransaction.class)
                 .setParameter("apartmentId", theApartmentId)
                 .getResultList();

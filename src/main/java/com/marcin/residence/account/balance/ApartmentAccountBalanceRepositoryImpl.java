@@ -48,8 +48,8 @@ public class ApartmentAccountBalanceRepositoryImpl implements ApartmentAccountBa
         for (Rent rent : rentList) {
             currentSession.createQuery("UPDATE ApartmentAccountBalance "
                     + "SET totalLiabilitiesValue = totalLiabilitiesValue + :currentMonthlyRent, "
-                    + "calculationDate =:currentDate "
-                    + "WHERE id =:apartmentId")
+                    + "calculationDate = :currentDate "
+                    + "WHERE id = :apartmentId")
             .setParameter("currentMonthlyRent", rent.getMonthlyTotalRent())
             .setParameter("currentDate", LocalDateTime.now())
             .setParameter("apartmentId", rent.getId())

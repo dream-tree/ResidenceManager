@@ -39,7 +39,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         Session currentSession = sessionFactory.getCurrentSession();
         Apartment theApartment = currentSession.createQuery(
                 "SELECT a FROM Apartment a "
-                        + "WHERE a.id=:id", Apartment.class)
+                        + "WHERE a.id = :id", Apartment.class)
                 .setParameter("id", theApartmentId)
                 .getSingleResult();
         return theApartment;
@@ -56,7 +56,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         Session currentSession = sessionFactory.getCurrentSession();
         List<Apartment> apartments = currentSession.createQuery(
                 "SELECT a FROM Apartment a "
-                        + "WHERE a.owner.id=:id ",
+                        + "WHERE a.owner.id = :id ",
                         Apartment.class)
                 .setParameter("id", theOwnerId)
                 .getResultList();
@@ -92,11 +92,11 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
      * Saves a new apartment in the database altogether with the predefined rent,
      * apartment address and apartment account balance.
      *
-     * @param theApartment a new apartment to be saved 
-     * @param theRent a predefined ("zero" values) apartment rent to be saved 
-     * @param theApartmentAddress a predefined apartment address to be saved 
+     * @param theApartment a new apartment to be saved
+     * @param theRent a predefined ("zero" values) apartment rent to be saved
+     * @param theApartmentAddress a predefined apartment address to be saved
      * @param theBalance a predefined ("zero" values) apartment account balance
-     *          to be saved 
+     *          to be saved
      */
     @Override
     public void saveApartment(Apartment theApartment, Rent theRent,
@@ -105,7 +105,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         currentSession.save(theApartment);
         currentSession.save(theApartmentAddress);
         currentSession.save(theRent);
-        currentSession.save(theBalance);     
+        currentSession.save(theBalance);
     }
 
     /**

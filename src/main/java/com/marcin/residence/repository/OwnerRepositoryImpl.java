@@ -63,7 +63,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     public void deleteOwner(int theId) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.createQuery(
-                "DELETE FROM Owner WHERE id=:ownerId")
+                "DELETE FROM Owner WHERE id = :ownerId")
                 .setParameter("ownerId", theId)
                 .executeUpdate();
     }

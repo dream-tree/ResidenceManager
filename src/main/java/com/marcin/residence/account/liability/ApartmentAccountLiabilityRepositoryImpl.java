@@ -25,9 +25,9 @@ public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccount
 
     @Autowired
     private SessionFactory sessionFactory;
-    
+
     private Logger logger = Logger.getLogger(getClass().getName());
-    
+
     /**
      * Gets a list of all liability calculations for a single apartment.
      *
@@ -40,7 +40,7 @@ public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccount
         List<ApartmentAccountLiability> liabilitiesList =
                 currentSession.createQuery(
                         "SELECT al FROM ApartmentLiability al "
-                                + "WHERE al.apartment.id=:apartmentId "
+                                + "WHERE al.apartment.id = :apartmentId "
                                 + "ORDER BY al.calculationDate",
                                 ApartmentAccountLiability.class)
                 .setParameter("apartmentId", theApartmentId)
