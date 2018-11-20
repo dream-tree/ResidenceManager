@@ -52,7 +52,6 @@ public class ApartmentAccountBalanceRepositoryImplTest {
 
         for (int i = 0; i < 7; i++) {
             ApartmentAccountBalance actualBalance = service.getApartmentAccountBalance(i+1);
-            System.err.println("actualBalance: " + actualBalance.getTotalLiabilitiesValue());
             assertEquals(BigDecimal.valueOf(20.50).multiply(BigDecimal.valueOf(i+1)).setScale(2),
                     actualBalance.getTotalLiabilitiesValue());
         }
