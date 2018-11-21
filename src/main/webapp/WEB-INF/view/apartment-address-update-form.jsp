@@ -54,7 +54,8 @@
 
 		<div style="clear; both;"></div>		
 
-		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back to Owner Detail</a></p>		
+		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">
+            Back to Owner Detail</a></p>		
 		<p><a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a></p>	
 
 	</div>
