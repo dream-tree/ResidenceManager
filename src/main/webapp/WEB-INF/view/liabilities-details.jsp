@@ -19,11 +19,11 @@
 	</div>
 	
 	<div id="container">
-		<div id="content">	
-			
+		<div id="content">
+
 			<form:form action="search" method="POST">
 			Search another owner: <input type="text" name="theSearchName" />
-								  <input type="submit" value="Search" class="add-button" />
+				<input type="submit" value="Search" class="add-button" />
 			</form:form>
 			<br><br>
 					
@@ -38,8 +38,7 @@
 					<th class="apartment150">Amount of Liability</th>
 					<th>Paid off (Y/N)</th>
 				</tr>
-				<c:forEach var="liability" items="${liabilityList}"
-					varStatus="status">
+				<c:forEach var="liability" items="${liabilityList}" varStatus="status">
 					<tr>
 						<td>${status.count}</td>
 						<td>${liability.calculationDate}</td>
