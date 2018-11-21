@@ -62,16 +62,13 @@
 		</div>
 	</div>
 	<p>
-		<a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back
-			to Owner Details</a>
+		<a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back to Owner Details</a>
 	</p>
 	<p>
-		<a href="${pageContext.request.contextPath}/residence/list">Back
-			to List of Owners</a>
+		<a href="${pageContext.request.contextPath}/residence/list">Back to List of Owners</a>
 	</p>
 	<p>
-		<a href="${pageContext.request.contextPath}/residence/start">Back
-			to Main Page</a>
+		<a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a>
 	</p>
 
 	<div id="wrapper">
