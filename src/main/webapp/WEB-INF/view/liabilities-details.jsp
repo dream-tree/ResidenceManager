@@ -23,7 +23,7 @@
 
 			<form:form action="search" method="POST">
 			Search another owner: <input type="text" name="theSearchName" />
-				                  <input type="submit" value="Search" class="add-button" />
+				<input type="submit" value="Search" class="add-button" />
 			</form:form>
 			<br><br>
 					
@@ -44,7 +44,7 @@
 						<td>${liability.calculationDate}</td>
 						<td>${liability.liabilityValue}</td>
 						<td><c:if test="${liability.liabilityFlag==true}">YES</c:if>
-                            <c:if test="${liability.liabilityFlag==false}">NO</c:if></td>
+							<c:if test="${liability.liabilityFlag==false}">NO</c:if></td>
 				</c:forEach>
 				<tr>
 					<th colspan="3">Total Current Amount of Liabilities</th>
