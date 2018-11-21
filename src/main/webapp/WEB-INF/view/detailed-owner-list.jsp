@@ -212,7 +212,7 @@
 						<td class="apartment100c" colspan="4"><a
 							href="${pageContext.request.contextPath}/apartment/showApartmentTransactions?apartmentId=
 						              ${tempApartment.id}&ownerId=${owner.id}">Show Transactions</a>
-						              </td>
+						</td>
 					</tr>
 				</table>
 				<br><br><br>
