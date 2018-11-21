@@ -29,46 +29,50 @@
 					
 			<div id="section">
 				<h3>Apartment Liabilities Info</h3>
-			</div>	
-					
+			</div>
+
 			<table>
 				<tr>
 					<th>No.</th>
 					<th class="apartment150">Calculation Date</th>
 					<th class="apartment150">Amount of Liability</th>
 					<th>Paid off (Y/N)</th>
-				</tr>	
-				<c:forEach var="liability" items="${liabilityList}" varStatus="status"> 	
+				</tr>
+				<c:forEach var="liability" items="${liabilityList}"
+					varStatus="status">
 					<tr>
-					    <td>${status.count}</td>
+						<td>${status.count}</td>
 						<td>${liability.calculationDate}</td>
 						<td>${liability.liabilityValue}</td>
 						<td><c:if test="${liability.liabilityFlag==true}">YES</c:if>
-						    <c:if test="${liability.liabilityFlag==false}">NO</c:if></td>
-                </c:forEach>
+							<c:if test="${liability.liabilityFlag==false}">NO</c:if></td>
+				</c:forEach>
 				<tr>
 					<th colspan="3">Total Current Amount of Liabilities</th>
 					<td colspan="1">${balance.totalLiabilitiesValue}</td>
 				</tr>
 				<tr>
-                    <th colspan="3">Calculation Date</th>
-                    <td colspan="1"><c:out value="${dateTime[0]}"/></td>
-                </tr>
-                <tr>
-                    <th colspan="3">Calculation Time</th>
-                    <td colspan="1"><c:out value="${dateTime[1]}"/></td>
-                </tr>
+					<th colspan="3">Calculation Date</th>
+					<td colspan="1"><c:out value="${dateTime[0]}" /></td>
+				</tr>
+				<tr>
+					<th colspan="3">Calculation Time</th>
+					<td colspan="1"><c:out value="${dateTime[1]}" /></td>
+				</tr>
 			</table>
 		</div>
 	</div>
 	<p>
-        <a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back to Owner Details</a>
-    </p>
-	<p>
-		<a href="${pageContext.request.contextPath}/residence/list">Back to List of Owners</a>
+		<a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${ownerId}">Back
+			to Owner Details</a>
 	</p>
 	<p>
-		<a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a>
+		<a href="${pageContext.request.contextPath}/residence/list">Back
+			to List of Owners</a>
+	</p>
+	<p>
+		<a href="${pageContext.request.contextPath}/residence/start">Back
+			to Main Page</a>
 	</p>
 
 	<div id="wrapper">

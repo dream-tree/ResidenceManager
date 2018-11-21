@@ -29,38 +29,44 @@
 				<tbody>
 					<tr>
 						<td><label>Area:</label></td>
-						<td><form:input path="area"/></td>
-						<td><label class=label1><form:errors path="area" class="error"/></label></td>
+						<td><form:input path="area" /></td>
+						<td><label class=label1><form:errors path="area"
+									class="error" /></label></td>
 					</tr>
 					<tr>
 						<td><label>Number of Rooms:</label></td>
-						<td><form:input path="numberOfRooms"/></td>
-						<td><label class=label1><form:errors path="numberOfRooms" class="error"/></label></td>
+						<td><form:input path="numberOfRooms" /></td>
+						<td><label class=label1><form:errors
+									path="numberOfRooms" class="error" /></label></td>
 					</tr>
 					<tr>
 						<td><label>Number of Occupants:</label></td>
-						<td><form:input path="numberOfOccupants"/></td>
-						<td><label class=label1><form:errors path="numberOfOccupants" class="error"/></label></td>
+						<td><form:input path="numberOfOccupants" /></td>
+						<td><label class=label1><form:errors
+									path="numberOfOccupants" class="error" /></label></td>
 					</tr>
 					<tr>
-                        <td><label>Water Consumption:</label></td>
-                        <td><form:input path="waterConsumption"/></td>
-                        <td><label class=label1><form:errors path="waterConsumption" class="error"/></label></td>
-                    </tr>
-                    <tr>
-                        <td><label>Heater Consumption:</label></td>
-                        <td><form:input path="heaterConsumption"/></td>
-                        <td><label class=label1><form:errors path="heaterConsumption" class="error"/></label></td>
-                    </tr>
+						<td><label>Water Consumption:</label></td>
+						<td><form:input path="waterConsumption" /></td>
+						<td><label class=label1><form:errors
+									path="waterConsumption" class="error" /></label></td>
+					</tr>
+					<tr>
+						<td><label>Heater Consumption:</label></td>
+						<td><form:input path="heaterConsumption" /></td>
+						<td><label class=label1><form:errors
+									path="heaterConsumption" class="error" /></label></td>
+					</tr>
 					<tr>
 						<td><label>Notes:</label></td>
-						<td><form:input path="notes"/></td>
-						<td><label class=label1><form:errors path="notes" class="error"/></label></td>
-					</tr>				
+						<td><form:input path="notes" /></td>
+						<td><label class=label1><form:errors path="notes"
+									class="error" /></label></td>
+					</tr>
 					<tr>
 						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save"/></td>
-					</tr>			
+						<td><input type="submit" value="Save" class="save" /></td>
+					</tr>
 				</tbody>
 			</table>
 		</form:form>	
@@ -72,10 +78,15 @@
 		value in database in such a case.</p>
 		<br>
 		<div style="clear; both;"></div>
-		
-		<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartment.owner.id}">Back to Owner Detail</a></p>		
-		<p><a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a></p>
-	
+
+		<p>
+			<a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartment.owner.id}">Back
+				to Owner Detail</a>
+		</p>
+		<p>
+			<a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a>
+		</p>
+
 	</div>
 
 	<div id="wrapper">

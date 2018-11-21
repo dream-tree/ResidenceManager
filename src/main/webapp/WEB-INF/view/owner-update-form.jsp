@@ -73,7 +73,8 @@
 		<div style="clear; both;"></div>
 		
 		<c:if test="${owner.id!=0}">
-			<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${owner.id}">Go to Owner Details</a></p>
+			<p><a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${owner.id}">
+                Go to Owner Details</a></p>
 		</c:if>
 		<p><a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a></p>
 	

@@ -61,7 +61,8 @@
 						<td> <a href="${updateLink}">Update</a>
 							 | 
 							 <a href="${deleteLink}"
-							    onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) return false;">Delete</a>
+							    onclick="if(!(confirm('Are you sure you want to delete this house owner?'))) 
+								    return false;">Delete</a>
 							 |
 							 <a href="${detailsLink}">Details</a>
 						</td>

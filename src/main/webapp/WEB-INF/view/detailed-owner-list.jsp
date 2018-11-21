@@ -28,7 +28,7 @@
 			<br><br>
 					
 			<div id="section">
-				<h3>Owner info</h3>
+				<h3>Owner Info</h3>
 			</div>	
 					
 			<table>
@@ -107,7 +107,7 @@
 	</div>
 
 	<div id="section">
-		<h3>Apartments info</h3>
+		<h3>Apartment Info</h3>
 	</div>
 
 	<div id="container">
@@ -168,7 +168,8 @@
 						<td class="apartment130" rowspan="7">
 							<a href="${updateApartmentDetailsLink}">Update</a><br>
 							<a href="${deleteApartmentLink}"
-								onclick="if(!(confirm('Are you sure you want to delete this apartment (Address & Details sections)?'))) return false;">Delete</a>
+								onclick="if(!(confirm('Are you sure you want to delete this apartment
+									 (Address & Details sections)?'))) return false;">Delete</a>
 						</td>
 					</tr>
 					<tr>
@@ -198,16 +199,19 @@
 					<tr>
 						<td class="apartment100c" colspan="2">
 							<a href="${pageContext.request.contextPath}
-							/apartment/showRentDetails?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Rent Details</a> 
+							/apartment/showRentDetails?apartmentId=${tempApartment.id}&ownerId=
+                                ${owner.id}">Show Rent Details</a> 
 						</td>
 						<td class="apartment200c" colspan="2">
 							<a href="${pageContext.request.contextPath}
-							/apartment/showApartmentLiabilities?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Liabilities</a>
+							/apartment/showApartmentLiabilities?apartmentId=${tempApartment.id}&ownerId=
+                                ${owner.id}">Show Liabilities</a>
 						</td>
 					</tr>
 					<tr>
-						<td class="apartment100c" colspan="4">
-						    <a href="${pageContext.request.contextPath}/apartment/showApartmentTransactions?apartmentId=${tempApartment.id}&ownerId=${owner.id}">Show Transactions</a>
+                        <td class="apartment100c" colspan="4">
+						    <a href="${pageContext.request.contextPath}/apartment/showApartmentTransactions?apartmentId=
+                                ${tempApartment.id}&ownerId=${owner.id}">Show Transactions</a>
                         </td>
 					</tr>			
 				</table>
