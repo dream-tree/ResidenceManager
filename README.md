@@ -28,7 +28,7 @@ calculating the current internal account balance and sending emails to the owner
 ## Features
 List of ready features:
 * Logging in with database authentication.
-* Listing all database owners or searching an owner by name (or a substring).
+* Listing all database owners or searching database by name or by id of an apartment owner.
 * Adding or updating an owner or his/her apartment(s) and all of their details.
 * User input validation.
 * Deleting an owner or a apartment.
