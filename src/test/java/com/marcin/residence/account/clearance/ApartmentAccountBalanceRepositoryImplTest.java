@@ -42,16 +42,16 @@ public class ApartmentAccountBalanceRepositoryImplTest {
         List<Rent> rentList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
             Rent rent = new Rent();
-            rent.setId(i+1);
+            rent.setId(i + 1);
             rent.setMonthlyTotalRent(BigDecimal.valueOf(20.50)
-                    .multiply(BigDecimal.valueOf(i+1)));
+                    .multiply(BigDecimal.valueOf(i + 1)));
             rentList.add(rent);
         }
 
         service.updateApartmentAccountBalance(rentList);
 
         for (int i = 0; i < 7; i++) {
-            ApartmentAccountBalance actualBalance = service.getApartmentAccountBalance(i+1);
+            ApartmentAccountBalance actualBalance = service.getApartmentAccountBalance(i + 1);
             assertEquals(BigDecimal.valueOf(20.50).multiply(BigDecimal.valueOf(i+1)).setScale(2),
                     actualBalance.getTotalLiabilitiesValue());
         }
