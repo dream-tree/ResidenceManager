@@ -200,12 +200,12 @@
 						<td class="apartment100c" colspan="2">
 							<a href="${pageContext.request.contextPath}
 							     /apartment/showRentDetails?apartmentId=${tempApartment.id}&ownerId=
-                                        ${owner.id}">Show Rent Details</a> 
+                                                    ${owner.id}">Show Rent Details</a> 
 						</td>
 						<td class="apartment200c" colspan="2">
 							<a href="${pageContext.request.contextPath}
 							     /apartment/showApartmentLiabilities?apartmentId=${tempApartment.id}&ownerId=
-                                        ${owner.id}">Show Liabilities</a>
+                                                     ${owner.id}">Show Liabilities</a>
 						</td>
 					</tr>
 					<tr>
