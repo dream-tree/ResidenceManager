@@ -11,7 +11,7 @@ import com.marcin.residence.repository.OwnerRepository;
 
 /**
  * Provides the implementation for accessing, adding, updating, deleting
- * and searching an Owner (or Owner-s).
+ * and searching an owner (or owners).
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -23,10 +23,10 @@ public class OwnerServiceImpl implements OwnerService {
     private OwnerRepository ownerRepository;
 
     /**
-     * Gets an Owner from the database based on the Owner id.
+     * Gets an owner from the database based on the owner id.
      *
-     * @param theOwnerId database id of an Owner
-     * @return an Owner retrieved from the database
+     * @param theOwnerId database id of an owner
+     * @return an owner retrieved from the database
      */
     @Override
     @Transactional
@@ -35,9 +35,9 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     /**
-     * Saves or updates an Owner in the database.
+     * Saves or updates an owner in the database.
      *
-     * @param theOwner an Owner to be saved or updated in the database
+     * @param theOwner an owner to be saved or updated in the database
      */
     @Override
     @Transactional
@@ -46,9 +46,9 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     /**
-     * Deletes an Owner from the database based on the Owner id.
+     * Deletes an owner from the database based on the owner id.
      *
-     * @param theOwnerId id of an Owner to be deleted from the database
+     * @param theOwnerId id of an owner to be deleted from the database
      */
     @Override
     @Transactional
@@ -57,9 +57,9 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     /**
-     * Gets all Owner-s from the database.
+     * Gets all owners from the database.
      *
-     * @return list of Owner-s retrieved from the database
+     * @return list of owners retrieved from the database
      */
     @Override
     @Transactional
@@ -68,12 +68,12 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     /**
-     * Searches Owners in the database based on the user input typed
+     * Searches owners in the database based on the user input typed
      * in the searching bar.
      *
      * @param theSearchName string of characters typed by user
      *      in the searching bar
-     * @return a list of Owners retrieved from the database, fulfilling
+     * @return a list of owners retrieved from the database, fulfilling
      *      the criteria of the user query
      */
     @Override

@@ -1,7 +1,9 @@
 package com.marcin.residence.account.message;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -27,7 +29,8 @@ public class EmailService {
     private String host = "";
     private int port = 0;
     private String username = "";
-    private String password = "";
+    private String password = "";  
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     public EmailService(String host, int port, String username, String password) {
         this.host = host;
@@ -38,14 +41,14 @@ public class EmailService {
     }
 
     private void sendMail() {
-        Properties prop = new Properties();
-        prop.put("mail.smtp.auth", true);
-        prop.put("mail.smtp.starttls.enable", "true");
-        prop.put("mail.smtp.host", host);
-        prop.put("mail.smtp.port", port);
-        prop.put("mail.smtp.ssl.trust", host);
+        Properties property = new Properties();
+        property.put("mail.smtp.auth", true);
+        property.put("mail.smtp.starttls.enable", "true");
+        property.put("mail.smtp.host", host);
+        property.put("mail.smtp.port", port);
+        property.put("mail.smtp.ssl.trust", host);
 
-        Session session = Session.getInstance(prop, new Authenticator() {
+        Session session = Session.getInstance(property, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -57,7 +60,7 @@ public class EmailService {
             message.setFrom(new InternetAddress("***"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse("***"));
-            message.setSubject("Test");
+            message.setSubject("Test message");
 
             String msg = "Testing email service.";
 
@@ -75,8 +78,8 @@ public class EmailService {
 
             Transport.send(message);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            logger.info(">> EmailService#sendMail: " + ex.getMessage());
         }
     }
 }

@@ -13,7 +13,6 @@ import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.Rates;
 import com.marcin.residence.entity.Rent;
 import com.marcin.residence.repository.RentRepository;
-import com.sun.mail.handlers.image_gif;
 
 /**
  * Provides the implementation for accessing, adding and updating (calculating)
@@ -31,13 +30,11 @@ public class RentServiceImpl implements RentService {
     private ApartmentService apartmentService;
     @Autowired
     private RentRepository rentRepository;
-    
-    private Logger logger = Logger.getLogger(getClass().getName());
 
     /**
-     * Gets a current Rent for given Apartment.
-     * @param theApartmentId database id of an Apartment
-     * @return a current Rent for given Apartment
+     * Gets a current rent for given apartment.
+     * @param theApartmentId database id of an apartment
+     * @return a current rent for given apartment
      */
     @Override
     @Transactional
@@ -63,47 +60,38 @@ public class RentServiceImpl implements RentService {
         BigDecimal heatingRate = theRates.getHeatingRate();
         BigDecimal wasteFee = theRates.getWasteFee();
         BigDecimal tvFee = theRates.getTvFee();
-        int i = 0;
-        // try-catch clause used in case of a new apartment was added but the heater 
-        // or water consumption, loaded from an external source, were not estimated yet
-        try {
-            List<Apartment> theApartments = apartmentService.getAllApartments();
-            for (Apartment apartment : theApartments) {
-                i++;
-                BigDecimal repairFundTotalCost = repairFundRate.multiply(
-                        apartment.getArea());
-                BigDecimal waterTotalCost = waterRate.multiply(
-                        apartment.getWaterConsumption());
-                BigDecimal heatingTotalCost = heatingRate.multiply(
-                        apartment.getHeaterConsumption());
-                BigDecimal wasteFeeTotalCost = wasteFee.multiply(
-                        BigDecimal.valueOf(apartment.getNumberOfOccupants()));
-                BigDecimal monthlyTotalRent = repairFundTotalCost
-                        .add(waterTotalCost)
-                        .add(heatingTotalCost)
-                        .add(wasteFeeTotalCost)
-                        .add(tvFee);
-                Rent theRent = getRent(apartment.getId());
-                theRent.setRepairFundTotalCost(repairFundTotalCost);
-                theRent.setWaterTotalCost(waterTotalCost);
-                theRent.setHeatingTotalCost(heatingTotalCost);
-                theRent.setWasteFeeTotalCost(wasteFeeTotalCost);
-                theRent.setTvFeeTotal(tvFee);
-                theRent.setMonthlyTotalRent(monthlyTotalRent);
-                System.out.println("Apartment # " + i + ", " + apartment);
-                System.out.println("Rent      # " + i + ", " + theRent);
-                rentRepository.saveRent(theRent);
-            }
-        } catch (Exception ex) {
-            logger.info(">> RentServiceImpl#calculateAllRents: " + ex.getMessage());
+
+        List<Apartment> theApartments = apartmentService.getAllApartments();
+        for (Apartment apartment : theApartments) {
+            BigDecimal repairFundTotalCost = repairFundRate.multiply(
+                    apartment.getArea());
+            BigDecimal waterTotalCost = waterRate.multiply(
+                    apartment.getWaterConsumption());
+            BigDecimal heatingTotalCost = heatingRate.multiply(
+                    apartment.getHeaterConsumption());
+            BigDecimal wasteFeeTotalCost = wasteFee.multiply(
+                    BigDecimal.valueOf(apartment.getNumberOfOccupants()));
+            BigDecimal monthlyTotalRent = repairFundTotalCost
+                    .add(waterTotalCost)
+                    .add(heatingTotalCost)
+                    .add(wasteFeeTotalCost)
+                    .add(tvFee);
+            Rent theRent = getRent(apartment.getId());
+            theRent.setRepairFundTotalCost(repairFundTotalCost);
+            theRent.setWaterTotalCost(waterTotalCost);
+            theRent.setHeatingTotalCost(heatingTotalCost);
+            theRent.setWasteFeeTotalCost(wasteFeeTotalCost);
+            theRent.setTvFeeTotal(tvFee);
+            theRent.setMonthlyTotalRent(monthlyTotalRent);
+            rentRepository.saveRent(theRent);
         }
     }
-    
+
     /**
-     * Gets all rents for all apartments in order to calculate current
-     * apartments liabilities.
+     * Gets all rents for all apartments in order to calculate current liability
+     * values for apartments.
      *
-     * @return list of Rent objects
+     * @return list of rents for all apartments in the database
      */
     @Override
     @Transactional

@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * Defines the logic to validate the {@link BankAccountNumber} for a given String.
+ * Defines the logic to validate the {@link BankAccountNumber} for a given string.
  * The following format of the Bank Account Number is acceptable:
  * <ul>
  * <li>00 - control digits</li>

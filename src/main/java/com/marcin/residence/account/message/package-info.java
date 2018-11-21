@@ -1,5 +1,5 @@
 /**
- * Experimental module for sending e-mails to residents with account overdraft.
+ * Experimental module for sending e-mails to owners with account overdraft.
  *
  * WORK IN PROGRESS.
  */

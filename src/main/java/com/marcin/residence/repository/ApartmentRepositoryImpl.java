@@ -17,7 +17,7 @@ import com.sun.mail.handlers.text_html;
 
 /**
  * Provides the implementation for CRUD operations and common queries, i.e.
- * for accessing, adding, updating and deleting an apartment (or Apartment-s).
+ * for accessing, adding, updating and deleting an apartment (or apartments).
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -29,10 +29,10 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     private SessionFactory sessionFactory;
 
     /**
-     * Gets a single Apartment from the database based on the Apartment id.
+     * Gets a single apartment from the database based on the apartment id.
      *
-     * @param theApartmentId database id of an Apartment
-     * @return an Apartment with the given id
+     * @param theApartmentId database id of an apartment
+     * @return an apartment with the given id
      */
     @Override
     public Apartment getSingleApartment(int theApartmentId) {
@@ -46,10 +46,10 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     }
 
     /**
-     * Gets all Apartments belonging to a given Owner based on the Owner id.
+     * Gets all apartments belonging to a given owner based on the owner id.
      *
-     * @param theOwnerId database id of an Owner
-     * @return all Apartments of a given Owner
+     * @param theOwnerId database id of an owner
+     * @return all apartments of a given owner
      */
     @Override
     public List<Apartment> getOwnerApartments(int theOwnerId) {
@@ -64,9 +64,9 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     }
 
     /**
-     * Gets all Apartments from the database.
+     * Gets all apartments from the database.
      *
-     * @return all Apartments in the database
+     * @return all apartments in the database
      */
     @Override
     public List<Apartment> getAllApartments() {
@@ -109,9 +109,9 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     }
 
     /**
-     * Deletes an Apartment of a given id from the database.
+     * Deletes an apartment of a given id from the database.
      *
-     * @param theApartmentId database id of an Apartment
+     * @param theApartmentId database id of an apartment
      */
     @Override
     public void deleteApartment(int theApartmentId) {

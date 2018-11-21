@@ -9,7 +9,7 @@ import com.marcin.residence.entity.Rent;
 
 /**
  * Provides the interface for CRUD operations and common queries, i.e.
- * for accessing, adding, updating and deleting an Apartment (or Apartment-s).
+ * for accessing, adding, updating and deleting an apartment (or apartments).
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -17,25 +17,25 @@ import com.marcin.residence.entity.Rent;
 public interface ApartmentRepository {
 
     /**
-     * Gets a single Apartment from the database based on the Apartment id.
+     * Gets a single apartment from the database based on the apartment id.
      *
-     * @param theApartmentId database id of an Apartment
-     * @return an Apartment with the given id
+     * @param theApartmentId database id of an apartment
+     * @return an apartment with the given id
      */
     Apartment getSingleApartment(int theApartmentId);
 
     /**
-     * Gets all Apartments belonging to a given Owner based on the Owner id.
+     * Gets all apartments belonging to a given owner based on the owner id.
      *
-     * @param theOwnerId database id of an Owner
-     * @return all Apartments of a given Owner
+     * @param theOwnerId database id of an owner
+     * @return all apartments of a given owner
      */
     List<Apartment> getOwnerApartments(int theOwnerId);
 
     /**
-     * Gets all Apartments from the database.
+     * Gets all apartments from the database.
      *
-     * @return all Apartments in the database
+     * @return all apartments in the database
      */
     List<Apartment> getAllApartments();
 
@@ -45,24 +45,24 @@ public interface ApartmentRepository {
      * @param theApartment an apartment to be updated
      */
     public void updateApartment(Apartment theApartment);
-    
+
     /**
      * Saves a new apartment in the database altogether with the predefined rent,
      * apartment address and apartment account balance.
      *
-     * @param theApartment a new apartment to be saved 
-     * @param theRent a predefined ("zero" values) apartment rent to be saved 
-     * @param theApartmentAddress a predefined apartment address to be saved 
+     * @param theApartment a new apartment to be saved
+     * @param theRent a predefined ("zero" values) apartment rent to be saved
+     * @param theApartmentAddress a predefined apartment address to be saved
      * @param theBalance predefined ("zero" values) apartment account balance
-     *          to be saved 
-     */  
+     *          to be saved
+     */
     public void saveApartment(Apartment theApartment, Rent theRent,
             ApartmentAddress theApartmentAddress, ApartmentAccountBalance theBalance);
-    
+
     /**
-     * Deletes an Apartment of a given id from the database.
+     * Deletes an apartment of a given id from the database.
      *
-     * @param theApartmentId database id of an Apartment
+     * @param theApartmentId database id of an apartment
      */
     void deleteApartment(int theApartmentId);
 

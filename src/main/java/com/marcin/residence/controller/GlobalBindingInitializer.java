@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
 
 /**
- * Initializes methods for data binding to be applied 
- * to the appropriate Controllers.
- * 
+ * Initializes methods for data binding to be applied to the appropriate
+ * controllers.
+ *
  * @author dream-tree
  * @version 4.00, September-October 2018
  */

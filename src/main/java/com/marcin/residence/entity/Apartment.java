@@ -24,8 +24,8 @@ import com.marcin.residence.account.transaction.ApartmentAccountBankTransaction;
 /**
  * Represents an apartment, providing access to the apartment's area,
  * number of rooms, number of occupants, media consumption, liabilities
- * and additional info about the particular apartment as well as
- * address for a given apartment, its owner and the rent.
+ * and additional info about the particular apartment as well as an address
+ * for a given apartment, its owner and the rent.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018

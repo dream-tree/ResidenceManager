@@ -56,12 +56,6 @@ public class Rent {
         this.monthlyTotalRent = monthlyTotalRent;
     }
 
-    public Rent(int id, BigDecimal monthlyTotalRent, Apartment apartment) {
-        this.id = id;
-        this.monthlyTotalRent = monthlyTotalRent;
-        this.apartment = apartment;
-    }
-
     public int getId() {
         return id;
     }

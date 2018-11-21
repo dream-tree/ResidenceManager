@@ -9,7 +9,7 @@ import com.marcin.residence.repository.OwnerMailingAddressRepository;
 
 /**
  * Provides the implementation for accessing, adding and updating
- * the OwnerMailingAddress.
+ * the owner mailing address.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -21,10 +21,10 @@ public class OwnerMailingAddressServiceImpl implements OwnerMailingAddressServic
     private OwnerMailingAddressRepository repository;
 
     /**
-     * Gets an OwnerMailingAddress from the database based on the Owner id.
+     * Gets an owner mailing address from the database based on the owner id.
      *
-     * @param theOwnerId database id of an Owner
-     * @return mailing address of an Owner
+     * @param theOwnerId database id of an owner
+     * @return mailing address of an owner
      */
     @Override
     @Transactional
@@ -33,9 +33,9 @@ public class OwnerMailingAddressServiceImpl implements OwnerMailingAddressServic
     }
 
     /**
-     * Saves or updates an OwnerMailingAddress in the database.
+     * Saves or updates an owner mailing address in the database.
      *
-     * @param theOwnerMailingAddress a mailing address of a given Owner
+     * @param theOwnerMailingAddress a mailing address of a given owner
      *      to be saved or updated in the database
      */
     @Override

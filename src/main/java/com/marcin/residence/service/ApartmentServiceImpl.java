@@ -19,7 +19,7 @@ import com.marcin.residence.repository.RentRepository;
 
 /**
  * Provides the implementation for accessing, adding, updating and deleting
- * an Apartment (or Apartment-s).
+ * an apartment (or apartments).
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -50,8 +50,8 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     /**
      * Gets all apartments of a given owner from the database based on the
-     * the owner id. It also sets the corresponding ApartmentAddress, Rent and
-     * ApartmentAccountBalance properties to the retrieved Apartment to show
+     * owner id. It also sets the corresponding apartment address, rent and
+     * apartment account balance properties to the retrieved apartment to show
      * the required information to the end-user on a web page.
      *
      * @param theOwnerId database id of an owner
@@ -123,8 +123,7 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     /**
-     * Constructs new Rent object for an Apartment and sets its property values
-     * to zero.
+     * Constructs new Rent object and sets its property values to zero.
      *
      * @return a new Rent object
      */
@@ -140,8 +139,8 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     /**
-     * Constructs new ApartmentAccountBalance object for an Apartment
-     * and sets its property values to zero.
+     * Constructs new ApartmentAccountBalance object and sets its property
+     * values to zero.
      *
      * @return a new ApartmentAccountBalance object
      */

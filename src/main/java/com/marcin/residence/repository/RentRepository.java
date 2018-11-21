@@ -16,7 +16,7 @@ public interface RentRepository {
     /**
      * Gets a rent for given apartment.
      *
-     * @param apartmentId database id of an Apartment
+     * @param apartmentId database id of an apartment
      * @return rent for a given apartment
      */
     Rent getRent(int apartmentId);
@@ -32,7 +32,7 @@ public interface RentRepository {
      * Gets all rents for all apartments in order to calculate current
      * apartments liabilities.
      *
-     * @return list of Rent objects
+     * @return list of rents for all apartments in the database
      */
     List<Rent> getAllRents();
 

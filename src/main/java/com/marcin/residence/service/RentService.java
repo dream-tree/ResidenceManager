@@ -21,7 +21,7 @@ public interface RentService {
      * @return a current rent for given apartment
      */
     Rent getRent(int theApartmentId);
-    
+
     /**
      * Calculates rents for all apartments in the database after an update
      * on rates for utilities is made.
@@ -29,10 +29,10 @@ public interface RentService {
     void calculateAllRents();
 
     /**
-     * Gets all rents for all apartments in order to calculate current
-     * apartments liabilities).
+     * Gets all rents for all apartments in order to calculate current liability
+     * values for apartments.
      *
-     * @return list of Rent objects
+     * @return list of rents for all apartments in the database
      */
     List<Rent> getAllRents();
 }

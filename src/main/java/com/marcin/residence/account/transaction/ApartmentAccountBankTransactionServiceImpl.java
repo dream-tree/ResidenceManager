@@ -32,5 +32,4 @@ public class ApartmentAccountBankTransactionServiceImpl implements
     public List<ApartmentAccountBankTransaction> getTransactions(int theApartmentId) {
         return bankAccountTransactionsRepository.getTransactions(theApartmentId);
     }
-
 }

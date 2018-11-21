@@ -14,7 +14,7 @@ import com.marcin.residence.service.RentService;
 
 /**
  * Provides the task scheduler for adding monthly rent to the apartment liabilities
- * and updating the apartment account balance.
+ * and for updating the apartment account balance.
  * Runs every 25th day of each month at 10.30 a.m.
  *
  * @author dream-tree

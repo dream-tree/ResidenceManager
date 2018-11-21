@@ -10,7 +10,7 @@ import com.marcin.residence.entity.OwnerMailingAddress;
 
 /**
  * Provides the implementation for CRUD operations and common queries, i.e.
- * for accessing, adding and updating the OwnerMailingAddress.
+ * for accessing, adding and updating the owner mailing address.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -22,10 +22,10 @@ public class OwnerMailingAddressRepositoryImpl implements OwnerMailingAddressRep
     private SessionFactory sessionFactory;
 
     /**
-     * Gets an OwnerMailingAddress from the database based on the Owner id.
+     * Gets an owner mailing address from the database based on the id of an owner.
      *
-     * @param theOwnerId database id of an Owner
-     * @return mailing address of an Owner
+     * @param theOwnerId database id of an owner
+     * @return mailing address of an owner
      */
     @Override
     public OwnerMailingAddress getOwnerMailingAddress(int theOwnerId) {
@@ -36,9 +36,9 @@ public class OwnerMailingAddressRepositoryImpl implements OwnerMailingAddressRep
     }
 
     /**
-     * Saves or updates an OwnerMailingAddress in the database.
+     * Saves or updates an owner mailing address in the database.
      *
-     * @param theOwnerMailingAddress a mailing address of a given Owner
+     * @param theOwnerMailingAddress a mailing address of a given owner
      *      to be saved or updated in the database
      */
     @Override

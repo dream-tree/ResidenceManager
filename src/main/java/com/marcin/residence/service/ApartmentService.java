@@ -6,7 +6,7 @@ import com.marcin.residence.entity.Apartment;
 
 /**
  * Provides the service for accessing, adding, updating and deleting
- * an Apartment (or Apartment-s).
+ * an apartment (or apartments).
  * All requests should interact with the database through this interface
  * rather than directly through the repository interface.
  *

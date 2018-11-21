@@ -15,8 +15,8 @@ import com.marcin.residence.entity.Rates;
 import com.marcin.residence.service.RatesService;
 
 /**
- * Handles incoming requests for updating the Rate entity
- * as well as displaying the actual Rate details in a web page.
+ * Handles incoming requests for updating the rates for utilities as well
+ * as displaying the actual rate details on a web page.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018

@@ -9,7 +9,7 @@ import com.marcin.residence.repository.ApartmentAddressRepository;
 
 /**
  * Provides the implementation for accessing, adding and updating
- * the ApartmentAddress.
+ * the apartment address.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018

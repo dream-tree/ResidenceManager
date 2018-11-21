@@ -32,8 +32,8 @@ import com.marcin.residence.service.RentService;
 
 /**
  * Handles incoming requests, user input and interactions for creating,
- * reading, updating and deleting the Apartment objects as well as displaying
- * the requested Apartment content in a web page.
+ * reading, updating and deleting the apartment as well as displaying
+ * the requested apartment details on the web page.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
@@ -139,13 +139,9 @@ public class ApartmentController {
         List<ApartmentAccountLiability> theLiabilityList =
                 residenceLiabilitiesService.getLiabilities(theApartmentId);
         ApartmentAccountBalance theBalance =
-                apartmentAccountBalanceService.getApartmentAccountBalance(theApartmentId); 
-
-        System.out.println("HERE1!!!" + theBalance);
-        System.out.println("HERE2!!!" + theBalance.getCalculationDate());
-        System.out.println("HERE3!!!" + theBalance.getTotalLiabilitiesValue());
-        String[] theDateTimeSeparated = theBalance.getCalculationDate().toString().split("T");
-        System.out.println("HERE4!!!" + Arrays.toString(theDateTimeSeparated));
+                apartmentAccountBalanceService.getApartmentAccountBalance(theApartmentId);
+        String[] theDateTimeSeparated = theBalance.getCalculationDate()
+                .toString().split("T");
         theModel.addAttribute("liabilityList", theLiabilityList);
         theModel.addAttribute("balance", theBalance);
         theModel.addAttribute("dateTime", theDateTimeSeparated);

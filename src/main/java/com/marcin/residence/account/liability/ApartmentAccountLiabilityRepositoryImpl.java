@@ -59,7 +59,7 @@ public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccount
     public void addAllLiabilities(List<Rent> rentList) {
         String calculationDate = LocalDate.now().toString();
         boolean liabilityFlag = false;
-        int sum = 0;
+        int sumOfModifiedRows = 0;
         String insertString =
             "INSERT INTO apartment_liability ("
                     + "calculation_date, liability_flag, liability_value, apartment_id) "
@@ -67,13 +67,13 @@ public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccount
                     + liabilityFlag + ", ?, ?)";
         Session currentSession = sessionFactory.getCurrentSession();
         for (Rent rent : rentList) {
-            sum += currentSession.createSQLQuery(insertString)
+            sumOfModifiedRows += currentSession.createSQLQuery(insertString)
                     .setParameter(1, rent.getMonthlyTotalRent())
                     .setParameter(2, rent.getId())
                     .executeUpdate();
         }
         logger.info(">> ApartmentLiabilityRepositoryImpl#addAllLiabilities: "
-                + sum + " rows in apartment_liability table were modified at "
+                + sumOfModifiedRows + " rows in apartment_liability table were modified at "
                         + LocalDateTime.now() + ".");
     }
 }

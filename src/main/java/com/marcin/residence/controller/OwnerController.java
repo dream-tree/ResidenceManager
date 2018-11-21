@@ -23,8 +23,8 @@ import com.marcin.residence.service.OwnerService;
 
 /**
  * Handles incoming requests, user input and interactions for creating, reading,
- * updating and deleting the Owner objects as well as displaying the requested
- * Owner content in a web page.
+ * updating and deleting the owner as well as displaying the requested owner
+ * details on the web page.
  *
  * @author dream-tree
  * @version 4.00, September-October 2018
