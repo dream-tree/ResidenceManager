@@ -200,16 +200,16 @@
 						<td class="apartment100c" colspan="2">
 							<a href="${pageContext.request.contextPath}
 							/apartment/showRentDetails?apartmentId=${tempApartment.id}&ownerId=
-                                        ${owner.id}">Show Rent Details</a> 
+                                             ${owner.id}">Show Rent Details</a> 
 						</td>
 						<td class="apartment200c" colspan="2">
 							<a href="${pageContext.request.contextPath}
 							/apartment/showApartmentLiabilities?apartmentId=${tempApartment.id}&ownerId=
-                                        ${owner.id}">Show Liabilities</a>
+                                             ${owner.id}">Show Liabilities</a>
 						</td>
 					</tr>
 					<tr>
-					   <td class="apartment100c" colspan="4">
+                        <td class="apartment100c" colspan="4">
 						    <a href="${pageContext.request.contextPath}/apartment/showApartmentTransactions?apartmentId=
 						              ${tempApartment.id}&ownerId=${owner.id}">Show Transactions</a>
                         </td>
