@@ -7,6 +7,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [Status](#status)
+* [Setup](#setup)
 * [Images](#images)
 * [Contact](#contact)
 
@@ -46,6 +47,21 @@ TODO list:
 ## Status
 Project is in progress.<br>
 Project is up and running.
+
+## Setup
+### Running ResidenceManager locally
+
+ResidenceManager is a Spring application built using Maven. You can build a jar file and run it from the command line:
+
+#### Clone this repository
+$ git clone https://github.com/dream-tree/ResidenceManager.git
+#### Go into the repository
+$ cd ResidenceManager
+#### Build the project:
+$ ./mvnw package
+$ java -jar target/*.jar
+#### Run the app
+You can access ResidenceManager here: http://localhost:8080/residence-manager
 
 ## Images
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard04.jpg)
