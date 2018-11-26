@@ -57,10 +57,10 @@ ResidenceManager is a Spring application built using Maven. You can build a jar 
 $ git clone https://github.com/dream-tree/ResidenceManager.git
 #### Go into the repository
 $ cd ResidenceManager
-#### Build the project:
-$ ./mvnw package
+#### Build and run the project:
+$ ./mvnw package <br>
 $ java -jar target/*.jar
-#### Run the app
+
 You can access ResidenceManager here: http://localhost:8080/residence-manager
 
 ## Images
