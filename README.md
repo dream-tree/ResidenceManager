@@ -53,11 +53,11 @@ Project is up and running.
 
 ResidenceManager is a Spring application built using Maven. You can build a jar file and run it from the command line:
 
-#### Clone this repository
+Clone this repository
 $ git clone https://github.com/dream-tree/ResidenceManager.git
-#### Go into the repository
+Go into the repository
 $ cd ResidenceManager
-#### Build and run the project:
+Build and run the project:
 $ ./mvnw package <br>
 $ java -jar target/*.jar
 
