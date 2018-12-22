@@ -37,7 +37,6 @@ List of ready features:
 * Listing rent details, apartment liabilities and bank transfers.
 * Calculating rents for all apartments after setting up the rates for utilities.
 * Scheduler for monthly addition of the current rent amount to the total liability value on the apartment account.
-* Recalculation of the apartment total liability value based on the monthly rent added previously.
 * Scheduler for adding bank transactions to an apartment account.
 * Total liability value recalculation (after addition of the bank transfers).
 * Scheduler for sending emails to owners with an account overdraft.
