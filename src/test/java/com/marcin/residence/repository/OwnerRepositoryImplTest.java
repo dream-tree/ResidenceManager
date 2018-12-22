@@ -34,7 +34,6 @@ public class OwnerRepositoryImplTest {
     @Test
     public void testGetOwner() {
         Owner actualOwner =  service.getOwner(10002);
-        OwnerMailingAddress actualOwnerMailingAddress = actualOwner.getOwnerMailingAddress();
 
         assertEquals("John", actualOwner.getFirstName());
         assertEquals("Doherty", actualOwner.getLastName());
@@ -44,10 +43,6 @@ public class OwnerRepositoryImplTest {
         assertEquals("94110385691", actualOwner.getPesel());
         assertEquals("21105014150000158448795952", actualOwner.getBankAccount());
 
-        assertEquals("Warowna", actualOwnerMailingAddress.getStreet());
-        assertEquals("21/6", actualOwnerMailingAddress.getApartmentNumber());
-        assertEquals("Pszczyna", actualOwnerMailingAddress.getCity());
-        assertEquals("43-200", actualOwnerMailingAddress.getPostalCode());
     }
 
     @Test(expected = NoResultException.class)
@@ -110,14 +105,5 @@ public class OwnerRepositoryImplTest {
         assertEquals("Altman", actualOwners.get(0).getLastName());
         assertEquals("Dixon", actualOwners.get(4).getLastName());
         assertEquals("Wilson", actualOwners.get(8).getLastName());
-    }
-
-    @Test
-    public void testGetOwnerMailingAddress() {		
-        OwnerMailingAddress actualOwnerMailingAddress = service.getOwnerMailingAddress(10003);
-        assertEquals("Rymarska", actualOwnerMailingAddress.getStreet());
-        assertEquals("34/1", actualOwnerMailingAddress.getApartmentNumber());
-        assertEquals("Pszczyna", actualOwnerMailingAddress.getCity());
-        assertEquals("43-200", actualOwnerMailingAddress.getPostalCode());
     }
 }

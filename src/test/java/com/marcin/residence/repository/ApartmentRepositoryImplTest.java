@@ -39,7 +39,6 @@ public class ApartmentRepositoryImplTest {
         expected.setNumberOfOccupants(2);
         expected.setWaterConsumption(BigDecimal.valueOf(185.78));
         expected.setHeaterConsumption(BigDecimal.valueOf(1254.43));
-        expected.setLiabilities(BigDecimal.valueOf(0.00).setScale(2, RoundingMode.UNNECESSARY));
         expected.setNotes("No info collected");
 
         Apartment actual =  service.getSingleApartment(1);
@@ -49,7 +48,6 @@ public class ApartmentRepositoryImplTest {
         assertEquals(expected.getNumberOfOccupants(), actual.getNumberOfOccupants());
         assertEquals(expected.getWaterConsumption(), actual.getWaterConsumption());
         assertEquals(expected.getHeaterConsumption(), actual.getHeaterConsumption());
-        assertEquals(expected.getLiabilities(), actual.getLiabilities());
         assertEquals(expected.getNotes(), actual.getNotes());
     }
 
@@ -67,8 +65,6 @@ public class ApartmentRepositoryImplTest {
         expectedApartmentId6.setNumberOfOccupants(2);
         expectedApartmentId6.setWaterConsumption(BigDecimal.valueOf(55.18));
         expectedApartmentId6.setHeaterConsumption(BigDecimal.valueOf(428.21));
-        expectedApartmentId6.setLiabilities(BigDecimal.valueOf(0.00)
-                .setScale(2, RoundingMode.UNNECESSARY));
         expectedApartmentId6.setNotes("Restoration in progress.");
 
         List<Apartment> actualListOwnerId10005 =  service.getOwnerApartments(10005);
@@ -87,8 +83,6 @@ public class ApartmentRepositoryImplTest {
                 actualListOwnerId10005.get(2).getWaterConsumption());
         assertEquals(expectedApartmentId6.getHeaterConsumption(),
                 actualListOwnerId10005.get(2).getHeaterConsumption());
-        assertEquals(expectedApartmentId6.getLiabilities(),
-                actualListOwnerId10005.get(2).getLiabilities());
         assertEquals(expectedApartmentId6.getNotes(),
                 actualListOwnerId10005.get(2).getNotes());
     }
@@ -108,8 +102,6 @@ public class ApartmentRepositoryImplTest {
         expectedApartmentId5.setNumberOfOccupants(2);
         expectedApartmentId5.setWaterConsumption(BigDecimal.valueOf(55.18));
         expectedApartmentId5.setHeaterConsumption(BigDecimal.valueOf(428.21));
-        expectedApartmentId5.setLiabilities(BigDecimal.valueOf(0)
-                .setScale(2, RoundingMode.UNNECESSARY));
         expectedApartmentId5.setNotes("Restoration in progress.");
 
         List<Apartment> actualList =  service.getAllApartments();
@@ -126,8 +118,6 @@ public class ApartmentRepositoryImplTest {
                 actualList.get(5).getWaterConsumption());
         assertEquals(expectedApartmentId5.getHeaterConsumption(),
                 actualList.get(5).getHeaterConsumption());
-        assertEquals(expectedApartmentId5.getLiabilities(),
-                actualList.get(5).getLiabilities());
         assertEquals(expectedApartmentId5.getNotes(),
                 actualList.get(5).getNotes());
     }

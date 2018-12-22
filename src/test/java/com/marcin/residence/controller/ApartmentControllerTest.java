@@ -25,8 +25,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.marcin.residence.config.AppConfig;
 import com.marcin.residence.config.DispatcherServletInitializer;
-import com.marcin.residence.entity.Apartment;
-import com.marcin.residence.entity.Owner;
+import com.marcin.residence.entity.ApartmentAddress;
+import com.marcin.residence.service.ApartmentAddressService;
 import com.marcin.residence.service.ApartmentService;
 import com.marcin.residence.service.OwnerService;
 
@@ -43,6 +43,8 @@ public class ApartmentControllerTest {
     private OwnerService ownerService;
     @Mock
     private ApartmentService apartmentService;
+    @Mock
+    private ApartmentAddressService apartmentAddressService;
     @InjectMocks
     private ApartmentController controller;
 
@@ -77,24 +79,16 @@ public class ApartmentControllerTest {
 
     @Test
     public void testUpdateApartmentAddress() throws Exception {
-        when(apartmentService.getSingleApartment(any(Integer.class))).thenReturn(new Apartment());
+        when(apartmentAddressService.getApartmentAddress(any(Integer.class)))
+                .thenReturn(new ApartmentAddress());
         mockMvc
-        .perform(get("/apartment/updateApartmentAddress", model).param("apartmentId", "1"))
+        .perform(get("/apartment/updateApartmentAddress", model)
+                .param("apartmentId", "1")
+                .param("ownerId", "10001"))
         .andExpect(status().isOk())
         .andExpect(forwardedUrl("apartment-address-update-form"))
         .andReturn();
     }
-
-    @Test
-    public void testUpdateMailingAddress() throws Exception {
-        when(ownerService.getOwner(any(Integer.class))).thenReturn(new Owner());
-        mockMvc
-        .perform(get("/apartment/updateMailingAddress", model).param("ownerId", "10001"))
-        .andExpect(status().isOk())
-        .andExpect(forwardedUrl("owner-mailing-address-form"))
-        .andReturn();
-    }
-
 
     @Test 
     public void testDeleteApartment() throws Exception {

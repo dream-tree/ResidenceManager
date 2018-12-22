@@ -1,5 +1,7 @@
 package com.marcin.residence.controller;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
@@ -24,7 +26,9 @@ import org.springframework.web.context.WebApplicationContext;
 import com.marcin.residence.config.AppConfig;
 import com.marcin.residence.config.DispatcherServletInitializer;
 import com.marcin.residence.entity.Owner;
+import com.marcin.residence.entity.OwnerMailingAddress;
 import com.marcin.residence.service.ApartmentService;
+import com.marcin.residence.service.OwnerMailingAddressService;
 import com.marcin.residence.service.OwnerService;
 
 @RunWith(SpringRunner.class)
@@ -40,6 +44,8 @@ public class OwnerControllerTest {
     private OwnerService ownerService;
     @Mock
     private ApartmentService apartmentService;
+    @Mock
+    private OwnerMailingAddressService ownerMailingAddressService;
     @InjectMocks
     private OwnerController controller;
 
@@ -121,6 +127,17 @@ public class OwnerControllerTest {
         mockMvc
         .perform(get("/residence/deleteOwner").param("ownerId", "1"))
         .andExpect(status().is(302))
+        .andReturn();
+    }
+    
+    @Test
+    public void testUpdateMailingAddress() throws Exception {
+        when(ownerMailingAddressService.getOwnerMailingAddress(any(Integer.class)))
+                .thenReturn(new OwnerMailingAddress());
+        mockMvc
+        .perform(get("/residence/updateMailingAddress", model).param("ownerId", "10001"))
+        .andExpect(status().isOk())
+        .andExpect(forwardedUrl("owner-mailing-address-form"))
         .andReturn();
     }
 }

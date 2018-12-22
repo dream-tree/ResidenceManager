@@ -14,22 +14,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.marcin.residence.account.transaction.ApartmentAccountBankTransaction;
 import com.marcin.residence.config.AppConfig;
 import com.marcin.residence.config.DispatcherServletInitializer;
-import com.marcin.residence.entity.Rent;
-import com.marcin.residence.service.RentService;
+import com.marcin.residence.entity.Apartment;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = { DispatcherServletInitializer.class, AppConfig.class })
-public class ApartmentAccountBalanceRepositoryImplIncreaseBalance {
+public class ApartmentAccountBalanceRepositoryImplDecreaseBalance {
 
     @Autowired
     private WebApplicationContext wac;
     @Autowired
     private ApartmentAccountBalanceService balanceService;
-    @Autowired
-    private RentService rentService;
 
     @Test
     public void testIncreaseApartmentAccountBalance() {
@@ -39,15 +37,19 @@ public class ApartmentAccountBalanceRepositoryImplIncreaseBalance {
             beforeIncrementBalanceList.add(currentBalance);
         }
         
-        List<Rent> rentList = new ArrayList<>();
+        List<ApartmentAccountBankTransaction> transactionList = new ArrayList<>();  
         for (int i = 1; i < 4; i++) {
-            Rent rent = new Rent();
-            rent.setId(i);
-            rent.setMonthlyTotalRent(BigDecimal.valueOf(20.00));
-            rentList.add(rent);
+            ApartmentAccountBankTransaction transaction = new ApartmentAccountBankTransaction();
+            Apartment mockApartment = new Apartment();
+            mockApartment.setId(i);
+            transaction.setApartment(mockApartment);
+            transaction.setTransactionId("08PG-5W3A-64SD-" + i + "K4B");
+            transaction.setTransactionFlag(false);
+            transaction.setTransactionAmount(BigDecimal.valueOf(20.00));
+            transactionList.add(transaction);
         }
-        
-        balanceService.increaseApartmentAccountBalance(rentList);
+
+        balanceService.decreaseApartmentAccountBalance(transactionList);
 
         for (int i = 1; i < 4; i++) {
             ApartmentAccountBalance actualBalance = balanceService.getApartmentAccountBalance(i);
@@ -55,7 +57,7 @@ public class ApartmentAccountBalanceRepositoryImplIncreaseBalance {
             BigDecimal beforeIncrementTotalLiabilitiesValue =
                     beforeIncrementBalanceList.get(i-1).getTotalLiabilitiesValue();
             BigDecimal expectedTotalLiabilitiesValue =
-                    BigDecimal.valueOf(20.00).add(beforeIncrementTotalLiabilitiesValue);
+                    beforeIncrementTotalLiabilitiesValue.subtract(BigDecimal.valueOf(20.00));
             
             assertEquals(expectedTotalLiabilitiesValue, actualTotalLiabilitiesValue);
         }
