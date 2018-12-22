@@ -1,1 +1,2 @@
-<% response.sendRedirect("residence/start"); %> 
+
+<% response.sendRedirect("residence/start"); %>

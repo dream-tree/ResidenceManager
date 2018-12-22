@@ -1,10 +1,10 @@
-table {   
+table {
 	border-collapse: collapse;
 	border-bottom: 1px solid gray;
-	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
 	width: 100%;
 }
- 
+
 th {
 	border-bottom: 1px solid gray;
 	background: #09c332;
@@ -14,19 +14,20 @@ th {
 
 tr {
 	border-top: 1px solid gray;
-	text-align: center;	
+	text-align: center;
 }
- 
+
 tr:nth-child(even) {
 	background: #FFFFFF
 }
 
 tr:nth-child(odd) {
 	background: #BBBBBB
-}	
- 
+}
+
 #container {
-	width: 100%; margin:auto
+	width: 100%;
+	margin: auto
 }
 
 #container #content {
@@ -34,13 +35,13 @@ tr:nth-child(odd) {
 }
 
 .add-button {
-	border: 1px solid #666; 
-	border-radius: 5px; 
-	padding: 4px; 
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 4px;
 	font-size: 12px;
 	font-weight: bold;
-	width: 150px; 
-	padding: 5px 10px; 	
+	width: 150px;
+	padding: 5px 10px;
 	margin-bottom: 15px;
 	background: #cccccc;
 }

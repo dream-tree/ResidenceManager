@@ -1,16 +1,16 @@
 html, body {
 	margin-left: 15px;
-	margin-right: 15px; 
-	padding: 0px; 
+	margin-right: 15px;
+	padding: 0px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-table {   
+table {
 	border-collapse: collapse;
 	border: 1px solid black;
-	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
- 
+
 th {
 	border: 1px solid black;
 	background: none repeat scroll 0 0 #09c332;
@@ -23,33 +23,35 @@ tr {
 	/* text-align:center;	 */
 }
 
-
 td {
 	border: 1px solid black;
-	border-top:1px solid gray;
-	text-align:center;
+	border-top: 1px solid gray;
+	text-align: center;
 }
- 
+
 #wrapper {
-	width: 100%; margin-top: 0px; 
+	width: 100%;
+	margin-top: 0px;
 }
+
 #header {
-	width: 100%; 
-	background: #09c332; 
-	margin-top: 0px; 
-	padding:15px 0px 15px 15px;
+	width: 100%;
+	background: #09c332;
+	margin-top: 0px;
+	padding: 15px 0px 15px 15px;
 }
 
 #header h2 {
-	width: 100%; 
-	margin:auto; 
+	width: 100%;
+	margin: auto;
 	color: #FFFFFF;
 }
 
 #container {
-	width: 100%; 
-	margin:auto
+	width: 100%;
+	margin: auto
 }
+
 #container h3 {
 	color: #000;
 }
@@ -59,7 +61,7 @@ td {
 }
 
 .link {
-	background: #FFFACD; 
+	background: #FFFACD;
 	width: 150px;
 	padding: 5px;
 }
@@ -86,7 +88,7 @@ td {
 }
 
 .apartment-table {
-	width: 1030px;	
+	width: 1030px;
 }
 
 .apartment-header {
@@ -121,33 +123,32 @@ td {
 }
 
 #bottom {
-	width: 100%; 
-	background: #09c332; 
-	margin-top: 0px; 
-	padding: 1px 1px 1px 1px; 
-	color: white; 
-	text-align: center; 
+	width: 100%;
+	background: #09c332;
+	margin-top: 0px;
+	padding: 1px 1px 1px 1px;
+	color: white;
+	text-align: center;
 	margin-bottom: 10px;
 	position: relative;
 	bottom: 0%;
 }
 
 .add-button {
-	border: 1px solid #666; 
-	border-radius: 5px; 
-	padding: 4px; 
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 4px;
 	font-size: 12px;
 	font-weight: bold;
-	width: 150px; 
-	padding: 5px 10px; 
-	
+	width: 150px;
+	padding: 5px 10px;
 	margin-bottom: 15px;
 	background: #cccccc;
 }
 
 #section h3 {
 	text-decoration: underline;
-} 
+}
 
 .error {
 	color: red;
