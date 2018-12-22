@@ -20,10 +20,10 @@ public class EmailController {
 
     /**
      * Allows to send e-mail messages to owners with an account overdraft manually.
-     * Runs {@link EmailScheduler#startTask()} method immediately after app user
-     * triggers the "Send Messages" button on the application Main Page.
+     * Runs {@link EmailScheduler#startTask()} method immediately after the app
+     * user triggers the "Send Messages" button on the application Main Page.
      *
-     * @return jsp page with results of e-mail messages sending
+     * @return jsp page with results of e-mail messages sending process
      */
     @GetMapping("/sendEmails")
     public String sendEmails() {
