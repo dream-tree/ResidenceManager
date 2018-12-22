@@ -19,7 +19,7 @@ import com.marcin.residence.entity.Apartment;
  * as well as the date of the recalculation operation.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Entity
 @Table(name = "apartment_account_balance")

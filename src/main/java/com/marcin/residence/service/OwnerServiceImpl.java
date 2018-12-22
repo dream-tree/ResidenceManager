@@ -14,7 +14,7 @@ import com.marcin.residence.repository.OwnerRepository;
  * and searching an owner (or owners).
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Service
 public class OwnerServiceImpl implements OwnerService {

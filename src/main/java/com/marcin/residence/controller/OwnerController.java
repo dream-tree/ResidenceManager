@@ -27,7 +27,7 @@ import com.marcin.residence.service.OwnerService;
  * details on the web page.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Controller
 @RequestMapping("/residence")
@@ -69,8 +69,6 @@ public class OwnerController {
         theModel.addAttribute("owner", theOwner);
         theModel.addAttribute("ownerMailingAddress", theOwnerMailingAddress);
         theModel.addAttribute("apartments", theApartments);
-        Apartment apartment = theApartments.get(0);
-        System.out.println(apartment.getApartmentAccountBalance());
         return "detailed-owner-list";
     }
 

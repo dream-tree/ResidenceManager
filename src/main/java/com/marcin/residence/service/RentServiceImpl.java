@@ -2,7 +2,6 @@ package com.marcin.residence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
 
@@ -19,7 +18,7 @@ import com.marcin.residence.repository.RentRepository;
  * rent for an apartment.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Service
 public class RentServiceImpl implements RentService {

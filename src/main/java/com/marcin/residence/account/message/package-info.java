@@ -1,10 +1,9 @@
-/**
- * Experimental module for sending e-mails to owners with account overdraft.
- *
- * WORK IN PROGRESS.
+/** 
+ * Experimental module for sending e-mails to the owners with an account
+ * overdraft.
  */
 /**
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 package com.marcin.residence.account.message;

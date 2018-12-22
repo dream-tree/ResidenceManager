@@ -1,11 +1,9 @@
 package com.marcin.residence.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +14,7 @@ import com.marcin.residence.entity.Rent;
  * for accessing, adding and updating (calculating) rent for a given apartment.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Repository
 public class RentRepositoryImpl implements RentRepository {

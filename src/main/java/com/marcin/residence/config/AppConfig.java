@@ -32,7 +32,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  * and adds the resource handlers.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Configuration
 @EnableWebMvc

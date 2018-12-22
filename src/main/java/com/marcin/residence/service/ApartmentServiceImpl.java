@@ -22,7 +22,7 @@ import com.marcin.residence.repository.RentRepository;
  * an apartment (or apartments).
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Service
 public class ApartmentServiceImpl implements ApartmentService {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * a given apartment.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Service
 public class ApartmentAccountBankTransactionServiceImpl implements
@@ -29,7 +29,13 @@ public class ApartmentAccountBankTransactionServiceImpl implements
      */
     @Override
     @Transactional
-    public List<ApartmentAccountBankTransaction> getTransactions(int theApartmentId) {
-        return bankAccountTransactionsRepository.getTransactions(theApartmentId);
+    public List<ApartmentAccountBankTransaction> getApartmentTransactions(int theApartmentId) {
+        return bankAccountTransactionsRepository.getApartmentTransactions(theApartmentId);
+    }
+    
+    @Override
+    @Transactional
+    public List<ApartmentAccountBankTransaction> getAllTransactions() {
+        return bankAccountTransactionsRepository.getAllTransactions();
     }
 }

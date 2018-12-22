@@ -11,7 +11,7 @@ import com.marcin.residence.entity.Apartment;
  * rather than directly through the repository interface.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public interface ApartmentService {
 

@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
  * to the repair fund rate, water rate, heating rate, waste fee and the TV fee.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Entity
 @Table(name = "rates")

@@ -1,7 +1,5 @@
 package com.marcin.residence.repository;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -13,14 +11,13 @@ import com.marcin.residence.account.balance.ApartmentAccountBalance;
 import com.marcin.residence.entity.Apartment;
 import com.marcin.residence.entity.ApartmentAddress;
 import com.marcin.residence.entity.Rent;
-import com.sun.mail.handlers.text_html;
 
 /**
  * Provides the implementation for CRUD operations and common queries, i.e.
  * for accessing, adding, updating and deleting an apartment (or apartments).
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Repository
 public class ApartmentRepositoryImpl implements ApartmentRepository {

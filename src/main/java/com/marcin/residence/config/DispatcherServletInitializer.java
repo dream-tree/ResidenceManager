@@ -6,7 +6,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * Registers a DispatcherServlet for using Java-based Spring configuration.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public class DispatcherServletInitializer extends 
                     AbstractAnnotationConfigDispatcherServletInitializer {

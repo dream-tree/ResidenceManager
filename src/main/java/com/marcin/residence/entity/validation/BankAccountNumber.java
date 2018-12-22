@@ -13,7 +13,7 @@ import javax.validation.Payload;
  * and must include 2 (matching) control digits.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Constraint(validatedBy = BankAccountNumberConstraintValidator.class)
 @Target(ElementType.FIELD)

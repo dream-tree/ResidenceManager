@@ -7,7 +7,7 @@ import java.util.List;
  * for accessing bank account transactions for a given apartment.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public interface ApartmentAccountBankTransactionRepository {
 
@@ -17,6 +17,7 @@ public interface ApartmentAccountBankTransactionRepository {
      * @param theApartmentId database id of an apartment
      * @return list of apartment account bank transactions
      */
-    List<ApartmentAccountBankTransaction> getTransactions(int theApartmentId);
+    List<ApartmentAccountBankTransaction> getApartmentTransactions(int theApartmentId);
 
+    List<ApartmentAccountBankTransaction> getAllTransactions();
 }

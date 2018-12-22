@@ -1,13 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2" pageEncoding="ISO-8859-2" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
+	pageEncoding="ISO-8859-2"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Apartment Update Form</title>
-	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-form.css" />
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer-a.css" />
+<title>Apartment Update Form</title>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/add-form.css" />
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/header-footer-a.css" />
 </head>
 
 <body>
@@ -16,15 +19,16 @@
 			<h2>Residence Manager</h2>
 		</div>
 	</div>
-	
+
 	<div id="container">
-		<h3>Save Apartment</h3>		
-		<form:form action="saveApartmentDetails" modelAttribute="apartment" method="POST">			
-			<form:hidden path="id"/>
-			<form:hidden path="apartmentAddress.id"/>	
-			<form:hidden path="rent.id"/>
-			<form:hidden path="rent.monthlyTotalRent"/>
-			<form:hidden path="owner.id"/>
+		<h3>Save Apartment</h3>
+		<form:form action="saveApartmentDetails" modelAttribute="apartment"
+			method="POST">
+			<form:hidden path="id" />
+			<form:hidden path="apartmentAddress.id" />
+			<form:hidden path="rent.id" />
+			<form:hidden path="rent.monthlyTotalRent" />
+			<form:hidden path="owner.id" />
 			<table>
 				<tbody>
 					<tr>
@@ -69,22 +73,26 @@
 					</tr>
 				</tbody>
 			</table>
-		</form:form>	
+		</form:form>
 		<br>
-		<p>Water consumption and heater consumption values are generally loaded from an external source. 
-		No updates in this form should be allowed in production.</p> 
-		<p>Nevertheless if these vales are not updated before the process of recalculating the
-		rent value for the apartment, it is necessary to fill these input fields, due to the null 
-		value in database in such a case.</p>
+		<p>Water consumption and heater consumption values are generally
+			loaded from an external source. No updates in this form should be
+			allowed in production.</p>
+		<p>Nevertheless if these vales are not updated before the process
+			of recalculating the rent value for the apartment, it is necessary to
+			fill these input fields, due to the null value in database in such a
+			case.</p>
 		<br>
-		<div style="clear; both;"></div>
+		<div style=""></div>
 
 		<p>
-			<a href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartment.owner.id}">Back
+			<a
+				href="${pageContext.request.contextPath}/residence/showDetails?ownerId=${apartment.owner.id}">Back
 				to Owner Detail</a>
 		</p>
 		<p>
-			<a href="${pageContext.request.contextPath}/residence/start">Back to Main Page</a>
+			<a href="${pageContext.request.contextPath}/residence/start">Back
+				to Main Page</a>
 		</p>
 
 	</div>

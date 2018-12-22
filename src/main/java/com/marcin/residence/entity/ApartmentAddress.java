@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
  * to the name of the street and the number, the city and the postal code.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Entity
 @Table(name = "apartment_address")

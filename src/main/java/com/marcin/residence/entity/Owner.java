@@ -27,7 +27,7 @@ import com.marcin.residence.entity.validation.BankAccountNumber;
  * as well as mailing address for a given owner and all of its apartments.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Entity
 @Table(name = "owner")

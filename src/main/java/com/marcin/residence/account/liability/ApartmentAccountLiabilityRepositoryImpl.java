@@ -18,7 +18,7 @@ import com.marcin.residence.entity.Rent;
  * for accessing, adding and updating liabilities for a given apartment account.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Repository
 public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccountLiabilityRepository {
@@ -39,7 +39,7 @@ public class ApartmentAccountLiabilityRepositoryImpl implements ApartmentAccount
         Session currentSession = sessionFactory.getCurrentSession();
         List<ApartmentAccountLiability> liabilitiesList =
                 currentSession.createQuery(
-                        "SELECT al FROM ApartmentLiability al "
+                        "SELECT al FROM ApartmentAccountLiability al "
                                 + "WHERE al.apartment.id = :apartmentId "
                                 + "ORDER BY al.calculationDate",
                                 ApartmentAccountLiability.class)

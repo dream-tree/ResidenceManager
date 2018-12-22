@@ -9,7 +9,7 @@ import com.marcin.residence.entity.Rent;
  * for accessing, adding and updating (calculating) rent for a given apartment.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public interface RentRepository {
 

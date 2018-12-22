@@ -1,6 +1,5 @@
 package com.marcin.residence.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -36,7 +35,7 @@ import com.marcin.residence.service.RentService;
  * the requested apartment details on the web page.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Controller
 @RequestMapping("/apartment")
@@ -118,7 +117,7 @@ public class ApartmentController {
     public String showApartmentTransactions(@RequestParam("apartmentId") int theApartmentId,
             @RequestParam("ownerId") int theOwnerId, Model theModel) {
         List<ApartmentAccountBankTransaction> theTransactionList = bankAccountTransactionsService
-                .getTransactions(theApartmentId);
+                .getApartmentTransactions(theApartmentId);
         theModel.addAttribute("transactionList", theTransactionList);
         theModel.addAttribute("ownerId", theOwnerId);
         return "transactions";

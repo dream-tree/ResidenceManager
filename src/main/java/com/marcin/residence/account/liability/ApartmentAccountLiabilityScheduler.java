@@ -1,4 +1,4 @@
-package com.marcin.residence.account.scheduler;
+package com.marcin.residence.account.liability;
 
 import java.util.List;
 
@@ -8,21 +8,20 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import com.marcin.residence.account.balance.ApartmentAccountBalanceService;
-import com.marcin.residence.account.liability.ApartmentAccountLiabilityService;
 import com.marcin.residence.entity.Rent;
 import com.marcin.residence.service.RentService;
 
 /**
- * Provides the task scheduler for adding monthly rent to the apartment liabilities
- * and for updating the apartment account balance.
+ * Provides the task scheduler for adding monthly rent to the apartment
+ * liabilities and for updating the apartment account balance.
  * Runs every 25th day of each month at 10.30 a.m.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Configuration
 @EnableScheduling
-public class ScheduledApartmentAccountLiability {
+public class ApartmentAccountLiabilityScheduler {
 
     @Autowired
     private RentService rentService;
@@ -39,23 +38,22 @@ public class ScheduledApartmentAccountLiability {
      * (@MapsId annotation used).
      */
     @Scheduled(cron = "0 30 10 25 JAN-DEC *")
-    public void addCurrentMonthlyRentToApartmentLiability() {
+    public void addCurrentMonthlyRentToApartmentAccountLiability() {
         List<Rent> rentList = rentService.getAllRents();
         apartmentLiabilityService.addAllLiabilities(rentList);
-        updateApartmentAccountBalance(rentList);
+        increaseApartmentAccountBalance(rentList);
     }
 
     /**
      * Updates every apartment account balance with a new liability based on
      * the current rent amount (bulk operation).
      * Note: ApartmentLiability entity DOES NOT SHARE the Primary Key with
-     * the Apartment entity.
-     * [That`s why an INSERT INTO statement with specified apartment_id is used
-     * in the repository instead of save() method.]
+     * the Apartment entity. That`s why an INSERT INTO statement with specified
+     * apartment_id is used in the repository instead of save() method.
      *
      * @param rentList list of rents for all apartments in the database
      */
-    public void updateApartmentAccountBalance(List<Rent> rentList) {
-        apartmentAccountBalanceService.updateApartmentAccountBalance(rentList);
+    public void increaseApartmentAccountBalance(List<Rent> rentList) {
+        apartmentAccountBalanceService.increaseApartmentAccountBalance(rentList);
     }
 }

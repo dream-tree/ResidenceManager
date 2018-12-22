@@ -9,7 +9,7 @@ import java.util.List;
  * rather than directly through the repository interface.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public interface ApartmentAccountBankTransactionService {
 
@@ -19,5 +19,8 @@ public interface ApartmentAccountBankTransactionService {
      * @param theApartmentId database id of an apartment
      * @return list of apartment account bank transactions
      */
-    List<ApartmentAccountBankTransaction> getTransactions(int theApartmentId);
+    List<ApartmentAccountBankTransaction> getApartmentTransactions(int theApartmentId);
+
+    List<ApartmentAccountBankTransaction> getAllTransactions();
+
 }

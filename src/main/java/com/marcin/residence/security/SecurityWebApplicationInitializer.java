@@ -7,7 +7,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * the Spring Web Security features.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 public class SecurityWebApplicationInitializer
         extends AbstractSecurityWebApplicationInitializer {

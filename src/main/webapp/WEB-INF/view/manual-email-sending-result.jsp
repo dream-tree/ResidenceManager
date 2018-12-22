@@ -31,10 +31,10 @@
 			<br> <br>
 
 			<div id="section">
-				<h3>Rent Calculation Results</h3>
+				<h3>E-mail Messages Sending Results</h3>
 			</div>
 
-			<h4>Rents were calculated successfully.</h4>
+			<h4>Messages were sent successfully.</h4>
 			<br> <br> <br>
 		</div>
 	</div>

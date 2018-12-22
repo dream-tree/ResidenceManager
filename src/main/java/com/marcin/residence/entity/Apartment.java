@@ -28,7 +28,7 @@ import com.marcin.residence.account.transaction.ApartmentAccountBankTransaction;
  * for a given apartment, its owner and the rent.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Entity
 @Table(name = "apartment")
@@ -41,6 +41,15 @@ public class Apartment {
 
     @Column(name = "area")
     private BigDecimal area;
+    
+    @Column(name = "floor")
+    private int floor;
+    
+    @Column(name = "cellar")
+    private boolean cellar;
+    
+    @Column(name = "balcony")
+    private boolean balcony;
 
     @Column(name = "number_of_rooms")
     private int numberOfRooms;
@@ -88,7 +97,31 @@ public class Apartment {
     public void setArea(BigDecimal area) {
         this.area = area;
     }
+    
+    public int getFloor() {
+        return floor;
+    }
 
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public boolean isCellar() {
+        return cellar;
+    }
+
+    public void setCellar(boolean cellar) {
+        this.cellar = cellar;
+    }
+
+    public boolean isBalcony() {
+        return balcony;
+    }
+
+    public void setBalcony(boolean balcony) {
+        this.balcony = balcony;
+    }
+    
     public int getNumberOfRooms() {
         return numberOfRooms;
     }
@@ -166,6 +199,9 @@ public class Apartment {
         return "Apartment "
                 + "[id=" + id
                 + ", area=" + area
+                + ", floor=" + floor
+                + ", cellar=" + cellar
+                + ", balcony=" + balcony
                 + ", numberOfRooms=" + numberOfRooms
                 + ", numberOfOccupants=" + numberOfOccupants
                 + ", waterConsumption=" + waterConsumption

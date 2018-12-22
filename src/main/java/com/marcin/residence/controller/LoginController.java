@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Handles interactions for logging to the application.
  *
  * @author dream-tree
- * @version 4.00, September-October 2018
+ * @version 5.00, September-December 2018
  */
 @Controller
 public class LoginController {
