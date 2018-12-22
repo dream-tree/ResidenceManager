@@ -58,12 +58,12 @@ public class EmailFactory {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("***"));
             message.setSubject("Demand for Payment");
-            System.out.println("111");
+
             MimeBodyPart mimeBodyPart = new MimeBodyPart();
             for (Integer apartmentId : apartmentsWithEmails.keySet()) {
                 String emailAddress = apartmentsWithEmails.get(apartmentId);
                 BigDecimal overdraft = apartmentsWithOverdrafts.get(apartmentId);
-                System.out.println("222");
+
                 StringBuilder htmlMessage = new StringBuilder();
                 htmlMessage
                         .append("<h3>Dear Owner,</h3>")
@@ -75,18 +75,16 @@ public class EmailFactory {
                         .append("<p>Thank you.</p>")
                         .append("<p>Yours Truly Residence Management Team.</p>");
                 mimeBodyPart.setContent(htmlMessage.toString(), "text/html");
-                System.out.println("333");
-                System.out.println(htmlMessage);
+
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(emailAddress));
-                System.out.println("444");
+
                 Multipart multipart = new MimeMultipart();
                 multipart.addBodyPart(mimeBodyPart);
-                System.out.println("555");
+
                 message.setContent(multipart);
-                System.out.println("666");
+
                 Transport.send(message);
-                System.out.println("777");
             }
         } catch (Exception ex) {
             logger.info(">> EmailService#sendMail: " + ex.getMessage());
