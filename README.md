@@ -4,7 +4,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
+* [Technologies](#technologies-and-prerequisties)
 * [Features](#features)
 * [Status](#status)
 * [Setup](#setup)
@@ -17,14 +17,15 @@ It allows to track every single apartment, apartment owner and their detailed in
 Application is/will be capable of tracking bank account operations (fetching payments),
 calculating the current internal account balance and sending emails to the owners with account overdrafts.
 
-## Technologies
+## Technologies and Prerequisties
+* Java (prefer JDK 1.8) on the PATH
 * Spring MVC - version 5.0.8
 * Spring Security - version 5.0.7
 * Hibernate ORM - version 5.3.2
 * Hibernate Validator - version 6.0.12
 * HTML5, CSS, JSP, JSTL <br>
 * Running locally with MySQL Community Server 8.0 and Apache Tomcat v9.0 <br>
-* No Spring Boot used here. Spring with annotation based Java config used instead.
+* No Spring Boot used here.
 
 ## Features
 List of ready features:
@@ -37,11 +38,11 @@ List of ready features:
 * Calculating rents for all apartments after setting up the rates for utilities.
 * Scheduler for monthly addition of the current rent amount to the total liability value on the apartment account.
 * Recalculation of the apartment total liability value based on the monthly rent added previously.
-
-TODO list:
 * Scheduler for adding bank transactions to an apartment account.
 * Total liability value recalculation (after addition of the bank transfers).
 * Sending emails to owners with an account overdraft.
+
+TODO list:
 * Fetching bank account transfers.
 
 ## Status
@@ -81,6 +82,10 @@ You can access ResidenceManager here: http://localhost:8080/residence-manager
 ---
 
 ![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07c.jpg)
+
+---
+
+![](https://github.com/dream-tree/ResidenceManager/blob/master/src/main/webapp/resources/images/Clipboard07d.jpg)
 
 ---
 
