@@ -40,7 +40,7 @@ List of ready features:
 * Recalculation of the apartment total liability value based on the monthly rent added previously.
 * Scheduler for adding bank transactions to an apartment account.
 * Total liability value recalculation (after addition of the bank transfers).
-* Sending emails to owners with an account overdraft.
+* Scheduler for sending emails to owners with an account overdraft.
 
 TODO list:
 * Fetching bank account transfers.
